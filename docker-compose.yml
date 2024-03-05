@@ -1,0 +1,96 @@
+version: '3.8'
+
+services:
+    edu:
+        image: kooldev/php:8.3
+        container_name: edu
+        working_dir: /edu
+        restart: always
+        networks:
+            - internal
+            - nginx_network
+        volumes:
+            - '.:/edu'
+            - './docker/php/php-ini-overrides.ini:/etc/php/8.1/fpm/conf.d/99-overrides.ini'
+        links:
+            - edu-database
+        depends_on:
+            - edu-database
+        environment:
+            - PHP_EXECUTABLE_PATH=/usr/local/bin/php
+    edu-nginx:
+        image: nginx:alpine
+        container_name: edu-nginx
+        restart: always
+        working_dir: /edu
+        networks:
+            - internal
+            - nginx_network
+        ports:
+            - "9002:80"
+        volumes:
+            - .:/edu
+            - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+        depends_on:
+            - edu
+    edu-composer:
+        image: composer:latest
+        container_name: edu-composer
+        working_dir: /edu
+        command: update --ignore-platform-reqs
+        volumes:
+            - .:/edu
+        restart: on-failure
+        depends_on:
+            - edu
+    edu-database:
+        image: mariadb:latest
+        restart: always
+        container_name: edu-database
+        working_dir: /edu
+        networks:
+            - internal
+            - nginx_network
+        command: mysqld --skip-grant-tables
+        environment:
+            - MYSQL_ROOT_PASSWORD=password
+            - MYSQL_DATABASE=edu_crm
+            - MYSQL_USER=root
+            - MYSQL_PASSWORD=password
+        volumes:
+            - .:/edu
+            - ./edu-database:/var/lib/mysql
+        ports:
+            - '8000:3306'
+    edu-redis:
+        image: 'redis:alpine'
+        ports:
+            - '${FORWARD_REDIS_PORT:-6379}:6379'
+        volumes:
+            - edu-redis:/data
+        networks:
+            - internal
+            - nginx_network
+        command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+
+    edu-npm:
+        image: node:20-alpine
+        container_name: edu-npm
+        working_dir: /edu
+        volumes:
+            - '.:/edu'
+        depends_on:
+            - edu
+
+networks:
+    nginx_network:
+        external: true
+    internal:
+        driver: overlay
+        name: 'global'
+        attachable: true
+volumes:
+    edu-database:
+        driver: local
+    edu-redis:
+        driver: local
