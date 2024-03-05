@@ -28,6 +28,7 @@ Route::resource('locales', LocaleController::class);
 
 Route::middleware([
     'auth:sanctum',
+    'revalidate',
     // 'isAdmin',
     // 'language',
 ])->group(function () {
