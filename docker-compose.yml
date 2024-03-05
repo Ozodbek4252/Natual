@@ -54,7 +54,7 @@ services:
         command: mysqld --skip-grant-tables
         environment:
             - MYSQL_ROOT_PASSWORD=password
-            - MYSQL_DATABASE=natural_crm
+            - MYSQL_DATABASE=natural_peyzaj
             - MYSQL_USER=root
             - MYSQL_PASSWORD=password
         volumes:
