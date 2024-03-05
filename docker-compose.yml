@@ -1,86 +1,86 @@
 version: '3.8'
 
 services:
-    edu:
+    natural:
         image: kooldev/php:8.3
-        container_name: edu
-        working_dir: /edu
+        container_name: natural
+        working_dir: /natural
         restart: always
         networks:
             - internal
             - nginx_network
         volumes:
-            - '.:/edu'
+            - '.:/natural'
             - './docker/php/php-ini-overrides.ini:/etc/php/8.1/fpm/conf.d/99-overrides.ini'
         links:
-            - edu-database
+            - natural-database
         depends_on:
-            - edu-database
+            - natural-database
         environment:
             - PHP_EXECUTABLE_PATH=/usr/local/bin/php
-    edu-nginx:
+    natural-nginx:
         image: nginx:alpine
-        container_name: edu-nginx
+        container_name: natural-nginx
         restart: always
-        working_dir: /edu
+        working_dir: /natural
         networks:
             - internal
             - nginx_network
         ports:
-            - "9002:80"
+            - "9003:80"
         volumes:
-            - .:/edu
+            - .:/natural
             - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
         depends_on:
-            - edu
-    edu-composer:
+            - natural
+    natural-composer:
         image: composer:latest
-        container_name: edu-composer
-        working_dir: /edu
+        container_name: natural-composer
+        working_dir: /natural
         command: update --ignore-platform-reqs
         volumes:
-            - .:/edu
+            - .:/natural
         restart: on-failure
         depends_on:
-            - edu
-    edu-database:
+            - natural
+    natural-database:
         image: mariadb:latest
         restart: always
-        container_name: edu-database
-        working_dir: /edu
+        container_name: natural-database
+        working_dir: /natural
         networks:
             - internal
             - nginx_network
         command: mysqld --skip-grant-tables
         environment:
             - MYSQL_ROOT_PASSWORD=password
-            - MYSQL_DATABASE=edu_crm
+            - MYSQL_DATABASE=natural_crm
             - MYSQL_USER=root
             - MYSQL_PASSWORD=password
         volumes:
-            - .:/edu
-            - ./edu-database:/var/lib/mysql
+            - .:/natural
+            - ./natural-database:/var/lib/mysql
         ports:
-            - '8000:3306'
-    edu-redis:
+            - '8002:3306'
+    natural-redis:
         image: 'redis:alpine'
         ports:
-            - '${FORWARD_REDIS_PORT:-6379}:6379'
+            - '${FORWARD_REDIS_PORT:-6378}:6378'
         volumes:
-            - edu-redis:/data
+            - natural-redis:/data
         networks:
             - internal
             - nginx_network
         command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
 
-    edu-npm:
+    natural-npm:
         image: node:20-alpine
-        container_name: edu-npm
-        working_dir: /edu
+        container_name: natural-npm
+        working_dir: /natural
         volumes:
-            - '.:/edu'
+            - '.:/natural'
         depends_on:
-            - edu
+            - natural
 
 networks:
     nginx_network:
@@ -90,7 +90,7 @@ networks:
         name: 'global'
         attachable: true
 volumes:
-    edu-database:
+    natural-database:
         driver: local
-    edu-redis:
+    natural-redis:
         driver: local

@@ -1,5 +1,5 @@
 FROM phpdockerio/php:8.3-fpm
-WORKDIR "/edu"
+WORKDIR "/natural"
 
 # Install Node.js and npm
 RUN apt-get update && apt-get install -y curl
