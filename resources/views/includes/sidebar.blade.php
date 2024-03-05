@@ -88,6 +88,13 @@
                 </li>
 
                 <li>
+                    <a href="{{ Route('partners.index') }}" class="waves-effect">
+                        <i class="uil-calender"></i>
+                        <span>Partners</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="calendar.html" class="waves-effect">
                         <i class="uil-calender"></i>
                         <span>Calendar</span>
