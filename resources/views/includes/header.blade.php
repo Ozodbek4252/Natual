@@ -275,9 +275,13 @@
                     <a class="dropdown-item" href="index.html#"><i
                             class="uil uil-lock-alt font-size-18 align-middle me-1 text-muted"></i> <span
                             class="align-middle">Lock screen</span></a>
-                    <a class="dropdown-item" href="index.html#"><i
-                            class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span
-                            class="align-middle">Sign out</span></a>
+                    <form action="{{ Route('logout') }}" method="POST">
+                        @csrf
+                        <button class="dropdown-item">
+                            <i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted">
+                            </i> <span class="align-middle">Sign out</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -19,8 +19,18 @@ use App\Http\Controllers\LocaleController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'doLogin'])->name('login.post');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'doRegister'])->name('register.post');
 
 Route::resource('locales', LocaleController::class);
+
+Route::middleware([
+    'auth:sanctum',
+    // 'isAdmin',
+    // 'language',
+])->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
