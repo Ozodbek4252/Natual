@@ -99,6 +99,12 @@
                         <span>Contacts</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ Route('staffs.index') }}" class="waves-effect">
+                        <i class="uil-calender"></i>
+                        <span>Staffs</span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="calendar.html" class="waves-effect">
