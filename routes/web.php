@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\Dashboard\PartnerController;
+use App\Http\Controllers\Dashboard\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,7 @@ Route::middleware([
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('partners', PartnerController::class);
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
+    Route::post('profile/updatePassword', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
 });

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,13 +16,8 @@ class AuthController extends Controller
     }
 
 
-    public function doLogin(Request $request)
+    public function doLogin(LoginRequest $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
@@ -43,15 +40,8 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function doRegister(Request $request)
+    public function doRegister(RegisterRequest $request)
     {
-        // Validate registration data
-        $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
-        ]);
-
         // Create a new user
         $user = User::create([
             'name' => $request->name,
