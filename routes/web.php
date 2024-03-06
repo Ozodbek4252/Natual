@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocaleController;
@@ -47,4 +48,5 @@ Route::middleware([
     Route::resource('partners', PartnerController::class);
     Route::resource('contacts', ContactController::class);
     Route::resource('staffs', StaffController::class);
+    Route::resource('categories', CategoryController::class);
 });

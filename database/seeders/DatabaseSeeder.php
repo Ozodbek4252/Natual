@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             ContactSeeder::class,
             PartnerSeeder::class,
             StaffSeeder::class,
+            CategorySeeder::class,
         ]);
     }
 }

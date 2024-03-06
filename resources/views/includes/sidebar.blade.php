@@ -105,6 +105,12 @@
                         <span>Staffs</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ Route('categories.index') }}" class="waves-effect">
+                        <i class="uil-calender"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="calendar.html" class="waves-effect">
