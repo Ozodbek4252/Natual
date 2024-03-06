@@ -25,8 +25,8 @@ class PartnerController extends Controller
     public function store(PartnerRequest $request)
     {
         try {
-            // Store the image in a directory: 'public/partner/'
-            $imagePath = $request->file('logo')->store('partner', 'public');
+            // Store the image in a directory: 'public/partners/'
+            $imagePath = $request->file('logo')->store('partners', 'public');
             Partner::create([
                 'logo' => $imagePath,
                 'name' => $request->name
@@ -52,8 +52,8 @@ class PartnerController extends Controller
                 Storage::delete('/public/' . $partner->logo);
             }
 
-            // Store the image in a directory: 'public/partner/'
-            $imagePath = $request->file('logo')->store('partner', 'public');
+            // Store the image in a directory: 'public/partners/'
+            $imagePath = $request->file('logo')->store('partners', 'public');
             $partner->update([
                 'logo' => $imagePath,
                 'name' => $request->name
@@ -83,7 +83,7 @@ class PartnerController extends Controller
 
             return redirect()->back();
         } catch (Exception $e) {
-            return back()->withErrors(['Error' => 'Error. Can\'t update']);
+            return back()->withErrors(['Error' => 'Error. Can\'t delete']);
         }
     }
 }
