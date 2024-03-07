@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Lang;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StaffRequest extends FormRequest
@@ -21,13 +22,19 @@ class StaffRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'name' => 'required|string',
-            'position' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:3072',
             'number' => 'nullable|string',
             'email' => 'nullable|email',
             'website' => 'nullable|string',
         ];
+
+        $langs = Lang::where('is_published', true)->get();
+        foreach ($langs as $lang) {
+            $rules['position_' . $lang->code] = 'required|string';
+        }
+
+        return $rules;
     }
 }

@@ -2,21 +2,47 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\DataObjects\DataObjectCollection;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StaffRequest;
+use App\Models\Lang;
 use App\Models\Staff;
+use App\ViewModels\PaginationViewModel;
+use App\ViewModels\Staff\IndexStaffViewModel;
+use App\ViewModels\Staff\StaffViewModel;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 class StaffController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @param int $page
+     * @param int $limit
+     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(int $page = 1, int $limit = 15)
     {
-        $staffs = Staff::orderBy('updated_at', 'desc')->paginate(10);
-        return view('dashboard.staffs.index', compact('staffs'));
+        $query = Staff::with('translations.lang')->orderBy('updated_at', 'desc');
+
+        $totalCount = $query->count();
+        $skip       = $limit * ($page - 1);
+        $items      = $query->skip($skip)->take($limit)->get();
+
+        $staffs = new DataObjectCollection($items, $totalCount, $limit, $page);
+
+        return (new PaginationViewModel($staffs, IndexStaffViewModel::class))->toView('dashboard.staffs.index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        $langs = Lang::where('is_published', true)->get();
+        return view('dashboard.staffs.create', compact('langs'));
     }
 
     /**
@@ -25,29 +51,54 @@ class StaffController extends Controller
     public function store(StaffRequest $request)
     {
         try {
+            DB::beginTransaction();
+
             $imagePath = null;
             if ($request->hasFile('image')) {
                 // Store the image in a directory: 'public/staffs/'
                 $imagePath = $request->file('image')->store('staffs', 'public');
             }
 
-            Staff::create([
+            $staff = Staff::create([
                 'name' => $request->name,
-                'position' => $request->position,
                 'image' => $imagePath,
-                'number' => $request->position,
+                'number' => $request->number,
                 'email' => $request->email,
                 'website' => $request->website,
             ]);
 
+            $langs = Lang::where('is_published', true)->get();
+
+            foreach ($langs as $lang) {
+                $staff->translations()->create([
+                    'lang_id' => $lang->id,
+                    'column_name' => 'position',
+                    'content' => $request->input('position_' . $lang->code),
+                ]);
+            }
+
             toastr('Created successfully');
 
-            return redirect()->back();
+            DB::commit();
+            return redirect()->route('staffs.index');
         } catch (Exception $e) {
+            DB::rollBack();
             return back()->withErrors([
                 'error' => 'Error. Can\'t store',
             ]);
         }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Staff $staff)
+    {
+        $langs = Lang::where('is_published', true)->get();
+
+        $staff =  Staff::with('translations.lang')->find($staff->id);
+        $staff = new StaffViewModel($staff);
+        return view('dashboard.staffs.edit', compact('langs', 'staff'));
     }
 
     /**
@@ -56,6 +107,8 @@ class StaffController extends Controller
     public function update(StaffRequest $request, Staff $staff)
     {
         try {
+            DB::beginTransaction();
+
             $imagePath = $staff->image;
 
             if ($request->hasFile('image')) {
@@ -69,17 +122,34 @@ class StaffController extends Controller
 
             $staff->update([
                 'name' => $request->name,
-                'position' => $request->position,
                 'image' => $imagePath,
-                'number' => $request->position,
+                'number' => $request->number,
                 'email' => $request->email,
                 'website' => $request->website,
             ]);
 
+            $staff->refresh();
+
+            $langs = Lang::where('is_published', true)->get();
+
+            foreach ($langs as $lang) {
+                $staff->translations()->updateOrCreate(
+                    [
+                        'lang_id' => $lang->id,
+                        'column_name' => 'position',
+                    ],
+                    [
+                        'content' => $request->input('position_' . $lang->code),
+                    ]
+                );
+            }
+
             toastr('Updated successfully');
 
-            return redirect()->back();
+            DB::commit();
+            return redirect()->route('staffs.index');
         } catch (Exception $e) {
+            DB::rollBack();
             return back()->withErrors(['Error' => 'Error. Can\'t update']);
         }
     }
@@ -90,17 +160,25 @@ class StaffController extends Controller
     public function destroy(Staff $staff)
     {
         try {
+            DB::beginTransaction();
+
             if (Storage::exists('/public/' . $staff->image)) {
                 Storage::delete('/public/' . $staff->image);
             }
 
+            // delete staff's translations
+            $staff->translations()->delete();
             $staff->delete();
 
             toastr('Deleted successfully');
 
+            DB::commit();
             return redirect()->back();
         } catch (Exception $e) {
-            return back()->withErrors(['Error' => 'Error. Can\'t delete']);
+            DB::rollBack();
+            return back()->withErrors([
+                'error' => 'Error. Can\'t delete',
+            ]);
         }
     }
 }

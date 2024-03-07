@@ -6,10 +6,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="m-0">Update Category</h4>
+                            <h4 class="m-0">Update Staff</h4>
 
                             <div class="my-2">
-                                <a href="{{ Route('categories.index') }}"
+                                <a href="{{ Route('staffs.index') }}"
                                     class="btn btn-secondary btn-soft-secondary waves-effect waves-light d-flex
                                 align-items-center justify-content-between">
                                     <i class='bx bx-arrow-back'></i>
@@ -34,7 +34,7 @@
                             @endforeach
                         </ul>
 
-                        <form action="{{ Route('categories.update', $category->id) }}" enctype="multipart/form-data"
+                        <form action="{{ Route('staffs.update', $staff->id) }}" enctype="multipart/form-data"
                             method="POST">
                             @method('PUT')
                             @csrf
@@ -45,13 +45,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="category-name">
-                                                        Name <span class="text-danger">*</span>
+                                                    <label class="form-label" for="staff-position">
+                                                        Position <span class="text-danger">*</span>
                                                     </label>
-                                                    <input name="name_{{ $lang->code }}"
-                                                        value="{{ $category->translations[$lang->code]['name']['content'] }}"
-                                                        type="text" placeholder="Enter name..." class="form-control"
-                                                        id="category-name-{{ $lang->code }}">
+                                                    <input name="position_{{ $lang->code }}"
+                                                        value="{{ $staff->translations[$lang->code]['position']['content'] }}"
+                                                        type="text" placeholder="Enter position..." class="form-control"
+                                                        id="staff-position-{{ $lang->code }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -63,10 +63,10 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3 d-flex flex-column">
-                                            <label class="form-label" for="category-image">
+                                            <label class="form-label" for="staff-image">
                                                 Image Preview
                                             </label>
-                                            <img src="{{ asset('storage/' . $category->image) }}" width="200px">
+                                            <img src="{{ asset('storage/' . $staff->image) }}" width="200px">
                                         </div>
                                     </div>
                                 </div>
@@ -76,16 +76,48 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label class="form-label" for="category-image">
-                                                Image
+                                            <label class="form-label" for="staff-name">
+                                                Name <span class="text-danger">*</span>
                                             </label>
-                                            <input name="image" type="file" class="form-control" id="category-image">
+                                            <input value="{{ $staff->name }}" name="name" type="text" placeholder="Enter name..."
+                                                class="form-control" id="staff-name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="staff-image">Image</label>
+                                            <input name="image" type="file" class="form-control" id="staff-image">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="staff-number">Number</label>
+                                            <input value="{{ $staff->number }}" name="number" placeholder="Enter number..." type="text"
+                                                class="form-control" id="staff-number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="staff-email">Email</label>
+                                            <input value="{{ $staff->email }}" name="email" type="text" placeholder="Enter email..."
+                                                class="form-control" id="staff-email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="staff-website">Website</label>
+                                            <input value="{{ $staff->website }}" name="website" placeholder="Enter website..." type="text"
+                                                class="form-control" id="staff-website">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="form-label" style="opacity: 0;">|</label>
-                                            <button type="submit" id="category-update"
+                                            <button type="submit" id="staff-create"
                                                 class="btn btn-primary waves-effect waves-light form-control">
                                                 Update
                                             </button>

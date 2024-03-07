@@ -95,7 +95,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="form-label" style="opacity: 0;">|</label>
-                                            <button type="submit" id="service-create"
+                                            <button type="submit" id="service-update"
                                                 class="btn btn-primary waves-effect waves-light form-control">
                                                 Update
                                             </button>

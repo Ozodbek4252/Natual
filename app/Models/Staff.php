@@ -9,13 +9,14 @@ use Illuminate\Database\Eloquent\Model;
  * @package App\Models
  *
  * @property string $name
- * @property string $position
  * @property string $image
  * @property string $number
  * @property string $email
  * @property string $website
  * @property string $created_at
  * @property string $updated_at
+ *
+ * @property Translation[] $translations
  */
 class Staff extends Model
 {
@@ -24,4 +25,9 @@ class Staff extends Model
     protected $table = 'staffs';
 
     protected $guarded = ['id'];
+
+    public function translations()
+    {
+        return $this->morphMany(Translation::class, 'translationable');
+    }
 }

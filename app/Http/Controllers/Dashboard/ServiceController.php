@@ -120,9 +120,7 @@ class ServiceController extends Controller
                 $iconPath = $request->file('icon')->store('services', 'public');
             }
 
-            $service->update([
-                'icon' => $iconPath
-            ]);
+            $service->update(['icon' => $iconPath]);
             $service->refresh();
 
             $langs = Lang::where('is_published', true)->get();
