@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
+            $table->string('link');
+            $table->boolean('is_published')->default(true);
+            $table->string('image');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Dashboard\BannerController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\LangController;
@@ -53,4 +54,5 @@ Route::middleware([
     Route::resource('staffs', StaffController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('services', ServiceController::class);
+    Route::resource('banners', BannerController::class);
 });

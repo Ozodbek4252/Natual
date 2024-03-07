@@ -119,9 +119,9 @@
                 </li>
 
                 <li>
-                    <a href="calendar.html" class="waves-effect">
+                    <a href="{{ Route('banners.index') }}" class="waves-effect">
                         <i class="uil-calender"></i>
-                        <span>Calendar</span>
+                        <span>Banners</span>
                     </a>
                 </li>
 
