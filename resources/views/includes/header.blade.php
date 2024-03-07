@@ -66,30 +66,12 @@
                     <img src="assets/images/flags/us.jpg" alt="Header Language" height="16">
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12">
-                        <span class="align-middle">Spanish</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span
-                            class="align-middle">German</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12">
-                        <span class="align-middle">Italian</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span
-                            class="align-middle">Russian</span>
-                    </a>
+                    @foreach ($langsForHeader as $lang)
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <img src="{{ $lang->icon }}" style="width: 20px; height: auto;" alt="user-image" class="me-1">
+                            <span class="align-middle">{{ $lang->name }}</span>
+                        </a>
+                    @endforeach
                 </div>
             </div>
 
@@ -257,8 +239,8 @@
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{--  <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-4.jpg"
                         alt="Header Avatar">  --}}
-                        <i
-                            class="uil uil-user-circle font-size-18 align-middle text-muted me-1" style="font-size: 25px !important;"></i>
+                    <i class="uil uil-user-circle font-size-18 align-middle text-muted me-1"
+                        style="font-size: 25px !important;"></i>
                     <span
                         class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">{{ auth()->user()->name }}</span>
                     <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
