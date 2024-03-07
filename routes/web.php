@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\ContactController;
+use App\Http\Controllers\Dashboard\LangController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\Dashboard\PartnerController;
@@ -45,6 +46,7 @@ Route::middleware([
     Route::post('profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
     Route::post('profile/updatePassword', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
 
+    Route::resource('langs', LangController::class);
     Route::resource('partners', PartnerController::class);
     Route::resource('contacts', ContactController::class);
     Route::resource('staffs', StaffController::class);

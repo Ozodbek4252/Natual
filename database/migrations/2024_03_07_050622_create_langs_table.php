@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('locales', function (Blueprint $table) {
+        Schema::create('langs', function (Blueprint $table) {
             $table->id();
             $table->string('code');
             $table->string('name');
-            $table->boolean('is_published');
+            $table->string('icon');
+            $table->boolean('is_published')->default(true);
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('locales');
+        Schema::dropIfExists('langs');
     }
 };

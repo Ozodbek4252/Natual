@@ -83,7 +83,7 @@
                                 <li><a href="javascript: void(0);">Level 2.2</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ Route('locales.index') }}">Locale</a></li>
+                        <li><a href="{{ Route('langs.index') }}">Lang</a></li>
                     </ul>
                 </li>
 
