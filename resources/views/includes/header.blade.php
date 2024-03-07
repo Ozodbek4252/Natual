@@ -5,19 +5,19 @@
             <div class="navbar-brand-box">
                 <a href="index.html" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="assets/images/logo-sm.png" alt="" height="22">
+                        <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/logo-dark.png" alt="" height="20">
+                        <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="20">
                     </span>
                 </a>
 
                 <a href="index.html" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="assets/images/logo-sm.png" alt="" height="22">
+                        <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/logo-light.png" alt="" height="20">
+                        <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="20">
                     </span>
                 </a>
             </div>
@@ -63,67 +63,16 @@
             <div class="dropdown d-inline-block language-switch">
                 <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img src="assets/images/flags/us.jpg" alt="Header Language" height="16">
+                    <img src="{{ asset('assets/images/flags/us.jpg') }}" alt="Header Language" height="16">
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     @foreach ($langsForHeader as $lang)
                         <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <img src="{{ $lang->icon }}" style="width: 20px; height: auto;" alt="user-image" class="me-1">
+                            <img src="/{{ $lang->icon }}" style="width: 20px; height: auto;" alt="user-image"
+                                class="me-1">
                             <span class="align-middle">{{ $lang->name }}</span>
                         </a>
                     @endforeach
-                </div>
-            </div>
-
-            <div class="dropdown d-none d-lg-inline-block ms-1">
-                <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="uil-apps"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                    <div class="px-lg-2">
-                        <div class="row g-0">
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="index.html#">
-                                    <img src="assets/images/brands/github.png" alt="Github">
-                                    <span>GitHub</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="index.html#">
-                                    <img src="assets/images/brands/bitbucket.png" alt="bitbucket">
-                                    <span>Bitbucket</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="index.html#">
-                                    <img src="assets/images/brands/dribbble.png" alt="dribbble">
-                                    <span>Dribbble</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="index.html#">
-                                    <img src="assets/images/brands/dropbox.png" alt="dropbox">
-                                    <span>Dropbox</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="index.html#">
-                                    <img src="assets/images/brands/mail_chimp.png" alt="mail_chimp">
-                                    <span>Mail Chimp</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="index.html#">
-                                    <img src="assets/images/brands/slack.png" alt="slack">
-                                    <span>Slack</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -174,8 +123,8 @@
                         <a href="index.html" class="text-reset notification-item">
                             <div class="d-flex align-items-start">
                                 <div class="flex-shrink-0 me-3">
-                                    <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs"
-                                        alt="user-pic">
+                                    <img src="{{ asset('assets/images/users/avatar-3.jpg') }}"
+                                        class="rounded-circle avatar-xs" alt="user-pic">
                                 </div>
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1">James Lemire</h6>
@@ -209,8 +158,8 @@
                         <a href="index.html" class="text-reset notification-item">
                             <div class="d-flex align-items-start">
                                 <div class="flex-shrink-0 me-3">
-                                    <img src="assets/images/users/avatar-4.jpg" class="rounded-circle avatar-xs"
-                                        alt="user-pic">
+                                    <img src="{{ asset('assets/images/users/avatar-4.jpg') }}"
+                                        class="rounded-circle avatar-xs" alt="user-pic">
                                 </div>
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1">Salena Layfield</h6>
@@ -237,8 +186,6 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{--  <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-4.jpg"
-                        alt="Header Avatar">  --}}
                     <i class="uil uil-user-circle font-size-18 align-middle text-muted me-1"
                         style="font-size: 25px !important;"></i>
                     <span

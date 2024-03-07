@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\Dashboard\PartnerController;
 use App\Http\Controllers\Dashboard\ProfileController;
+use App\Http\Controllers\Dashboard\ServiceController;
 use App\Http\Controllers\Dashboard\StaffController;
 
 /*
@@ -51,4 +52,5 @@ Route::middleware([
     Route::resource('contacts', ContactController::class);
     Route::resource('staffs', StaffController::class);
     Route::resource('categories', CategoryController::class);
+    Route::resource('services', ServiceController::class);
 });

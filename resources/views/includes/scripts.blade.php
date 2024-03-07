@@ -8,10 +8,17 @@
 <script src="{{ asset('assets/libs/jquery.counterup/jquery.counterup.min.js') }}"></script>
 
 <!-- apexcharts -->
-<script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+{{--  <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>  --}}
 
-<script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
+{{--  <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>  --}}
 <script src="{{ asset('assets/libs/toastr/toastr.js') }}"></script>
+
+<!-- ckeditor -->
+<script src="{{ asset('assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
+
+<!-- init js -->
+<script src="{{ asset('assets/js/pages/form-editor.init.js') }}"></script>
+
 
 <!-- App js -->
 <script src="{{ asset('assets/js/app.js') }}"></script>
@@ -29,4 +36,5 @@
         @endif
     });
 </script>
+
 @yield('js')
