@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ServiceSeeder::class,
             BannerSeeder::class,
+            SectionSeeder::class,
         ]);
     }
 }

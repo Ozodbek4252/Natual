@@ -117,11 +117,16 @@
                         <span>Services</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="{{ Route('banners.index') }}" class="waves-effect">
                         <i class="uil-calender"></i>
                         <span>Banners</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ Route('sections.index') }}" class="waves-effect">
+                        <i class="uil-calender"></i>
+                        <span>Sections</span>
                     </a>
                 </li>
 

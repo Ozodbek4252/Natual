@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\Dashboard\PartnerController;
 use App\Http\Controllers\Dashboard\ProfileController;
+use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\ServiceController;
 use App\Http\Controllers\Dashboard\StaffController;
 
@@ -55,4 +56,5 @@ Route::middleware([
     Route::resource('categories', CategoryController::class);
     Route::resource('services', ServiceController::class);
     Route::resource('banners', BannerController::class);
+    Route::resource('sections', SectionController::class);
 });
