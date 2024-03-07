@@ -25,7 +25,7 @@ class ServiceController extends Controller
      */
     public function index(int $page = 1, int $limit = 15)
     {
-        $query = Service::with('translations.lang')->orderBy('id', 'desc');
+        $query = Service::with('translations.lang')->orderBy('updated_at', 'desc');
 
         $totalCount = $query->count();
         $skip       = $limit * ($page - 1);

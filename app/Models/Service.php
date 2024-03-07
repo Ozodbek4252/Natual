@@ -12,7 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $icon
  * @property string $created_at
  * @property string $updated_at
-
+ *
+ * @property Translation[] $translations
  */
 class Service extends Model
 {

@@ -6,11 +6,10 @@
                 <div class="d-flex justify-content-between align-items-center pb-3">
                     <h4 class="card-title">Categories</h4>
                     <div>
-                        <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
-                            data-bs-target=".create-category-modal">
+                        <a href="{{ Route('categories.create') }}" class="btn btn-primary waves-effect waves-light">
                             <i class="fas fa-plus"></i>
                             Create
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -26,24 +25,23 @@
                         </thead>
                         <tbody>
                             @php
-                                $count = ($categories->currentPage() - 1) * $categories->perPage();
+                                $count = ($pagination->currentPage() - 1) * $pagination->perPage();
                             @endphp
-                            @foreach ($categories as $category)
+                            @foreach ($pagination as $category)
                                 <tr>
                                     <th scope="row">{{ ++$count }}</th>
-                                    <td>{{ $category->name }}</td>
+                                    <td>{{ $category->translations['name']['content'] }}</td>
                                     <td>
                                         <img @if ($category->image == null || !Storage::exists('/public/' . $category->image)) src="{{ asset('assets/images/user-regular-204.png') }}"
                                             @else src="{{ asset('storage/' . $category->image) }}" @endif
                                             style="width: 300px; height: auto;" alt="">
                                     </td>
                                     <td style="width: 250px;">
-                                        <button type="button" data-bs-toggle="modal"
-                                            data-bs-target=".edit-category-modal-{{ $category->id }}"
+                                        <a href="{{ Route('categories.edit', $category->id) }}"
                                             class="btn btn-warning waves-effect waves-light">
                                             <i class="fas fa-pen"></i>
                                             Edit
-                                        </button>
+                                        </a>
                                         <button type="button" data-bs-toggle="modal"
                                             data-bs-target=".delete-category-modal-{{ $category->id }}"
                                             class="btn btn-danger waves-effect waves-light">
@@ -80,115 +78,13 @@
                                     </div>
                                 </div>
                                 {{--  Delete Modal End  --}}
-
-                                {{--  Edit Modal Beginning  --}}
-                                <div class="modal fade edit-category-modal-{{ $category->id }}" tabindex="-1"
-                                    role="dialog" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="editCategoryModalLabel">Update Category</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                </button>
-                                            </div>
-                                            <form action="{{ Route('categories.update', $category->id) }}"
-                                                enctype="multipart/form-data" method="POST">
-                                                @method('PUT')
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <img @if ($category->image == null || !Storage::exists('/public/' . $category->image)) src="{{ asset('assets/images/user-regular-204.png') }}"
-                                                                @else src="{{ asset('storage/' . $category->image) }}" @endif
-                                                                    style="width: 100px; height: 100px;" alt="">
-                                                                Image preview
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <label class="form-label" for="category-name">
-                                                                    Name <span class="text-danger">*</span>
-                                                                </label>
-                                                                <input name="name" value="{{ $category->name }}"
-                                                                    type="text" placeholder="Enter name..."
-                                                                    class="form-control" id="category-name">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <label class="form-label" for="category-image">
-                                                                    Image <span class="text-danger">*</span>
-                                                                </label>
-                                                                <input name="image" type="file" class="form-control"
-                                                                    id="category-image">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Update</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                {{--  Edit Modal End  --}}
                             @endforeach
                         </tbody>
                     </table>
                 </div>
 
-                {{ $categories->links() }}
+                {{ $pagination->links() }}
             </div>
         </div>
     </div>
-
-    {{--  Create Modal Beginning  --}}
-    <div class="modal fade create-category-modal" tabindex="-1" role="dialog"
-        aria-labelledby="createCategoryModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="createCategoryModalLabel">Create Category</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    </button>
-                </div>
-                <form action="{{ Route('categories.store') }}" enctype="multipart/form-data" method="POST">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label" for="category-name">
-                                        Name <span class="text-danger">*</span>
-                                    </label>
-                                    <input name="name" type="text" placeholder="Enter name..."
-                                        class="form-control" id="category-name">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label" for="category-image">
-                                        Image <span class="text-danger">*</span>
-                                    </label>
-                                    <input name="image" type="file" class="form-control" id="category-image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{--  Create Modal End  --}}
 @endsection

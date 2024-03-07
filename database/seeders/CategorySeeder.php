@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Lang;
+use App\Models\Translation;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -12,14 +14,49 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::query()->create([
-            'name' => 'Наши проекты в Узбекистане',
+        $category1 = Category::query()->create([
             'image' => 'categories/Rectangle 1.png',
         ]);
 
-        Category::query()->create([
-            'name' => 'Наши проекты за границей ',
+        // Ru Translation for category1
+        Translation::query()->create([
+            'lang_id' => Lang::where('code', 'ru')->first()->id,
+            'translationable_id' => $category1->id,
+            'translationable_type' => Category::class,
+            'content' => 'Наши проекты в Узбекистане',
+            'column_name' => 'name',
+        ]);
+
+        // Uz Translation for category1
+        Translation::query()->create([
+            'lang_id' => Lang::where('code', 'uz')->first()->id,
+            'translationable_id' => $category1->id,
+            'translationable_type' => Category::class,
+            'content' => 'O\'zbekistondagi loyihalarimiz',
+            'column_name' => 'name',
+        ]);
+
+
+        $category2 = Category::query()->create([
             'image' => 'categories/Rectangle 2.png',
+        ]);
+
+        // Ru Translation for category2
+        Translation::query()->create([
+            'lang_id' => Lang::where('code', 'ru')->first()->id,
+            'translationable_id' => $category2->id,
+            'translationable_type' => Category::class,
+            'content' => 'Наши проекты за границей',
+            'column_name' => 'name',
+        ]);
+
+        // Uz Translation for category2
+        Translation::query()->create([
+            'lang_id' => Lang::where('code', 'uz')->first()->id,
+            'translationable_id' => $category2->id,
+            'translationable_type' => Category::class,
+            'content' => 'Chet eldagi loyihalarimiz',
+            'column_name' => 'name',
         ]);
     }
 }

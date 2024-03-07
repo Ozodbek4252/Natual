@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Lang;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CategoryRequest extends FormRequest
@@ -27,9 +28,15 @@ class CategoryRequest extends FormRequest
             $image = 'required|image|mimes:jpeg,png,jpg';
         }
 
-        return [
-            'name' => 'required|string',
-            'image' => $image
+        $rules = [
+            'image' => $image,
         ];
+
+        $langs = Lang::where('is_published', true)->get();
+        foreach ($langs as $lang) {
+            $rules['name_' . $lang->code] = 'required|string';
+        }
+
+        return $rules;
     }
 }

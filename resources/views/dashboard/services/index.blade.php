@@ -30,7 +30,6 @@
                             @endphp
                             @foreach ($pagination->items() as $service)
                                 <tr>
-                                    {{--  @dd($service->translations['title'])  --}}
                                     <th scope="row">{{ ++$count }}</th>
                                     <td>
                                         <img style="background-color: lightgray; width: 50px; height: auto;"
