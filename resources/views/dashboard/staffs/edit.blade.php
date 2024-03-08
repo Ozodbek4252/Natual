@@ -49,7 +49,7 @@
                                                         Position <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="position_{{ $lang->code }}"
-                                                        value="{{ $staff->translations[$lang->code]['position']['content'] }}"
+                                                        @if (array_key_exists($lang->code, $staff->translations)) value="{{ $staff->translations[$lang->code]['position']['content'] }}" @endif
                                                         type="text" placeholder="Enter position..." class="form-control"
                                                         id="staff-position-{{ $lang->code }}">
                                                 </div>
@@ -79,8 +79,8 @@
                                             <label class="form-label" for="staff-name">
                                                 Name <span class="text-danger">*</span>
                                             </label>
-                                            <input value="{{ $staff->name }}" name="name" type="text" placeholder="Enter name..."
-                                                class="form-control" id="staff-name">
+                                            <input value="{{ $staff->name }}" name="name" type="text"
+                                                placeholder="Enter name..." class="form-control" id="staff-name">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -94,15 +94,16 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="staff-number">Number</label>
-                                            <input value="{{ $staff->number }}" name="number" placeholder="Enter number..." type="text"
-                                                class="form-control" id="staff-number">
+                                            <input value="{{ $staff->number }}" name="number"
+                                                placeholder="Enter number..." type="text" class="form-control"
+                                                id="staff-number">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="staff-email">Email</label>
-                                            <input value="{{ $staff->email }}" name="email" type="text" placeholder="Enter email..."
-                                                class="form-control" id="staff-email">
+                                            <input value="{{ $staff->email }}" name="email" type="text"
+                                                placeholder="Enter email..." class="form-control" id="staff-email">
                                         </div>
                                     </div>
                                 </div>
@@ -110,8 +111,9 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="staff-website">Website</label>
-                                            <input value="{{ $staff->website }}" name="website" placeholder="Enter website..." type="text"
-                                                class="form-control" id="staff-website">
+                                            <input value="{{ $staff->website }}" name="website"
+                                                placeholder="Enter website..." type="text" class="form-control"
+                                                id="staff-website">
                                         </div>
                                     </div>
                                     <div class="col-md-6">

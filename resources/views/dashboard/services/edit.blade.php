@@ -49,7 +49,7 @@
                                                         Title <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="title_{{ $lang->code }}"
-                                                        value="{{ $service->translations[$lang->code]['title']['content'] }}"
+                                                        @if (array_key_exists($lang->code, $service->translations)) value="{{ $service->translations[$lang->code]['title']['content'] }}" @endif
                                                         type="text" placeholder="Enter title..." class="form-control"
                                                         id="service-title-{{ $lang->code }}">
                                                 </div>
@@ -60,7 +60,9 @@
                                                         Description <span class="text-danger">*</span>
                                                     </label>
                                                     <textarea class="classic-editor" name="description_{{ $lang->code }}" id="classic-editor-{{ $lang->code }}">
-                                                        {{ $service->translations[$lang->code]['description']['content'] }}
+                                                        @if (array_key_exists($lang->code, $service->translations))
+                                                            {{ $service->translations[$lang->code]['description']['content'] }}
+                                                        @endif
                                                     </textarea>
                                                 </div>
                                             </div>
@@ -76,7 +78,8 @@
                                             <label class="form-label" for="service-icon">
                                                 Icon Preview
                                             </label>
-                                            <img src="{{ asset('storage/' . $service->icon) }}" width="200px">
+                                            <img src="{{ asset('storage/' . $service->icon) }}"
+                                                style="background-color: lightgray; width: 200px; height: auto;">
                                         </div>
                                     </div>
                                 </div>

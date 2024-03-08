@@ -129,6 +129,18 @@
                         <span>Sections</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ Route('requests.index') }}" class="waves-effect">
+                        <i class="uil-calender"></i>
+                        <span>Requests</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ Route('abouts.index') }}" class="waves-effect">
+                        <i class="uil-calender"></i>
+                        <span>About Company</span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="chat.html" class=" waves-effect">

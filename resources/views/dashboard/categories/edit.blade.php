@@ -49,7 +49,7 @@
                                                         Name <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="name_{{ $lang->code }}"
-                                                        value="{{ $category->translations[$lang->code]['name']['content'] }}"
+                                                        @if (array_key_exists($lang->code, $category->translations)) value="{{ $category->translations[$lang->code]['name']['content'] }}" @endif
                                                         type="text" placeholder="Enter name..." class="form-control"
                                                         id="category-name-{{ $lang->code }}">
                                                 </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Dashboard\AboutController;
 use App\Http\Controllers\Dashboard\BannerController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\ContactController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\Dashboard\PartnerController;
 use App\Http\Controllers\Dashboard\ProfileController;
+use App\Http\Controllers\Dashboard\RequestController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\ServiceController;
 use App\Http\Controllers\Dashboard\StaffController;
@@ -57,4 +59,9 @@ Route::middleware([
     Route::resource('services', ServiceController::class);
     Route::resource('banners', BannerController::class);
     Route::resource('sections', SectionController::class);
+    Route::resource('abouts', AboutController::class);
+
+    Route::get('request', [RequestController::class, 'store'])->name('requests.index');
+    Route::get('requests', [RequestController::class, 'index'])->name('requests.index');
+    Route::post('requests', [RequestController::class, 'store'])->name('requests.store');
 });

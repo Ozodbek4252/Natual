@@ -49,7 +49,7 @@
                                                         Title <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="title_{{ $lang->code }}" type="text"
-                                                        value="{{ $section->translations[$lang->code]['title']['content'] }}"
+                                                        @if (array_key_exists($lang->code, $section->translations)) value="{{ $section->translations[$lang->code]['title']['content'] }}" @endif
                                                         placeholder="Enter title..." class="form-control"
                                                         id="section-title-{{ $lang->code }}">
                                                 </div>
@@ -60,7 +60,7 @@
                                                         Description <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="description_{{ $lang->code }}" type="text"
-                                                        value="{{ $section->translations[$lang->code]['description']['content'] }}"
+                                                        @if (array_key_exists($lang->code, $section->translations)) value="{{ $section->translations[$lang->code]['description']['content'] }}" @endif
                                                         placeholder="Enter description..." class="form-control"
                                                         id="section-description-{{ $lang->code }}">
                                                 </div>

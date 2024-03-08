@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
-            $langsForHeader = Lang::all();
+            $langsForHeader = Lang::where('is_published', true)->get();
 
             $view->with(['langsForHeader' => $langsForHeader]);
         });
