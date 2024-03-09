@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\AboutController;
 use App\Http\Controllers\Dashboard\BannerController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\ContactController;
+use App\Http\Controllers\Dashboard\FacilityController;
 use App\Http\Controllers\Dashboard\LangController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocaleController;
@@ -60,6 +61,7 @@ Route::middleware([
     Route::resource('banners', BannerController::class);
     Route::resource('sections', SectionController::class);
     Route::resource('abouts', AboutController::class);
+    Route::resource('facilities', FacilityController::class);
 
     Route::get('request', [RequestController::class, 'store'])->name('requests.index');
     Route::get('requests', [RequestController::class, 'index'])->name('requests.index');

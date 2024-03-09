@@ -84,6 +84,7 @@
                             </ul>
                         </li>
                         <li><a href="{{ Route('langs.index') }}">Lang</a></li>
+                        <li><a href="{{ Route('facilities.index') }}">Facilities</a></li>
                     </ul>
                 </li>
 

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             BannerSeeder::class,
             SectionSeeder::class,
             RequestSeeder::class,
+            FacilitySeeder::class,
         ]);
     }
 }
