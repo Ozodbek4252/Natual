@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             SectionSeeder::class,
             RequestSeeder::class,
             FacilitySeeder::class,
+            ProjectSeeder::class,
         ]);
     }
 }

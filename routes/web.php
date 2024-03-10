@@ -12,6 +12,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\Dashboard\PartnerController;
 use App\Http\Controllers\Dashboard\ProfileController;
+use App\Http\Controllers\Dashboard\ProjectController;
 use App\Http\Controllers\Dashboard\RequestController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\ServiceController;
@@ -62,6 +63,7 @@ Route::middleware([
     Route::resource('sections', SectionController::class);
     Route::resource('abouts', AboutController::class);
     Route::resource('facilities', FacilityController::class);
+    Route::resource('projects', ProjectController::class);
 
     Route::get('request', [RequestController::class, 'store'])->name('requests.index');
     Route::get('requests', [RequestController::class, 'index'])->name('requests.index');
