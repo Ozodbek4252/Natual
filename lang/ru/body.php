@@ -95,4 +95,11 @@ return [
     'Delete Facility' => 'Удалить удобство',
     'Create Facility' => 'Создать удобство',
     'Update Facility' => 'Обновить удобство',
+    'Main logo' => 'Основной логотип',
+    'Secondary logo' => 'Вторичный логотип',
+    'Main Logo Preview' => 'Предпросмотр основного логотипа',
+    'Secondary Logo Preview' => 'Предпросмотр вторичного логотипа',
+    'Main Logo' => 'Основной логотип',
+    'Secondary Logo' => 'Вторичный логотип',
+    'Update Logo' => 'Обновить логотип',
 ];

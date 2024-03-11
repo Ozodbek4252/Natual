@@ -18,8 +18,8 @@ v<!doctype html>
                 <div class="col-lg-12">
                     <div class="text-center">
                         <a href="index.html" class="mb-5 d-block auth-logo">
-                            <img src="assets/images/logo-dark.png" alt="" height="22" class="logo logo-dark">
-                            <img src="assets/images/logo-light.png" alt="" height="22"
+                            <img src="{{ asset('/' . $logo->main_logo) }}" alt="" height="30" class="logo logo-dark">
+                            <img src="{{ asset('/' . $logo->main_logo) }}" alt="" height="30"
                                 class="logo logo-light">
                         </a>
                     </div>

@@ -95,4 +95,11 @@ return [
     'Delete Facility' => 'Imkoniyatni o\'chirish',
     'Create Facility' => 'Imkoniyatni yaratish',
     'Update Facility' => 'Imkoniyatni yangilash',
+    'Main logo' => 'Asosiy logotip',
+    'Secondary logo' => 'Ikkinchi logotip',
+    'Main Logo Preview' => 'Asosiy logotipni ko\'rish',
+    'Secondary Logo Preview' => 'Ikkinchi logotipni ko\'rish',
+    'Main Logo' => 'Asosiy logotip',
+    'Secondary Logo' => 'Ikkinchi logotip',
+    'Update Logo' => 'Logotipni yangilash',
 ];

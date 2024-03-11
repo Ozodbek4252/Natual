@@ -8,6 +8,7 @@ use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\FacilityController;
 use App\Http\Controllers\Dashboard\LangController;
+use App\Http\Controllers\Dashboard\LogoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\Dashboard\PartnerController;
@@ -68,4 +69,7 @@ Route::middleware([
     Route::get('request', [RequestController::class, 'store'])->name('requests.index');
     Route::get('requests', [RequestController::class, 'index'])->name('requests.index');
     Route::post('requests', [RequestController::class, 'store'])->name('requests.store');
+
+    Route::get('logos', [LogoController::class, 'index'])->name('logos.index');
+    Route::put('logos/{logo}', [LogoController::class, 'update'])->name('logos.update');
 });

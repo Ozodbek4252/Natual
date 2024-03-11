@@ -95,4 +95,11 @@ return [
     'Delete Facility' => 'Delete Facility',
     'Create Facility' => 'Create Facility',
     'Update Facility' => 'Update Facility',
+    'Main logo' => 'Main logo',
+    'Secondary logo' => 'Secondary logo',
+    'Main Logo Preview' => 'Main Logo Preview',
+    'Secondary Logo Preview' => 'Secondary Logo Preview',
+    'Main Logo' => 'Main Logo',
+    'Secondary Logo' => 'Secondary Logo',
+    'Update Logo' => 'Update Logo',
 ];
