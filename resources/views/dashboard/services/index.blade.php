@@ -4,11 +4,11 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center pb-3">
-                    <h4 class="card-title">Services</h4>
+                    <h4 class="card-title">{{ __('body.Services') }}</h4>
                     <div>
                         <a href="{{ Route('services.create') }}" class="btn btn-primary waves-effect waves-light">
                             <i class="fas fa-plus"></i>
-                            Create
+                            {{ __('body.Create') }}
                         </a>
                     </div>
                 </div>
@@ -18,10 +18,10 @@
                         <thead class="table-light">
                             <tr>
                                 <th>#</th>
-                                <th>Icon</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Actions</th>
+                                <th>{{ __('body.Icon') }}</th>
+                                <th>{{ __('body.Title') }}</th>
+                                <th>{{ __('body.Description') }}</th>
+                                <th>{{ __('body.Actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,15 +43,15 @@
                                     </td>
                                     <td style="width: 250px;">
                                         <a href="{{ Route('services.edit', $service->id) }}"
-                                            class="btn btn-warning waves-effect waves-light">
+                                            class="btn btn-warning waves-effect waves-light my-2">
                                             <i class="fas fa-pen"></i>
-                                            Edit
+                                            {{ __('body.Edit') }}
                                         </a>
                                         <button type="button" data-bs-toggle="modal"
                                             data-bs-target=".delete-service-modal-{{ $service->id }}"
                                             class="btn btn-danger waves-effect waves-light">
                                             <i class="fas fa-trash"></i>
-                                            Delete
+                                            {{ __('body.Delete') }}
                                         </button>
                                     </td>
                                 </tr>
@@ -62,7 +62,7 @@
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="deleteServiceModalLabel">Delete Service</h5>
+                                                <h5 class="modal-title" id="deleteServiceModalLabel">{{ __('body.Delete Service') }}</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                 </button>
@@ -71,12 +71,12 @@
                                                 @method('DELETE')
                                                 @csrf
                                                 <div class="modal-body">
-                                                    Do you really want to delete this?
+                                                    {{ __('body.Do you really want to delete this?') }}
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                        data-bs-dismiss="modal">{{ __('body.Close') }}</button>
+                                                    <button type="submit" class="btn btn-danger">{{ __('body.Delete') }}</button>
                                                 </div>
                                             </form>
                                         </div>

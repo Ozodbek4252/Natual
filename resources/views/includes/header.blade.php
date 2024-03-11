@@ -27,12 +27,12 @@
             </button>
 
             <!-- App Search-->
-            <form class="app-search d-none d-lg-block">
+            {{--  <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
                     <input type="text" class="form-control" placeholder="Search...">
                     <span class="uil-search"></span>
                 </div>
-            </form>
+            </form>  --}}
         </div>
 
         <div class="d-flex">
@@ -67,7 +67,7 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     @foreach ($langsForHeader as $lang)
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <a href="{{ Route('lang.change', $lang) }}" class="dropdown-item notify-item">
                             <img src="/{{ $lang->icon }}" style="width: 20px; height: auto;" alt="user-image"
                                 class="me-1">
                             <span class="align-middle">{{ $lang->name }}</span>
@@ -82,7 +82,7 @@
                 </button>
             </div>
 
-            <div class="dropdown d-inline-block">
+            {{--  <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item noti-icon waves-effect"
                     id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
@@ -181,37 +181,26 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  --}}
 
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="uil uil-user-circle font-size-18 align-middle text-muted me-1"
                         style="font-size: 25px !important;"></i>
-                    <span
-                        class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">{{ auth()->user()->name }}</span>
+                    <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">{{ auth()->user()->name }}</span>
                     <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
                     <a class="dropdown-item" href="{{ Route('profile') }}"><i
                             class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i> <span
-                            class="align-middle">View Profile</span></a>
-                    <a class="dropdown-item" href="index.html#"><i
-                            class="uil uil-wallet font-size-18 align-middle me-1 text-muted"></i> <span
-                            class="align-middle">My Wallet</span></a>
-                    <a class="dropdown-item d-block" href="index.html#"><i
-                            class="uil uil-cog font-size-18 align-middle me-1 text-muted"></i> <span
-                            class="align-middle">Settings</span> <span
-                            class="badge bg-soft-success rounded-pill mt-1 ms-2">03</span></a>
-                    <a class="dropdown-item" href="index.html#"><i
-                            class="uil uil-lock-alt font-size-18 align-middle me-1 text-muted"></i> <span
-                            class="align-middle">Lock screen</span></a>
+                            class="align-middle">{{ __('body.View profile') }}</span></a>
                     <form action="{{ Route('logout') }}" method="POST">
                         @csrf
                         <button class="dropdown-item">
                             <i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted">
-                            </i> <span class="align-middle">Sign out</span>
+                            </i> <span class="align-middle">{{ __('body.log_out') }}</span>
                         </button>
                     </form>
                 </div>

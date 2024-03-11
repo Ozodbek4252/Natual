@@ -6,14 +6,14 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="m-0">Update Service</h4>
+                            <h4 class="m-0">{{ __('body.Update Service') }}</h4>
 
                             <div class="my-2">
                                 <a href="{{ Route('services.index') }}"
                                     class="btn btn-secondary btn-soft-secondary waves-effect waves-light d-flex
                                 align-items-center justify-content-between">
                                     <i class='bx bx-arrow-back'></i>
-                                    {{ __('body.back') }}
+                                    {{ __('body.Back') }}
                                 </a>
                             </div>
                         </div>
@@ -46,18 +46,18 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="service-title">
-                                                        Title <span class="text-danger">*</span>
+                                                        {{ __('body.Title') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="title_{{ $lang->code }}"
                                                         @if (array_key_exists($lang->code, $service->translations)) value="{{ $service->translations[$lang->code]['title']['content'] }}" @endif
-                                                        type="text" placeholder="Enter title..." class="form-control"
+                                                        type="text" placeholder="{{ __('body.Enter title') }}..." class="form-control"
                                                         id="service-title-{{ $lang->code }}">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="classic-editor-{{ $lang->code }}">
-                                                        Description <span class="text-danger">*</span>
+                                                        {{ __('body.Description') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <textarea class="classic-editor" name="description_{{ $lang->code }}" id="classic-editor-{{ $lang->code }}">
                                                         @if (array_key_exists($lang->code, $service->translations))
@@ -76,7 +76,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3 d-flex flex-column">
                                             <label class="form-label" for="service-icon">
-                                                Icon Preview
+                                                {{ __('body.Icon Preview') }}
                                             </label>
                                             <img src="{{ asset('storage/' . $service->icon) }}"
                                                 style="background-color: lightgray; width: 200px; height: auto;">
@@ -90,7 +90,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="service-icon">
-                                                Icon
+                                                {{ __('body.Icon') }}
                                             </label>
                                             <input name="icon" type="file" class="form-control" id="service-icon">
                                         </div>
@@ -100,7 +100,7 @@
                                             <label for="form-label" style="opacity: 0;">|</label>
                                             <button type="submit" id="service-update"
                                                 class="btn btn-primary waves-effect waves-light form-control">
-                                                Update
+                                                {{ __('body.Update') }}
                                             </button>
                                         </div>
                                     </div>

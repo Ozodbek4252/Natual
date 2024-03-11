@@ -6,14 +6,14 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="m-0">Update Facility</h4>
+                            <h4 class="m-0">{{ __('body.Update Facility') }}</h4>
 
                             <div class="my-2">
                                 <a href="{{ Route('facilities.index') }}"
                                     class="btn btn-secondary btn-soft-secondary waves-effect waves-light d-flex
                                 align-items-center justify-content-between">
                                     <i class='bx bx-arrow-back'></i>
-                                    {{ __('body.back') }}
+                                    {{ __('body.Back') }}
                                 </a>
                             </div>
                         </div>
@@ -46,11 +46,11 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="facility-name">
-                                                        Title <span class="text-danger">*</span>
+                                                        {{ __('body.Name') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="name_{{ $lang->code }}"
                                                         value="{{ $facility->translations[$lang->code]['name']['content'] }}"
-                                                        type="text" placeholder="Enter name..." class="form-control"
+                                                        type="text" placeholder="{{ __('body.Enter name') }}..." class="form-control"
                                                         id="facility-name-{{ $lang->code }}">
                                                 </div>
                                             </div>
@@ -64,9 +64,9 @@
                                     <div class="col-md-6">
                                         <div class="mb-3 d-flex flex-column">
                                             <label class="form-label" for="facility-image">
-                                                Image Preview
+                                                {{ __('body.Image Preview') }}
                                             </label>
-                                            <img src="{{ asset('storage/' . $facility->image) }}" width="200px">
+                                            <img src="{{ asset('storage/' . $facility->image) }}" width="50px" style="object-fit: contain;">
                                         </div>
                                     </div>
                                 </div>
@@ -77,7 +77,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="facility-image">
-                                                Image <span class="text-danger">*</span>
+                                                {{ __('body.Image') }} <span class="text-danger">*</span>
                                             </label>
                                             <input name="image" type="file" class="form-control" id="facility-image">
                                         </div>
@@ -87,7 +87,7 @@
                                             <label for="form-label" style="opacity: 0;">|</label>
                                             <button type="submit" id="facility-update"
                                                 class="btn btn-primary waves-effect waves-light form-control">
-                                                Update
+                                                {{ __('body.Update') }}
                                             </button>
                                         </div>
                                     </div>

@@ -1,4 +1,4 @@
-<!doctype html>
+v<!doctype html>
 <html lang="en">
 
 <head>
@@ -32,38 +32,37 @@
                         <div class="card-body p-4">
 
                             <div class="text-center mt-2">
-                                <h5 class="text-primary">Register Account</h5>
-                                <p class="text-muted">Get your free Minible account now.</p>
+                                <h5 class="text-primary">{{ __('auth.Register Account') }}</h5>
                             </div>
                             <div class="p-2 mt-4">
                                 <form action="{{ Route('register.post') }}" method="POST">
                                     @csrf
                                     <div class="mb-3">
-                                        <label class="form-label" for="useremail">Email</label>
+                                        <label class="form-label" for="useremail">{{ __('auth.email') }}</label>
                                         <input name="email" type="email" class="form-control" id="useremail"
-                                            placeholder="Enter email">
+                                            placeholder="{{ __('auth.Enter email') }}...">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label" for="name">Name</label>
+                                        <label class="form-label" for="name">{{ __('auth.name') }}</label>
                                         <input name="name" type="text" class="form-control" id="name"
-                                            placeholder="Enter name">
+                                            placeholder="{{ __('auth.Enter name') }}...">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label" for="password">Password</label>
+                                        <label class="form-label" for="password">{{ __('auth.password') }}</label>
                                         <input name="password" type="password" class="form-control" id="password"
-                                            placeholder="Enter password">
+                                            placeholder="{{ __('auth.Enter password') }}...">
                                     </div>
 
                                     <div class="mt-3 text-end">
                                         <button class="btn btn-primary w-sm waves-effect waves-light"
-                                            type="submit">Register</button>
+                                            type="submit">{{ __('auth.register') }}</button>
                                     </div>
 
                                     <div class="mt-4 text-center">
-                                        <p class="text-muted mb-0">Already have an account ? <a
-                                                href="{{ Route('login') }}" class="fw-medium text-primary"> Login</a>
+                                        <p class="text-muted mb-0">{{ __('auth.Already have an account') }} ? <a
+                                                href="{{ Route('login') }}" class="fw-medium text-primary"> {{ __('auth.login') }}</a>
                                         </p>
                                     </div>
                                 </form>
@@ -75,8 +74,10 @@
                         <p>©
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> Minible. Crafted with <i class="mdi mdi-heart text-danger"></i> by
-                            Ozodbek
+                            </script>
+                            {{ __('auth.Crafted with ❤️ by Ozodbek') }}
+                            {{--  Minible. Crafted with <i class="mdi mdi-heart text-danger"></i> by
+                            Ozodbek  --}}
                         </p>
                     </div>
 

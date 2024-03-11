@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="m-0">Create Service</h4>
+                            <h4 class="m-0">{{ __('body.Create Service') }}</h4>
 
                             <div class="my-2">
                                 <a href="{{ Route('services.index') }}"
@@ -14,7 +14,7 @@
                                         waves-light d-flex
                                         align-items-center justify-content-between">
                                     <i class='bx bx-arrow-back'></i>
-                                    {{ __('body.back') }}
+                                    {{ __('body.Back') }}
                                 </a>
                             </div>
                         </div>
@@ -45,17 +45,17 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="service-title">
-                                                        Title <span class="text-danger">*</span>
+                                                        {{ __('body.Title') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="title_{{ $lang->code }}" type="text"
-                                                        placeholder="Enter title..." class="form-control"
+                                                        placeholder="{{ __('body.Enter title') }}..." class="form-control"
                                                         id="service-title-{{ $lang->code }}">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="classic-editor-{{ $lang->code }}">
-                                                        Description <span class="text-danger">*</span>
+                                                        {{ __('body.Description') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <textarea class="classic-editor" name="description_{{ $lang->code }}" id="classic-editor-{{ $lang->code }}"></textarea>
                                                 </div>
@@ -70,7 +70,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="service-icon">
-                                                Icon <span class="text-danger">*</span>
+                                                {{ __('body.Icon') }} <span class="text-danger">*</span>
                                             </label>
                                             <input name="icon" type="file" class="form-control" id="service-icon">
                                         </div>
@@ -80,7 +80,7 @@
                                             <label for="form-label" style="opacity: 0;">|</label>
                                             <button type="submit" id="service-create"
                                                 class="btn btn-primary waves-effect waves-light form-control">
-                                                Create
+                                                {{ __('body.Create') }}
                                             </button>
                                         </div>
                                     </div>

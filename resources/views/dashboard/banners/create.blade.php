@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="m-0">Create Banner</h4>
+                            <h4 class="m-0">{{ __('body.Create Banner') }}</h4>
 
                             <div class="my-2">
                                 <a href="{{ Route('banners.index') }}"
@@ -14,7 +14,7 @@
                                         waves-light d-flex
                                         align-items-center justify-content-between">
                                     <i class='bx bx-arrow-back'></i>
-                                    {{ __('body.back') }}
+                                    {{ __('body.Back') }}
                                 </a>
                             </div>
                         </div>
@@ -45,20 +45,20 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="banner-title">
-                                                        Title <span class="text-danger">*</span>
+                                                        {{ __('body.Title') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="title_{{ $lang->code }}" type="text"
-                                                        placeholder="Enter title..." class="form-control"
+                                                        placeholder="{{ __('body.Enter title') }}..." class="form-control"
                                                         id="banner-title-{{ $lang->code }}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="classic-editor-{{ $lang->code }}">
-                                                        Description <span class="text-danger">*</span>
+                                                        {{ __('body.Description') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="description_{{ $lang->code }}" type="text"
-                                                        placeholder="Enter description..." class="form-control"
+                                                        placeholder="{{ __('body.Enter description') }}..." class="form-control"
                                                         id="banner-description-{{ $lang->code }}">
                                                 </div>
                                             </div>
@@ -67,10 +67,10 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="banner-button">
-                                                        Button <span class="text-danger">*</span>
+                                                        {{ __('body.Button') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="button_{{ $lang->code }}" type="text"
-                                                        placeholder="Enter button text..." class="form-control"
+                                                        placeholder="{{ __('body.Enter button text') }}..." class="form-control"
                                                         id="banner-button-{{ $lang->code }}">
                                                 </div>
                                             </div>
@@ -84,7 +84,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="banner-image">
-                                                Image <span class="text-danger">*</span>
+                                                {{ __('body.Image') }} <span class="text-danger">*</span>
                                             </label>
                                             <input name="image" type="file" class="form-control" id="banner-image">
                                         </div>
@@ -92,9 +92,9 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="banner-link">
-                                                Link <span class="text-danger">*</span>
+                                                {{ __('body.Link') }} <span class="text-danger">*</span>
                                             </label>
-                                            <input name="link" placeholder="Ener link..." type="text"
+                                            <input name="link" placeholder="{{ __('body.Enter link') }}..." type="text"
                                                 class="form-control" id="banner-link">
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@
                                 <div class="row">
                                     <div class="col-md-6 d-flex align-items-end">
                                         <div class="form-check form-switch mb-3" dir="ltr">
-                                            <label class="form-check-label" for="isPublishedSwitch">Published</label>
+                                            <label class="form-check-label" for="isPublishedSwitch">{{ __('body.Published') }}</label>
                                             <input name="is_published" type="checkbox" class="form-check-input"
                                                 id="isPublishedSwitch" checked>
                                         </div>
@@ -115,7 +115,7 @@
                                             <label for="form-label" style="opacity: 0;">|</label>
                                             <button type="submit" id="banner-create"
                                                 class="btn btn-primary waves-effect waves-light form-control">
-                                                Create
+                                                {{ __('body.Create') }}
                                             </button>
                                         </div>
                                     </div>
@@ -143,18 +143,6 @@
                 $('.tab-pane').removeClass('active');
                 $(this).addClass('active');
             });
-        });
-    </script>
-
-    <script>
-        let langs = @json($langs);
-        langs.forEach(lang => {
-            // create a new instance of ClassicEditor
-            ClassicEditor
-                .create(document.querySelector(`#classic-editor-${lang.code}`))
-                .catch(error => {
-                    console.error(error);
-                });
         });
     </script>
 @endsection

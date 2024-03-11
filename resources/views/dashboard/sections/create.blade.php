@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="m-0">Create Section</h4>
+                            <h4 class="m-0">{{ __('body.Create Section') }}</h4>
 
                             <div class="my-2">
                                 <a href="{{ Route('sections.index') }}"
@@ -14,7 +14,7 @@
                                         waves-light d-flex
                                         align-items-center justify-content-between">
                                     <i class='bx bx-arrow-back'></i>
-                                    {{ __('body.back') }}
+                                    {{ __('body.Back') }}
                                 </a>
                             </div>
                         </div>
@@ -45,20 +45,20 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="section-title">
-                                                        Title <span class="text-danger">*</span>
+                                                        {{ __('body.Title') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="title_{{ $lang->code }}" type="text"
-                                                        placeholder="Enter title..." class="form-control"
+                                                        placeholder="{{ __('body.Enter title') }}..." class="form-control"
                                                         id="section-title-{{ $lang->code }}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="section-description">
-                                                        Description <span class="text-danger">*</span>
+                                                        {{ __('body.Description') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="description_{{ $lang->code }}" type="text"
-                                                        placeholder="Enter description..." class="form-control"
+                                                        placeholder="{{ __('body.Enter description') }}..." class="form-control"
                                                         id="section-description-{{ $lang->code }}">
                                                 </div>
                                             </div>
@@ -71,16 +71,16 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label class="form-label" for="section-image">Image</label>
+                                            <label class="form-label" for="section-image">{{ __('body.Image') }}</label>
                                             <input name="image" type="file" class="form-control" id="section-image">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="section-link">
-                                                Link
+                                                {{ __('body.Link') }}
                                             </label>
-                                            <input name="link" type="text" placeholder="Enter link..."
+                                            <input name="link" type="text" placeholder="{{ __('body.Enter link') }}..."
                                                 class="form-control" id="section-link">
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@
                                             <label for="form-label" style="opacity: 0;">|</label>
                                             <button type="submit" id="section-create"
                                                 class="btn btn-primary waves-effect waves-light form-control">
-                                                Create
+                                                {{ __('body.Create') }}
                                             </button>
                                         </div>
                                     </div>
@@ -119,18 +119,6 @@
                 $('.tab-pane').removeClass('active');
                 $(this).addClass('active');
             });
-        });
-    </script>
-
-    <script>
-        let langs = @json($langs);
-        langs.forEach(lang => {
-            // create a new instance of ClassicEditor
-            ClassicEditor
-                .create(document.querySelector(`#classic-editor-${lang.code}`))
-                .catch(error => {
-                    console.error(error);
-                });
         });
     </script>
 @endsection

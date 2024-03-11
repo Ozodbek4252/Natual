@@ -4,12 +4,12 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center pb-3">
-                    <h4 class="card-title">Contacts</h4>
+                    <h4 class="card-title">{{ __('body.Contacts') }}</h4>
                     <div>
                         <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
                             data-bs-target=".create-contact-modal">
                             <i class="fas fa-plus"></i>
-                            Create
+                            {{ __('body.Create') }}
                         </button>
                     </div>
                 </div>
@@ -19,9 +19,9 @@
                         <thead class="table-light">
                             <tr>
                                 <th>#</th>
-                                <th>Title</th>
-                                <th>Value</th>
-                                <th>Actions</th>
+                                <th>{{ __('body.Title') }}</th>
+                                <th>{{ __('body.Value') }}</th>
+                                <th>{{ __('body.Actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,15 +36,15 @@
                                     <td style="width: 250px;">
                                         <button type="button" data-bs-toggle="modal"
                                             data-bs-target=".edit-contact-modal-{{ $contact->id }}"
-                                            class="btn btn-warning waves-effect waves-light">
+                                            class="btn btn-warning waves-effect waves-light my-2">
                                             <i class="fas fa-pen"></i>
-                                            Edit
+                                            {{ __('body.Edit') }}
                                         </button>
                                         <button type="button" data-bs-toggle="modal"
                                             data-bs-target=".delete-contact-modal-{{ $contact->id }}"
                                             class="btn btn-danger waves-effect waves-light">
                                             <i class="fas fa-trash"></i>
-                                            Delete
+                                            {{ __('body.Delete') }}
                                         </button>
                                     </td>
                                 </tr>
@@ -55,7 +55,8 @@
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="deleteContactModalLabel">Delete Contact</h5>
+                                                <h5 class="modal-title" id="deleteContactModalLabel">
+                                                    {{ __('body.Delete Contact') }}</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                 </button>
@@ -64,12 +65,13 @@
                                                 @method('DELETE')
                                                 @csrf
                                                 <div class="modal-body">
-                                                    Do you really want to delete this?
+                                                    {{ __('body.Do you really want to delete this?') }}
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                        data-bs-dismiss="modal">{{ __('body.Close') }}</button>
+                                                    <button type="submit"
+                                                        class="btn btn-danger">{{ __('body.Delete') }}</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -78,12 +80,13 @@
                                 {{--  Delete Modal End  --}}
 
                                 {{--  Edit Modal Beginning  --}}
-                                <div class="modal fade edit-contact-modal-{{ $contact->id }}" tabindex="-1" role="dialog"
-                                    aria-labelledby="editContactModalLabel" aria-hidden="true">
+                                <div class="modal fade edit-contact-modal-{{ $contact->id }}" tabindex="-1"
+                                    role="dialog" aria-labelledby="editContactModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="editContactModalLabel">Update Contact</h5>
+                                                <h5 class="modal-title" id="editContactModalLabel">
+                                                    {{ __('body.Update Contact') }}</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                 </button>
@@ -96,15 +99,19 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="mb-3">
-                                                                <label class="form-label" for="contact-title">Title</label>
+                                                                <label class="form-label"
+                                                                    for="contact-title">{{ __('body.Title') }}</label>
                                                                 <input value="{{ $contact->title }}" name="title"
+                                                                    placeholder="{{ __('body.Enter title') }}..."
                                                                     type="text" class="form-control" id="contact-title">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="mb-3">
-                                                                <label class="form-label" for="contact-value">Value</label>
+                                                                <label class="form-label"
+                                                                    for="contact-value">{{ __('body.Value') }}</label>
                                                                 <input value="{{ $contact->value }}" name="value"
+                                                                    placeholder="{{ __('body.Enter value') }}..."
                                                                     type="text" class="form-control" id="contact-value">
                                                             </div>
                                                         </div>
@@ -112,8 +119,9 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Update</button>
+                                                        data-bs-dismiss="modal">{{ __('body.Close') }}</button>
+                                                    <button type="submit"
+                                                        class="btn btn-primary">{{ __('body.Update') }}</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -136,7 +144,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="createContactModalLabel">Create Contact</h5>
+                    <h5 class="modal-title" id="createContactModalLabel">{{ __('body.Create Contact') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
@@ -146,21 +154,22 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="contact-title">Title</label>
-                                    <input name="title" type="text" class="form-control" id="contact-title">
+                                    <label class="form-label" for="contact-title">{{ __('body.Title') }}</label>
+                                    <input name="title" type="text" placeholder="{{ __('body.Enter title') }}..." class="form-control" id="contact-title">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="contact-value">Value</label>
-                                    <input name="value" type="text" class="form-control" id="contact-value">
+                                    <label class="form-label" for="contact-value">{{ __('body.Value') }}</label>
+                                    <input name="value" type="text" placeholder="{{ __('body.Enter value') }}..." class="form-control" id="contact-value">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-light"
+                            data-bs-dismiss="modal">{{ __('body.Close') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('body.Save') }}</button>
                     </div>
                 </form>
             </div>

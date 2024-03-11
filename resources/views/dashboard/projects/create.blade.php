@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="m-0">Create Project</h4>
+                            <h4 class="m-0">{{ __('body.Create Project') }}</h4>
 
                             <div class="my-2">
                                 <a href="{{ Route('projects.index') }}"
@@ -14,7 +14,7 @@
                                         waves-light d-flex
                                         align-items-center justify-content-between">
                                     <i class='bx bx-arrow-back'></i>
-                                    {{ __('body.back') }}
+                                    {{ __('body.Back') }}
                                 </a>
                             </div>
                         </div>
@@ -45,10 +45,10 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="project-address">
-                                                        Address <span class="text-danger">*</span>
+                                                        {{ __('body.Address') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="address_{{ $lang->code }}" type="text"
-                                                        placeholder="Enter address..." class="form-control"
+                                                        placeholder="{{ __('body.Enter address') }}..." class="form-control"
                                                         id="project-address-{{ $lang->code }}">
                                                 </div>
                                             </div>
@@ -62,7 +62,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="project-image">
-                                                Image <span class="text-danger">*</span>
+                                                {{ __('body.Image') }} <span class="text-danger">*</span>
                                             </label>
                                             <input name="image" type="file" class="form-control" id="project-image">
                                         </div>
@@ -70,9 +70,9 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="project-name">
-                                                Name <span class="text-danger">*</span>
+                                                {{ __('body.Name') }} <span class="text-danger">*</span>
                                             </label>
-                                            <input name="name" placeholder="Ener name..." type="text"
+                                            <input name="name" placeholder="{{ __('body.Enter name') }}..." type="text"
                                                 class="form-control" id="project-name">
                                         </div>
                                     </div>
@@ -84,19 +84,19 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="project-date">
-                                                Date <span class="text-danger">*</span>
+                                                {{ __('body.Date') }} <span class="text-danger">*</span>
                                             </label>
-                                            <input name="date" placeholder="Ener date..." type="text"
+                                            <input name="date" placeholder="{{ __('body.Enter date') }}..." type="text"
                                                 class="form-control" id="project-date">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="category_id">
-                                                @lang('body.category') <span class="text-danger">*</span>
+                                                @lang('body.Category') <span class="text-danger">*</span>
                                             </label>
                                             <select name="category_id" id="category_id" class="select2 form-select">
-                                                <option value="">@lang('body.select')</option>
+                                                <option value="">@lang('body.Select')</option>
                                                 @foreach ($categories as $category)
                                                     <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
                                                 @endforeach
@@ -114,17 +114,17 @@
                                 <div class="col-md-2 mt-0 top-right d-flex justify-content-center align-items-baseline">
                                     <button type="button" id="add-day-button" style="width: 120px;"
                                         class="form-control mt-4 btn btn-primary btn-sm">
-                                        @lang('body.add_facility')
+                                        @lang('body.Add facility')
                                     </button>
                                 </div>
 
                                 <div class="col-md-10 hidden-section m-0" id="labels-container-for-facilities">
                                     <div class="row g-3 mt-0">
                                         <div class="col-md-5">
-                                            <label class="form-label">@lang('body.facility')</label>
+                                            <label class="form-label">@lang('body.Facility')</label>
                                         </div>
                                         <div class="col-md-2">
-                                            <label class="form-label">@lang('body.value')</label>
+                                            <label class="form-label">@lang('body.Value')</label>
                                         </div>
                                         <div class="col-md-1">
                                         </div>
@@ -140,7 +140,7 @@
                                 <div class="row">
                                     <div class="col-md-6 d-flex align-items-end">
                                         <div class="form-check form-switch mb-3" dir="ltr">
-                                            <label class="form-check-label" for="isFinishedSwitch">Finished</label>
+                                            <label class="form-check-label" for="isFinishedSwitch">{{ __('body.Finished') }}</label>
                                             <input name="is_finished" type="checkbox" class="form-check-input"
                                                 id="isFinishedSwitch" checked>
                                         </div>
@@ -150,7 +150,7 @@
                                             <label for="form-label" style="opacity: 0;">|</label>
                                             <button type="submit" id="project-create"
                                                 class="btn btn-primary waves-effect waves-light form-control">
-                                                Create
+                                                {{ __('body.Create') }}
                                             </button>
                                         </div>
                                     </div>
@@ -188,7 +188,7 @@
                     <div class="col-md-5 d-flex" style="padding-right: 37px;">
                         <select name="facilities[${inputCounter}][facility_id]" id="facility-select" class="form-select" style="width: calc(100% - 50px);">
                             <option>
-                                {{ __('body.select') }}
+                                {{ __('body.Select') }}
                             </option>
                             @foreach ($facilities as $facility)
                                 <option value="{{ $facility['id'] }}"
@@ -199,7 +199,7 @@
                         </select>
                     </div>
                     <div class="col-md-2">
-                        <input type="text" class="form-control" name="facilities[${inputCounter}][value]" placeholder="Enter value..."
+                        <input type="text" class="form-control" name="facilities[${inputCounter}][value]" placeholder="{{ __('body.Enter value') }}..."
                             value="{{ old('value', $item->value ?? '') }}" />
                     </div>
                     <div class="col-md-1">

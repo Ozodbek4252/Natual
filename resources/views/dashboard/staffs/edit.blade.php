@@ -6,14 +6,14 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="m-0">Update Staff</h4>
+                            <h4 class="m-0">{{ __('body.Update Staff') }}</h4>
 
                             <div class="my-2">
                                 <a href="{{ Route('staffs.index') }}"
                                     class="btn btn-secondary btn-soft-secondary waves-effect waves-light d-flex
                                 align-items-center justify-content-between">
                                     <i class='bx bx-arrow-back'></i>
-                                    {{ __('body.back') }}
+                                    {{ __('body.Back') }}
                                 </a>
                             </div>
                         </div>
@@ -46,11 +46,11 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="staff-position">
-                                                        Position <span class="text-danger">*</span>
+                                                        {{ __('body.Position') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="position_{{ $lang->code }}"
                                                         @if (array_key_exists($lang->code, $staff->translations)) value="{{ $staff->translations[$lang->code]['position']['content'] }}" @endif
-                                                        type="text" placeholder="Enter position..." class="form-control"
+                                                        type="text" placeholder="{{ __('body.Enter position') }}..." class="form-control"
                                                         id="staff-position-{{ $lang->code }}">
                                                 </div>
                                             </div>
@@ -64,7 +64,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3 d-flex flex-column">
                                             <label class="form-label" for="staff-image">
-                                                Image Preview
+                                                {{ __('body.Image Preview') }}
                                             </label>
                                             <img src="{{ asset('storage/' . $staff->image) }}" width="200px">
                                         </div>
@@ -77,15 +77,15 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="staff-name">
-                                                Name <span class="text-danger">*</span>
+                                                {{ __('body.Name') }} <span class="text-danger">*</span>
                                             </label>
                                             <input value="{{ $staff->name }}" name="name" type="text"
-                                                placeholder="Enter name..." class="form-control" id="staff-name">
+                                                placeholder="{{ __('body.Enter name') }}..." class="form-control" id="staff-name">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label class="form-label" for="staff-image">Image</label>
+                                            <label class="form-label" for="staff-image">{{ __('body.Image') }}</label>
                                             <input name="image" type="file" class="form-control" id="staff-image">
                                         </div>
                                     </div>
@@ -93,26 +93,26 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label class="form-label" for="staff-number">Number</label>
+                                            <label class="form-label" for="staff-number">{{ __('body.Number') }}</label>
                                             <input value="{{ $staff->number }}" name="number"
-                                                placeholder="Enter number..." type="text" class="form-control"
+                                                placeholder="{{ __('body.Enter number') }}..." type="text" class="form-control"
                                                 id="staff-number">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label class="form-label" for="staff-email">Email</label>
+                                            <label class="form-label" for="staff-email">{{ __('body.Email') }}</label>
                                             <input value="{{ $staff->email }}" name="email" type="text"
-                                                placeholder="Enter email..." class="form-control" id="staff-email">
+                                                placeholder="{{ __('body.Enter email') }}..." class="form-control" id="staff-email">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label class="form-label" for="staff-website">Website</label>
+                                            <label class="form-label" for="staff-website">{{ __('body.Website') }}</label>
                                             <input value="{{ $staff->website }}" name="website"
-                                                placeholder="Enter website..." type="text" class="form-control"
+                                                placeholder="{{ __('body.Enter website') }}..." type="text" class="form-control"
                                                 id="staff-website">
                                         </div>
                                     </div>
@@ -121,7 +121,7 @@
                                             <label for="form-label" style="opacity: 0;">|</label>
                                             <button type="submit" id="staff-create"
                                                 class="btn btn-primary waves-effect waves-light form-control">
-                                                Update
+                                                {{ __('body.Update') }}
                                             </button>
                                         </div>
                                     </div>
@@ -149,18 +149,6 @@
                 $('.tab-pane').removeClass('active');
                 $(this).addClass('active');
             });
-        });
-    </script>
-
-    <script>
-        let langs = @json($langs);
-        langs.forEach(lang => {
-            // create a new instance of ClassicEditor
-            ClassicEditor
-                .create(document.querySelector(`#classic-editor-${lang.code}`))
-                .catch(error => {
-                    console.error(error);
-                });
         });
     </script>
 @endsection

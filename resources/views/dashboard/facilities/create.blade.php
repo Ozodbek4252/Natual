@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="m-0">Create Facility</h4>
+                            <h4 class="m-0">{{ __('body.Create Facility') }}</h4>
 
                             <div class="my-2">
                                 <a href="{{ Route('facilities.index') }}"
@@ -14,7 +14,7 @@
                                         waves-light d-flex
                                         align-items-center justify-content-between">
                                     <i class='bx bx-arrow-back'></i>
-                                    {{ __('body.back') }}
+                                    {{ __('body.Back') }}
                                 </a>
                             </div>
                         </div>
@@ -45,10 +45,10 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="facility-name">
-                                                        Name <span class="text-danger">*</span>
+                                                        {{ __('body.Name') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="name_{{ $lang->code }}" type="text"
-                                                        placeholder="Enter name..." class="form-control"
+                                                        placeholder="{{ __('body.Enter name') }}..." class="form-control"
                                                         id="facility-name-{{ $lang->code }}">
                                                 </div>
                                             </div>
@@ -62,7 +62,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="facility-image">
-                                                Image <span class="text-danger">*</span>
+                                                {{ __('body.Image') }} <span class="text-danger">*</span>
                                             </label>
                                             <input name="image" type="file" class="form-control" id="facility-image">
                                         </div>
@@ -72,7 +72,7 @@
                                             <label for="form-label" style="opacity: 0;">|</label>
                                             <button type="submit" id="facility-create"
                                                 class="btn btn-primary waves-effect waves-light form-control">
-                                                Create
+                                                {{ __('body.Create') }}
                                             </button>
                                         </div>
                                     </div>
@@ -100,18 +100,6 @@
                 $('.tab-pane').removeClass('active');
                 $(this).addClass('active');
             });
-        });
-    </script>
-
-    <script>
-        let langs = @json($langs);
-        langs.forEach(lang => {
-            // create a new instance of ClassicEditor
-            ClassicEditor
-                .create(document.querySelector(`#classic-editor-${lang.code}`))
-                .catch(error => {
-                    console.error(error);
-                });
         });
     </script>
 @endsection

@@ -3,15 +3,15 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title pb-3">Requests</h4>
+                <h4 class="card-title pb-3">{{ __('body.Requests') }}</h4>
 
                 <div class="table-responsive mb-3">
                     <table class="table mb-0">
                         <thead class="table-light">
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Number</th>
+                                <th>{{ __('body.Name') }}</th>
+                                <th>{{ __('body.Number') }}</th>
                             </tr>
                         </thead>
                         <tbody>
