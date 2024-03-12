@@ -46,6 +46,8 @@ Route::middleware([
     // 'isAdmin',
     // 'language',
 ])->group(function () {
+    Route::get('change-lang/{lang}', [LangController::class, 'changeLang'])->name('lang.change');
+
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -78,5 +80,4 @@ Route::middleware([
 
     Route::get('logos', [LogoController::class, 'index'])->name('logos.index');
     Route::put('logos/{logo}', [LogoController::class, 'update'])->name('logos.update');
-    Route::get('change-lang/{lang}', [LangController::class, 'changeLang'])->name('lang.change');
 });

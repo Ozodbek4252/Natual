@@ -63,7 +63,7 @@
             <div class="dropdown d-inline-block language-switch">
                 <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img src="{{ asset('assets/images/flags/us.jpg') }}" alt="Header Language" height="16">
+                    <img src="/{{ $currenctLang->icon }}" alt="Header Language" width="20;" height="auto">
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     @foreach ($langsForHeader as $lang)

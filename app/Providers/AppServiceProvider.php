@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use App\Models\Lang;
 use App\Models\Logo;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,14 +22,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        App::setLocale('ru');
-
         View::composer('*', function ($view) {
             $langsForHeader = Lang::where('is_published', true)->get();
+            $currenctLang = Lang::where('code', session('locale'))->first();
             $logo = Logo::first();
 
             $view->with([
                 'langsForHeader' => $langsForHeader,
+                'currenctLang' => $currenctLang,
                 'logo' => $logo,
             ]);
         });

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LangRequest;
 use App\Models\Lang;
 use Exception;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 
 class LangController extends Controller
@@ -83,7 +84,7 @@ class LangController extends Controller
             return redirect()->back();
         } catch (Exception $e) {
             return back()->withErrors([
-                'error' => 'Error. Can\'t store',
+                'error' => 'Error. Can\'t update',
             ]);
         }
     }
@@ -106,5 +107,16 @@ class LangController extends Controller
         } catch (Exception $e) {
             return back()->withErrors(['Error' => 'Error. Can\'t delete']);
         }
+    }
+
+    /**
+     * Change the language
+     */
+    public function changeLang(Lang $lang)
+    {
+        session()->put('locale', $lang->code);
+        App::setLocale($lang->code);
+
+        return redirect()->back();
     }
 }

@@ -1,7 +1,6 @@
 @extends('layout')
 @section('content')
     <div class="container-fluid">
-
         <!-- start page title -->
         <div class="row">
             <div class="col-12">
