@@ -1,6 +1,3 @@
-<!-- App favicon -->
-<link rel="shortcut icon" href="{{ asset('assets/images/logo/vortex-logo-with-background.jpg') }}">
-
 <!-- Bootstrap Css -->
 <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
 <!-- Icons Css -->

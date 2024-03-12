@@ -4,7 +4,7 @@
     <div class="navbar-brand-box">
         <a href="{{ Route('dashboard') }}" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{ asset('/' . $logo->main_logo) }}" alt="" height="22">
+                <img src="{{ asset('/' . $logo->small_logo) }}" alt="" height="22">
             </span>
             <span class="logo-lg">
                 <img src="{{ asset('/' . $logo->main_logo) }}" style="max-height: 30px; height: auto" alt="">
@@ -13,7 +13,7 @@
 
         <a href="{{ Route('dashboard') }}" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ asset('/' . $logo->main_logo) }}" alt="" height="22">
+                <img src="{{ asset('/' . $logo->small_logo) }}" alt="" height="22">
             </span>
             <span class="logo-lg">
                 <img src="{{ asset('/' . $logo->main_logo) }}" alt="" height="20">
@@ -99,11 +99,6 @@
                         <span>{{ __('body.Settings') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="javascript: void(0);" class="has-arrow">Organization Structure</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="javascript: void(0);">Level 2.2</a></li>
-                            </ul>
-                        </li>
                         <li><a href="{{ Route('langs.index') }}">{{ __('body.Lang') }}</a></li>
                         <li><a href="{{ Route('facilities.index') }}">{{ __('body.Facilities') }}</a></li>
                         <li><a href="{{ Route('logos.index') }}">{{ __('body.Logo') }}</a></li>

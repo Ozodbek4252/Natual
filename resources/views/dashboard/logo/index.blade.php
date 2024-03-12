@@ -13,6 +13,7 @@
                             <tr>
                                 <th>{{ __('body.Main logo') }}</th>
                                 <th>{{ __('body.Secondary logo') }}</th>
+                                <th>{{ __('body.Small logo') }}</th>
                                 <th>{{ __('body.Actions') }}</th>
                             </tr>
                         </thead>
@@ -24,7 +25,11 @@
                                 </td>
                                 <td>
                                     <img src="{{ asset('/' . $logo->secondary_logo) }}" style="width: 120px; height: auto;"
-                                        alt="main logo">
+                                        alt="secondary logo">
+                                </td>
+                                <td>
+                                    <img src="{{ asset('/' . $logo->small_logo) }}" style="width: 120px; height: auto;"
+                                        alt="small logo">
                                 </td>
                                 <td style="width: 250px;">
                                     <button type="button" data-bs-toggle="modal"
@@ -38,11 +43,11 @@
 
                             {{--  Edit Modal Beginning  --}}
                             <div class="modal fade edit-logo-modal-{{ $logo->id }}" tabindex="-1" role="dialog"
-                                aria-labelledby="editLangModalLabel" aria-hidden="true">
+                                aria-labelledby="editLogoModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="editLangModalLabel">{{ __('body.Update Logo') }}
+                                            <h5 class="modal-title" id="editLogoModalLabel">{{ __('body.Update Logo') }}
                                             </h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close">
@@ -54,7 +59,7 @@
                                             @csrf
                                             <div class="modal-body">
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="mb-3 d-flex flex-column-reverse">
                                                             <img src="{{ asset('/' . $logo->main_logo) }}"
                                                                 style="width: 100px; height: auto;" alt="main logo">
@@ -63,7 +68,7 @@
                                                             </label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="mb-3 d-flex flex-column-reverse">
                                                             <img src="{{ asset('/' . $logo->secondary_logo) }}"
                                                                 style="width: 100px; height: auto;" alt="main logo">
@@ -72,10 +77,19 @@
                                                             </label>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3 d-flex flex-column-reverse">
+                                                            <img src="{{ asset('/' . $logo->small_logo) }}"
+                                                                style="width: 100px; height: auto;" alt="main logo">
+                                                            <label class="form-label" for="logo-icon">
+                                                                {{ __('body.Small Logo Preview') }}
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="main-logo">
                                                                 {{ __('body.Main Logo') }}
@@ -84,13 +98,22 @@
                                                                 id="main-logo">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="secondary-logo">
                                                                 {{ __('body.Secondary Logo') }}
                                                             </label>
                                                             <input name="secondary_logo" type="file" class="form-control"
                                                                 id="secondary-logo">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="small-logo">
+                                                                {{ __('body.Small logo') }}
+                                                            </label>
+                                                            <input name="small_logo" type="file" class="form-control"
+                                                                id="small-logo">
                                                         </div>
                                                     </div>
                                                 </div>

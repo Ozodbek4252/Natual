@@ -110,4 +110,6 @@ return [
     'Certificates' => 'Сертификаты',
     'Delete image' => 'Удалить изображение',
     'Delete Certificate' => 'Удалить сертификат',
+    'Small logo' => 'Маленький логотип',
+    'Small Logo Preview' => 'Предпросмотр маленького логотипа',
 ];

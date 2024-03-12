@@ -110,4 +110,6 @@ return [
     'Certificates' => 'Certificates',
     'Delete image' => 'Delete image',
     'Delete Certificate' => 'Delete Certificate',
+    'Small logo' => 'Small logo',
+    'Small Logo Preview' => 'Small Logo Preview',
 ];

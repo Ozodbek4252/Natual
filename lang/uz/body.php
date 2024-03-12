@@ -110,4 +110,6 @@ return [
     'Certificates' => 'Sertifikatlar',
     'Delete image' => 'Rasmni o\'chirish',
     'Delete Certificate' => 'Sertifikatni o\'chirish',
+    'Small logo' => 'Kichik logotip',
+    'Small Logo Preview' => 'Kichik logotipni ko\'rish',
 ];
