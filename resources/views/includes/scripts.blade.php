@@ -20,9 +20,7 @@
 <script src="{{ asset('assets/js/pages/form-editor.init.js') }}"></script>
 
 {{--  Pdf  --}}
-{{--  <script type="module" src="{{ asset('assets/libs/pdf/js/debugger.mjs') }}"></script>
-<script type="module" src="{{ asset('assets/libs/pdf/js/viewer.mjs') }}"></script>  --}}
-
+<script src="{{ asset('assets/libs/pdf/js/pdf.js') }}"></script>
 
 <!-- App js -->
 <script src="{{ asset('assets/js/app.js') }}"></script>

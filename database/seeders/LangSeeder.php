@@ -30,7 +30,7 @@ class LangSeeder extends Seeder
             'code' => 'en',
             'name' => 'English',
             'icon' => 'assets/images/flags/Icons-Land-Vista-Flags-English-Language-Flag-1.256.png',
-            'is_published' => true,
+            'is_published' => false,
         ]);
     }
 }

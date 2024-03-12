@@ -62,7 +62,6 @@ Route::middleware([
     Route::resource('services', ServiceController::class);
     Route::resource('banners', BannerController::class);
     Route::resource('sections', SectionController::class);
-    Route::resource('abouts', AboutController::class);
     Route::resource('facilities', FacilityController::class);
     Route::resource('projects', ProjectController::class);
 
@@ -70,6 +69,14 @@ Route::middleware([
     Route::get('requests', [RequestController::class, 'index'])->name('requests.index');
     Route::post('requests', [RequestController::class, 'store'])->name('requests.store');
 
+    Route::get('abouts', [AboutController::class, 'index'])->name('abouts.index');
+    Route::get('abouts/{about}/edit', [AboutController::class, 'edit'])->name('abouts.edit');
+    Route::put('abouts/{about}', [AboutController::class, 'update'])->name('abouts.update');
+    Route::delete('abouts/certificate/{certificate}', [AboutController::class, 'destroyCertificate'])->name('abouts.destroy.certificate');
+    Route::delete('abouts/additionalImage/{additionalImage}', [AboutController::class, 'destroyAdditionalImage'])
+        ->name('abouts.destroy.additionalImage');
+
     Route::get('logos', [LogoController::class, 'index'])->name('logos.index');
     Route::put('logos/{logo}', [LogoController::class, 'update'])->name('logos.update');
+    Route::get('change-lang/{lang}', [LangController::class, 'changeLang'])->name('lang.change');
 });

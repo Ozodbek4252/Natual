@@ -102,4 +102,12 @@ return [
     'Main Logo' => 'Main Logo',
     'Secondary Logo' => 'Secondary Logo',
     'Update Logo' => 'Update Logo',
+    'About Company' => 'About Company',
+    'Update About' => 'Update About',
+    'Additional Images Preview' => 'Additional Images Preview',
+    'Additional Images' => 'Additional Images',
+    'Certificates Preview' => 'Certificates Preview',
+    'Certificates' => 'Certificates',
+    'Delete image' => 'Delete image',
+    'Delete Certificate' => 'Delete Certificate',
 ];

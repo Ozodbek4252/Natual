@@ -102,4 +102,12 @@ return [
     'Main Logo' => 'Основной логотип',
     'Secondary Logo' => 'Вторичный логотип',
     'Update Logo' => 'Обновить логотип',
+    'About Company' => 'О компании',
+    'Update About' => 'Обновить о компании',
+    'Additional Images Preview' => 'Предпросмотр дополнительных изображений',
+    'Additional Images' => 'Дополнительные изображения',
+    'Certificates Preview' => 'Предпросмотр сертификатов',
+    'Certificates' => 'Сертификаты',
+    'Delete image' => 'Удалить изображение',
+    'Delete Certificate' => 'Удалить сертификат',
 ];

@@ -102,4 +102,12 @@ return [
     'Main Logo' => 'Asosiy logotip',
     'Secondary Logo' => 'Ikkinchi logotip',
     'Update Logo' => 'Logotipni yangilash',
+    'About Company' => 'Kompaniya haqida',
+    'Update About' => 'Kompan haqidani yangilash',
+    'Additional Images Preview' => 'Qo\'shimcha rasmlarni ko\'rish',
+    'Additional Images' => 'Qo\'shimcha rasmlar',
+    'Certificates Preview' => 'Sertifikatlarni ko\'rish',
+    'Certificates' => 'Sertifikatlar',
+    'Delete image' => 'Rasmni o\'chirish',
+    'Delete Certificate' => 'Sertifikatni o\'chirish',
 ];
