@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Contact;
 use App\Models\Lang;
 use App\Models\Logo;
+use App\Models\Partner;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,11 +34,14 @@ class AppServiceProvider extends ServiceProvider
                 return $item[0];
             })->toArray();
 
+            $footerPartners = Partner::all();
+
             $view->with([
                 'langsForHeader' => $langsForHeader,
                 'currenctLang' => $currenctLang,
                 'logo' => $logo,
                 'global_contacts' => $contacts,
+                'footerPartners' => $footerPartners,
             ]);
         });
     }

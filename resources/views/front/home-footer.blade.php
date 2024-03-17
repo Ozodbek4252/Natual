@@ -15,30 +15,11 @@
             <div class="swiper swiper-partners">
                 <h2>{{ __('front.footer.Партнеры') }}:</h2>
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide flex justify-center items-center">
-                        <img src="{{ asset('front/img/partner-logo-1.png') }}" alt="partner logo 1" />
-                    </div>
-                    <div class="swiper-slide flex justify-center items-center">
-                        <img src="{{ asset('front/img/partner-logo-2.png') }}" alt="partner logo 2" />
-                    </div>
-                    <div class="swiper-slide flex justify-center items-center">
-                        <img src="{{ asset('front/img/partner-logo-3.png') }}" alt="partner logo 3" />
-                    </div>
-                    <div class="swiper-slide flex justify-center items-center">
-                        <img src="{{ asset('front/img/partner-logo-4.png') }}" alt="partner logo 4" />
-                    </div>
-                    <div class="swiper-slide flex justify-center items-center">
-                        <img src="{{ asset('front/img/partner-logo-1.png') }}" alt="partner logo 1" />
-                    </div>
-                    <div class="swiper-slide flex justify-center items-center">
-                        <img src="{{ asset('front/img/partner-logo-2.png') }}" alt="partner logo 2" />
-                    </div>
-                    <div class="swiper-slide flex justify-center items-center">
-                        <img src="{{ asset('front/img/partner-logo-3.png') }}" alt="partner logo 3" />
-                    </div>
-                    <div class="swiper-slide flex justify-center items-center">
-                        <img src="{{ asset('front/img/partner-logo-4.png') }}" alt="partner logo 4" />
-                    </div>
+                    @foreach ($footerPartners as $footerPartner)
+                        <div class="swiper-slide flex justify-center items-center">
+                            <img src="{{ asset('storage/' . $footerPartner->logo) }}" alt="partner logo 1" />
+                        </div>
+                    @endforeach
                 </div>
             </div>
             <div class="swiper-button-next swiper-button-next-partners"></div>
