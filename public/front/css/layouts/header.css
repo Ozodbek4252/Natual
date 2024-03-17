@@ -1,0 +1,24 @@
+/* header */
+header {
+  @apply h-screen bg-top bg-no-repeat bg-cover flex justify-center items-center text-white;
+}
+
+header h1 {
+  font-family: 'Playfair Display SC', serif;
+  @apply font-normal leading-none not-italic xl:text-[120px] md:text-[100px] text-[64px];
+}
+
+header h2 {
+  font-family: 'Playfair Display SC', serif;
+  @apply font-normal leading-none not-italic xl:text-[120px] md:text-[100px] text-[40px];
+}
+
+header .btn-big {
+  @apply flex justify-center items-center mx-auto;
+}
+
+@media screen and (min-width: 1600px) {
+  header h1 {
+    @apply text-[150px];
+  }
+}

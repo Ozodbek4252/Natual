@@ -43,7 +43,7 @@ class ProjectSeeder extends Seeder
 
 
         $project2 = Project::query()->create([
-            'image' => 'projects/Property 1=Variant3.png',
+            'image' => 'projects/Property 1=Variant4.png',
             'date' => '2019',
             'name' => 'Tashkent city',
             'is_finished' => true,

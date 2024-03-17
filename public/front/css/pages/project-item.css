@@ -1,0 +1,25 @@
+.section-project_item {
+  @apply pt-[160px] pb-[100px];
+}
+
+.section-project_item .project-item__img img {
+  border-radius: 60px;
+  max-width: 100%;
+  height: auto;
+}
+
+.project-item__info {
+}
+
+.project-item__detail h3 {
+  font-family: 'Playfair Display', serif;
+  @apply font-normal leading-tight not-italic md:text-[32px] text-2xl mb-4;
+}
+
+.project-item__detail > p {
+  @apply font-light leading-tight not-italic md:text-2xl text-base;
+}
+
+.project-item__info p {
+  @apply font-light leading-tight not-italic text-base mb-2;
+}

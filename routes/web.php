@@ -18,6 +18,7 @@ use App\Http\Controllers\Dashboard\RequestController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\ServiceController;
 use App\Http\Controllers\Dashboard\StaffController;
+use App\Http\Controllers\Front\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +31,7 @@ use App\Http\Controllers\Dashboard\StaffController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'doLogin'])->name('login.post');
 Route::get('/register', [AuthController::class, 'register'])->name('register');

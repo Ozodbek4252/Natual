@@ -1,0 +1,15 @@
+/* Sections */
+section {
+  @apply py-24;
+}
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  @apply font-normal leading-tight not-italic;
+}
+
+@media screen and (max-width: 576px) {
+  section {
+    @apply py-16;
+  }
+}

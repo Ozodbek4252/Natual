@@ -1,0 +1,11 @@
+.section-about {
+  @apply bg-no-repeat bg-cover;
+  background-position: right center;
+}
+
+.section-certificate a img {
+  height: 320px;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}

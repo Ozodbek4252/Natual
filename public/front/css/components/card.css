@@ -1,0 +1,41 @@
+.project-item {
+  @apply relative block;
+}
+
+.project-item img {
+  @apply w-full object-cover object-center;
+  border-radius: 60px;
+  height: 350px;
+}
+
+.project-item .project-item__title {
+  @apply flex justify-center flex-col items-start 
+  absolute bg-white bg-opacity-80 w-full bottom-0 text-center px-10 py-6;
+  transition: height 0.2s ease-out;
+  height: 100px;
+}
+
+.project-item:hover .project-item__title {
+  height: 100%;
+}
+
+.project-item .project-item__title h3 {
+  @apply font-normal leading-none not-italic mb-2;
+  font-family: 'Playfair Display', serif;
+}
+
+.project-item .project-item__title p {
+  @apply font-light text-base;
+}
+
+@media screen and (max-width: 1400px) {
+  .project-item img {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .project-item {
+    @apply my-4;
+  }
+}

@@ -1,0 +1,184 @@
+/* Navbar */
+.navbar {
+  transition: all 0.2s ease-out;
+}
+.navbar-active {
+  @apply shadow shadow-zinc-200;
+}
+
+.logo img {
+  @apply h-auto;
+  transition: all 0.2s ease-out;
+  max-width: 200px;
+}
+
+.navbar-active .logo img {
+  max-width: 150px;
+}
+
+.navbar .nav-pages li {
+  @apply mx-6;
+}
+
+.navbar .nav-pages li a {
+  @apply text-green px-8 py-2 rounded-3xl hover:bg-green hover:text-white transition font-light;
+}
+
+.navbar .nav-pages li a.active {
+  @apply bg-green text-white;
+}
+
+/* lang */
+.lang:hover .lang-list {
+  @apply visible opacity-100 top-9;
+}
+
+.lang-selected {
+  @apply bg-green text-white p-2.5 font-normal text-sm rounded-xl;
+}
+
+.lang-list {
+  @apply opacity-0 top-20 transition invisible;
+}
+
+.lang-list a {
+  @apply bg-white text-dark p-2.5
+  font-normal text-sm rounded-xl hover:bg-green shadow-xl 
+  transition hover:text-white;
+}
+
+.nav-phone {
+  @apply text-green;
+}
+
+.nav-phone span svg {
+  width: 20px;
+  height: 16px;
+}
+
+.nav-phone span {
+  @apply bg-green rounded-xl flex justify-center items-center p-2.5;
+}
+
+@media screen and (max-width: 1500px) {
+  .navbar .nav-pages li {
+    @apply mx-4;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .navbar .nav-pages li {
+    @apply mx-2;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar .nav-pages li a {
+    @apply px-4;
+  }
+
+  .nav-phone div {
+    @apply hidden;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .navbar {
+    height: 80px;
+  }
+
+  .navbar .logo img {
+    max-width: 150px;
+  }
+
+  .navbar-active .logo img {
+    max-width: 150px;
+  }
+
+  .menu-logo img {
+    max-width: 300px;
+  }
+
+  .navbar .nav-links {
+    @apply opacity-0 invisible absolute h-screen
+    bg-[#ececec] z-30 w-full left-0 ring-0 top-0 
+    bottom-0 m-0 flex-col justify-center px-4;
+
+    transition: all ease 0.2s;
+  }
+
+  .navbar .nav-links .nav-pages {
+    @apply flex-col w-full;
+  }
+
+  .navbar .nav-links .nav-pages li {
+    @apply my-2;
+  }
+
+  .navbar .nav-links .nav-pages li a {
+    @apply text-base py-2 px-8;
+  }
+
+  .navbar .btn {
+    @apply mx-auto mb-0 flex justify-center items-center mt-4 text-base uppercase;
+    max-width: 250px;
+  }
+
+  .navbar .nav-phone div {
+    display: hidden;
+  }
+
+  .navbar .nav-phone {
+    @apply flex justify-center items-center;
+  }
+
+  .navbar .nav-phone span {
+    @apply mr-0 px-3;
+    height: 40px;
+  }
+
+  .navbar .lang {
+    @apply flex ml-0;
+  }
+
+  .navbar .lang-selected {
+    @apply px-3;
+    font-size: 15px;
+    height: 40px;
+  }
+
+  .navbar .lang-list a {
+    @apply px-3;
+    font-size: 15px;
+  }
+
+  .navbar .lang:hover .lang-list {
+    top: 3rem;
+  }
+
+  .navbar #close-button svg {
+    @apply w-10 h-10;
+  }
+
+  .navbar #close-button svg path {
+    @apply text-green;
+  }
+
+  .navbar .nav-links.active {
+    @apply opacity-100 visible;
+  }
+
+  ul.nav-socials li a {
+    @apply text-green;
+  }
+}
+
+/* @media screen and (max-width: 576px) {
+  .navbar .logo img {
+    max-width: 150px;
+  }
+
+  .navbar-active .logo img {
+    max-width: 150px;
+  }
+} */

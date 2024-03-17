@@ -1,0 +1,51 @@
+/* Buttons */
+.btn {
+  @apply px-4 py-2 rounded-3xl border border-solid font-light transition flex text-center;
+}
+
+.btn-green {
+  @apply text-green border-green hover:bg-green hover:text-white;
+}
+
+.btn-light {
+  @apply text-white border-white hover:bg-white hover:text-dark;
+}
+
+.btn-big {
+  @apply px-12 py-4 uppercase text-center;
+  border-radius: 72px;
+  font-size: 32px;
+  max-width: 250px;
+}
+
+.btn-medium {
+  @apply px-12 py-4;
+  border-radius: 88px;
+  font-size: 24px;
+  max-width: 280px;
+}
+
+@media screen and (max-width: 1200px) {
+  .btn-big {
+    @apply px-10 py-4 uppercase;
+    border-radius: 64px;
+    font-size: 28px;
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .btn-big {
+    @apply px-6 py-2;
+    border-radius: 72px;
+    font-size: 1rem;
+    max-width: 150px;
+  }
+
+  .btn-medium {
+    @apply px-6 py-2 text-center justify-center items-center;
+    border-radius: 72px;
+    font-size: 1rem;
+    max-width: 200px;
+  }
+}

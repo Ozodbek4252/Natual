@@ -1,0 +1,8 @@
+.section-projects_catalog h2 {
+  @apply xl:text-[64px] text-[52px] mb-[80px];
+}
+
+.section-projects_catalog h4 {
+  font-family: 'Playfair Display', serif;
+  @apply font-normal leading-tight not-italic xl:text-[48px] text-[36px] my-[40px] opacity-80 text-center;
+}

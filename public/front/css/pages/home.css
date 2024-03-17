@@ -1,0 +1,291 @@
+/* Section About Us */
+.section-about_us h2 {
+  font-size: 64px;
+}
+.section-about_us {
+  background: linear-gradient(90deg, #fff 50%, rgba(0, 0, 0, 0.1), #fff);
+}
+
+.section-about_us p {
+  @apply font-light;
+}
+
+.section-about_us img {
+  @apply h-auto max-w-full;
+}
+
+@media screen and (max-width: 576px) {
+  .section-about_us h2 {
+    font-size: 24px;
+  }
+
+  .section-about_us p {
+    font-size: 10px;
+  }
+}
+
+/* Section Features */
+.section-features {
+  @apply bg-center bg-no-repeat bg-cover transition;
+}
+
+.swiper-features .swiper-slide {
+  @apply flex justify-start items-center flex-col transition;
+  height: auto;
+}
+
+.swiper-features .swiper-slide .slide-img {
+  @apply transition rounded-full border border-white border-dashed p-5 flex justify-center items-center w-full h-full;
+}
+
+@media screen and (min-width: 600px) {
+  .swiper-features .swiper-slide:not(.swiper-slide-next) .slide-shape {
+    @apply transition rounded-full border border-white border-solid p-5 flex justify-center items-center border-opacity-50;
+    width: 220px;
+    height: 220px;
+    margin-top: 60px;
+  }
+
+  .swiper-features .swiper-slide-next .slide-shape {
+    @apply transition bg-no-repeat bg-contain bg-center p-8;
+    background-image: url('/img/shape.svg');
+    width: 360px;
+    height: 360px;
+  }
+
+  .swiper-features .swiper-slide:not(.swiper-slide-next) .slide-img img {
+    @apply opacity-50;
+  }
+
+  .swiper-features .swiper-slide:not(.swiper-slide-next) .slide-content {
+    @apply hidden;
+  }
+
+  .swiper-features .swiper-slide-next .slide-content {
+    @apply block;
+  }
+
+  .slide-content {
+    @apply text-white mt-12;
+    width: 150%;
+  }
+
+  .slide-content h3 {
+    @apply text-white font-medium text-center mb-8;
+    font-size: 32px;
+  }
+
+  .slide-content ul {
+    display: grid;
+    grid-template-rows: repeat(5, min-content);
+    grid-auto-flow: column;
+  }
+
+  .slide-content ul li {
+    @apply text-white font-light my-3;
+    font-size: 18px;
+  }
+
+  .swiper-button-next-features {
+    right: calc(50% - 220px);
+  }
+  .swiper-button-prev-features {
+    left: calc(50% - 220px);
+  }
+
+  .swiper-button-next-features,
+  .swiper-button-prev-features {
+    @apply text-white border border-white border-solid 
+    w-12 h-12 flex justify-center items-center rounded-full p-3;
+    top: 182px;
+  }
+
+  .swiper-button-next-features::after,
+  .swiper-button-prev-features::after {
+    @apply text-xl;
+  }
+}
+
+@media screen and (max-width: 1200px and min-width: 577px) {
+  .swiper-features .swiper-slide:not(.swiper-slide-next) .slide-shape {
+    width: 135px;
+    height: 135px;
+  }
+
+  .swiper-features .swiper-slide-next .slide-shape {
+    width: 280px;
+    height: 280px;
+  }
+
+  .slide-content {
+    width: 150%;
+  }
+
+  .swiper-button-next-features {
+    right: calc(50% - 180px);
+  }
+  .swiper-button-prev-features {
+    left: calc(50% - 180px);
+  }
+
+  .swiper-button-next-features,
+  .swiper-button-prev-features {
+    top: 140px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .swiper-features .swiper-slide:not(.swiper-slide-active) .slide-shape {
+    @apply transition rounded-full border border-white border-solid p-5 flex justify-center items-center border-opacity-50;
+    width: 230px;
+    height: 230px;
+  }
+
+  .swiper-features .swiper-slide-active .slide-shape {
+    @apply transition bg-no-repeat bg-contain bg-center p-8;
+    background-image: url('/img/shape.svg');
+    width: 230px;
+    height: 230px;
+  }
+
+  .slide-content {
+    @apply text-white mt-12;
+  }
+
+  .slide-content h3 {
+    @apply text-white font-medium text-center mb-8 leading-tight;
+    font-size: 32px;
+  }
+
+  .slide-content ul li {
+    @apply text-white font-light my-3;
+    font-size: 16px;
+  }
+
+  .swiper-button-next-features {
+    right: calc(50% - 150px);
+  }
+  .swiper-button-prev-features {
+    left: calc(50% - 150px);
+  }
+
+  .swiper-button-next-features,
+  .swiper-button-prev-features {
+    @apply text-white border border-white border-solid 
+    w-10 h-10 flex justify-center items-center rounded-full p-3;
+    top: 119px;
+  }
+
+  .swiper-button-next-features::after,
+  .swiper-button-prev-features::after {
+    @apply text-base;
+  }
+}
+
+/* Section Ceo */
+.section-ceo .ceo-content img {
+  @apply rounded-full object-cover object-center border-dashed border outline-2 outline-none;
+  width: 450px;
+  height: 450px;
+  padding: 20px;
+  outline-offset: 20px;
+  border-color: rgba(0, 0, 0, 0.5);
+  outline-color: rgba(0, 0, 0, 0.5);
+}
+
+.section-ceo h2 {
+  font-size: 48px;
+}
+
+@media screen and (max-width: 1200px) {
+  .section-ceo .ceo-content img {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .section-ceo .ceo-content img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .section-ceo h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+
+  .section-ceo p {
+    font-size: 1rem;
+  }
+
+  .section-ceo .ceo-content img {
+    @apply mx-auto;
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Section Projects */
+.section-projects {
+  @apply py-0;
+}
+.section-projects h2 {
+  font-size: 32px;
+  padding: 50px 1rem;
+  @apply text-center bg-green text-white;
+}
+
+.section-projects .project {
+  @apply border border-solid;
+  padding: 20px;
+  border-radius: 75px;
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.section-projects .project .project-body {
+  @apply border border-dashed;
+  padding: 20px;
+  border-radius: 75px;
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.section-projects .project .project-body img {
+  @apply w-full object-cover object-center;
+  border-radius: 60px;
+  height: 350px;
+}
+
+.section-projects .project .project-body .project-title h3 {
+  @apply font-normal leading-none not-italic;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+}
+
+.section-projects .project .project-body .project-title {
+  @apply flex justify-center items-center absolute bg-white bg-opacity-80 w-full bottom-0 text-center px-4 py-8;
+  transition: height 0.2s ease-out;
+  height: 100px;
+}
+
+.section-projects .project .project-body .project-inner:hover .project-title {
+  height: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .section-projects .project .project-body img {
+    height: 250px;
+  }
+
+  .section-projects .project .project-body .project-title h3 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .section-projects h2 {
+    font-size: 1.5rem;
+  }
+}
