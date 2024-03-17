@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Contact;
 use App\Models\Lang;
 use App\Models\Logo;
 use Illuminate\Support\Facades\View;
@@ -27,10 +28,16 @@ class AppServiceProvider extends ServiceProvider
             $currenctLang = Lang::where('code', session('locale'))->first();
             $logo = Logo::first();
 
+            $contacts = Contact::all();
+            $contacts = collect($contacts)->groupBy('title')->map(function ($item, $key) {
+                return $item[0];
+            })->toArray();
+
             $view->with([
                 'langsForHeader' => $langsForHeader,
                 'currenctLang' => $currenctLang,
                 'logo' => $logo,
+                'global_contacts' => $contacts,
             ]);
         });
     }

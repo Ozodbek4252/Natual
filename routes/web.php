@@ -31,7 +31,7 @@ use App\Http\Controllers\Front\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('front.home');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'doLogin'])->name('login.post');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
