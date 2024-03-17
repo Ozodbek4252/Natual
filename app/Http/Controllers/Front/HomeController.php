@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Section;
 use App\Models\Service;
+use App\Models\Staff;
 use Illuminate\Support\Collection;
 
 class HomeController extends Controller
@@ -21,12 +22,17 @@ class HomeController extends Controller
         $services = Service::with('translations')->get();
         $service = $this->getTranslationsWithModel($services);
 
+        $staff = Staff::with('translations')->first();
+        $staffTranslations = $this->getTranslations($staff->translations);
+
         return view('home', compact(
             'banner',
             'bannerTranslations',
             'section',
             'sectionTranslations',
             'services',
+            'staff',
+            'staffTranslations'
         ));
     }
 

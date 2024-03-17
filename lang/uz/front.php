@@ -18,5 +18,8 @@ return [
     ],
     'home' => [
         'Узнать больше' => 'Ko\'proq ma\'lumot',
+        'тел' => 'tel',
+        'email' => 'email',
+        'сайт' => 'sayt',
     ],
 ];

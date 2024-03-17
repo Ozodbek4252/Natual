@@ -109,26 +109,27 @@
             <div class="container relative py-20">
                 <div class="grid grid-cols-12 gap-6 ceo-content md:px-12">
                     <div data-aos="zoom-in" class="md:col-span-5 col-span-full">
-                        <img src="{{ asset('front/img/ceo.png') }}" alt="ceo" />
+                        <img src="{{ asset('storage/' . $staff->image) }}" alt="ceo" />
                     </div>
                     <div class="md:col-span-7 col-span-full flex justify-center items-center flex-col text-center">
-                        <h2 data-aos="flip-up" class="mb-12">MUSTAFA FEDAİ ÖZASLAN</h2>
+                        <h2 data-aos="flip-up" class="mb-12">{{ $staff->name }}</h2>
                         <div>
-                            <p data-aos="fade-up" class="mb-4">Региональный директор</p>
+                            <p data-aos="fade-up" class="mb-4">{{ $staffTranslations['position']['content'] }}</p>
                             <p data-aos="fade-up" class="mb-4">
-                                тел:
-                                <a class="hover:underline" href="tel:+998 97 156 74 94">+998 97 156 74 94</a>
+                                {{ __('front.home.тел') }}:
+                                <a class="hover:underline"
+                                    href="tel:{{ $staff->number }}">{{ formatPhoneNumber($staff->number) }}</a>
                             </p>
                             <p data-aos="fade-up" class="mb-4">
-                                email:
-                                <a class="hover:underline" href="mailto:mustafa@naturalpeyzaj.com.tr">
-                                    mustafa@naturalpeyzaj.com.tr
+                                {{ __('front.home.email') }}:
+                                <a class="hover:underline" href="mailto:{{ $staff->email }}">
+                                    {{ $staff->email }}
                                 </a>
                             </p>
                             <p data-aos="fade-up" class="mb-4">
-                                сайт:
+                                {{ __('front.home.сайт') }}:
                                 <a class="hover:underline" target="_blank"
-                                    href="https://naturalpeyzaj.com.tr">naturalpeyzaj.com.tr</a>
+                                    href="https://{{ $staff->website }}">{{ $staff->website }}</a>
                             </p>
                         </div>
                     </div>

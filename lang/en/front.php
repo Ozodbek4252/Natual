@@ -18,5 +18,8 @@ return [
     ],
     'home' => [
         'Узнать больше' => 'Learn more',
+        'тел' => 'tel',
+        'email' => 'email',
+        'сайт' => 'site',
     ],
 ];
