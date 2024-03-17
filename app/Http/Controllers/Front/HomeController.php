@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Section;
+use App\Models\Service;
 use Illuminate\Support\Collection;
 
 class HomeController extends Controller
@@ -13,16 +14,45 @@ class HomeController extends Controller
     {
         $banner = Banner::with('translations')->where('is_published', true)->first();
         $bannerTranslations = $this->getTranslations($banner->translations);
+
         $section = Section::with('translations')->first();
         $sectionTranslations = $this->getTranslations($section->translations);
+
+        $services = Service::with('translations')->get();
+        $service = $this->getTranslationsWithModel($services);
 
         return view('home', compact(
             'banner',
             'bannerTranslations',
             'section',
-            'sectionTranslations'
+            'sectionTranslations',
+            'services',
         ));
     }
+
+    /**
+     * Get translations for each model in the collection.
+     *
+     * @param array|Collection $models The collection of models with translations.
+     * @return array|Collection The collection of models with translations updated.
+     */
+    private function getTranslationsWithModel($models)
+    {
+        // Check if $models is an array or a Collection
+        if (!($models instanceof Collection)) {
+            $models = collect($models);
+        }
+
+        // Iterate through each model and update translations
+        $models->transform(function ($model) {
+            $translations = $this->getTranslations($model->translations);
+            $model->translations = $translations;
+            return $model;
+        });
+
+        return $models;
+    }
+
 
     /**
      * Get translations for a collection based on the current locale.

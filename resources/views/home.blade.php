@@ -65,200 +65,38 @@
             <div class="container">
                 <div data-aos="zoom-in" class="swiper swiper-features">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="slide-shape">
-                                <div class="slide-img">
-                                    <img src="{{ asset('front/img/sirkul.png') }}" />
+                        @foreach ($services as $service)
+                            <div class="swiper-slide">
+                                <div class="slide-shape">
+                                    <div class="slide-img">
+                                        <img src="{{ asset('storage/' . $service->icon) }}" />
+                                    </div>
+                                </div>
+                                <div class="slide-content">
+                                    <h3>{{ $service['translations']['title']['content'] }}:</h3>
+                                    <ul>
+                                        {!! $service['translations']['description']['content'] !!}
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="slide-content">
-                                <h3>Ландшафтное проектирование:</h3>
-                                <ul>
-                                    <li>
-                                        -Дендроплан
-                                    </li>
-                                    <li>
-                                        -Подробная схема посадки
-                                    </li>
-                                    <li>
-                                        -Разработка цветников
-                                    </li>
-                                    <li>
-                                        -Ассортиментная ведомость всех растений
-                                    </li>
-                                    <li>
-                                        -План газонного покрытия
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slide-shape">
-                                <div class="slide-img">
-                                    <img src="{{ asset('front/img/cloud.png') }}" />
-                                </div>
-                            </div>
-                            <div class="slide-content">
-                                <h3>Озеленение:</h3>
-                                <ul>
-                                    <li>
-                                        -Разработка растительного грунта
-                                    </li>
-                                    <li>
-                                        -Посадка кустарников
-                                    </li>
-                                    <li>
-                                        -Система полива
-                                    </li>
-                                    <li>
-                                        -Установка рулонного газона
-                                    </li>
-                                    <li>
-                                        -Система грунтового дренажа
-                                    </li>
-                                    <li>
-                                        -Установка Гидропосева
-                                    </li>
-                                    <li>
-                                        -Система кровельного дренажа
-                                    </li>
-                                    <li>
-                                        -Укладка декоративного камня
-                                    </li>
-                                    <li>
-                                        -Посадка деревьев
-                                    </li>
-                                    <li>
-                                        -Установка разделителей
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slide-shape">
-                                <div class="slide-img">
-                                    <img src="{{ asset('front/img/beton.png') }}" />
-                                </div>
-                            </div>
-                            <div class="slide-content">
-                                <h3>Мошение:</h3>
-                                <ul>
-                                    <li>
-                                        -Подготовка основания для бетонных работ (ГПС+Щебень)
-                                    </li>
-                                    <li>
-                                        -Работа по подготовочным бетонам
-                                    </li>
-                                    <li>
-                                        -Укладка бетонных или каменных бордюров
-                                    </li>
-                                    <li>
-                                        -Укладка бетонной или каменной брусчатки
-                                    </li>
-                                    <li>
-                                        -Установка бетона с декоративной поверхности
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        @endforeach
 
                         <!-- Dont Delete -->
-                        <div class="swiper-slide">
-                            <div class="slide-shape">
-                                <div class="slide-img">
-                                    <img src="{{ asset('front/img/sirkul.png') }}" />
+                        @foreach ($services as $service)
+                            <div class="swiper-slide">
+                                <div class="slide-shape">
+                                    <div class="slide-img">
+                                        <img src="{{ asset('storage/' . $service->icon) }}" />
+                                    </div>
+                                </div>
+                                <div class="slide-content">
+                                    <h3>{{ $service['translations']['title']['content'] }}:</h3>
+                                    <ul>
+                                        {!! $service['translations']['description']['content'] !!}
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="slide-content">
-                                <h3>Ландшафтное проектирование::</h3>
-                                <ul>
-                                    <li>
-                                        -Дендроплан
-                                    </li>
-                                    <li>
-                                        -Подробная схема посадки
-                                    </li>
-                                    <li>
-                                        -Разработка цветников
-                                    </li>
-                                    <li>
-                                        -Ассортиментная ведомость всех растений
-                                    </li>
-                                    <li>
-                                        -План газонного покрытия
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slide-shape">
-                                <div class="slide-img">
-                                    <img src="{{ asset('front/img/cloud.png') }}" />
-                                </div>
-                            </div>
-                            <div class="slide-content">
-                                <h3>Озеленение:</h3>
-                                <ul>
-                                    <li>
-                                        -Разработка растительного грунта
-                                    </li>
-                                    <li>
-                                        -Посадка кустарников
-                                    </li>
-                                    <li>
-                                        -Система полива
-                                    </li>
-                                    <li>
-                                        -Установка рулонного газона
-                                    </li>
-                                    <li>
-                                        -Система грунтового дренажа
-                                    </li>
-                                    <li>
-                                        -Установка Гидропосева
-                                    </li>
-                                    <li>
-                                        -Система кровельного дренажа
-                                    </li>
-                                    <li>
-                                        -Укладка декоративного камня
-                                    </li>
-                                    <li>
-                                        -Посадка деревьев
-                                    </li>
-                                    <li>
-                                        -Установка разделителей
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slide-shape">
-                                <div class="slide-img">
-                                    <img src="{{ asset('front/img/beton.png') }}" />
-                                </div>
-                            </div>
-                            <div class="slide-content">
-                                <h3>Мошение:</h3>
-                                <ul>
-                                    <li>
-                                        -Подготовка основания для бетонных работ (ГПС+Щебень)
-                                    </li>
-                                    <li>
-                                        -Работа по подготовочным бетонам
-                                    </li>
-                                    <li>
-                                        -Укладка бетонных или каменных бордюров
-                                    </li>
-                                    <li>
-                                        -Укладка бетонной или каменной брусчатки
-                                    </li>
-                                    <li>
-                                        -Установка бетона с декоративной поверхности
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="swiper-button-next swiper-button-next-features"></div>
                     <div class="swiper-button-prev swiper-button-prev-features"></div>
