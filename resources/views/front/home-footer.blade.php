@@ -13,7 +13,7 @@
             </svg>
 
             <div class="swiper swiper-partners">
-                <h2>Партнеры:</h2>
+                <h2>{{ __('front.footer.Партнеры') }}:</h2>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide flex justify-center items-center">
                         <img src="{{ asset('front/img/partner-logo-1.png') }}" alt="partner logo 1" />
@@ -56,7 +56,7 @@
                 <div class="grid grid-cols-12 gap-6">
                     @if (array_key_exists('number', $global_contacts))
                         <div class="md:col-span-4 col-span-full">
-                            <p class="mb-2">Наш номер телефона</p>
+                            <p class="mb-2">{{ __('front.footer.Наш номер телефона') }}</p>
                             <a class="hover:underline"
                                 href="tel:{{ $global_contacts['telegram']['value'] }}">{{ formatPhoneNumber($global_contacts['number']['value']) }}
                                 22</a>
@@ -64,7 +64,7 @@
                     @endif
                     @if (array_key_exists('email', $global_contacts))
                         <div class="md:col-span-4 col-span-full">
-                            <p class="mb-2">Информация и жалобы</p>
+                            <p class="mb-2">{{ __('front.footer.Информация и жалобы') }}</p>
                             <a target="_blank" class="hover:underline"
                                 href="mailto:{{ $global_contacts['email']['value'] }}">{{ $global_contacts['email']['value'] }}</a>
                         </div>
@@ -80,13 +80,13 @@
                     <div class="md:col-span-8 col-span-full">
                         <ul class="flex justify-around items-center">
                             <li>
-                                <a href="{{ Route('front.home') }}">Главная</a>
+                                <a href="{{ Route('front.home') }}">{{ __('front.footer.Главная') }}</a>
                             </li>
                             <li>
-                                <a href="about.html">О нас</a>
+                                <a href="about.html">{{ __('front.footer.О нас') }}</a>
                             </li>
                             <li>
-                                <a href="/#projects">Проекты</a>
+                                <a href="/#projects">{{ __('front.footer.Проекты') }}</a>
                             </li>
                         </ul>
                     </div>

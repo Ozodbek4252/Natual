@@ -29,21 +29,21 @@
 
             <ul class="nav-pages flex items-center order-2">
                 <li>
-                    <a class="active" href="{{ Route('front.home') }}">Главная</a>
+                    <a class="active" href="{{ Route('front.home') }}">{{ __('front.navbar.Главная') }}</a>
                 </li>
                 <li>
-                    <a href="about.html">О нас</a>
+                    <a href="about.html">{{ __('front.navbar.О нас') }}</a>
                 </li>
                 <li>
-                    <a href="#contact">Контакт</a>
+                    <a href="#contact">{{ __('front.navbar.Контакт') }}</a>
                 </li>
                 <li>
-                    <a href="/#projects">Проекты</a>
+                    <a href="/#projects">{{ __('front.navbar.Проекты') }}</a>
                 </li>
             </ul>
 
-            <button id="order-now-btn" class="xl:order-3 order-4 btn btn-green ml-auto mr-4">Оставить
-                заявку</button>
+            <button id="order-now-btn"
+                class="xl:order-3 order-4 btn btn-green ml-auto mr-4">{{ __('front.navbar.Оставить заявку') }}</button>
 
             <div class="flex items-center xl:my-0 my-4 xl:order-4 order-3">
                 <div class="lang relative mx-4">

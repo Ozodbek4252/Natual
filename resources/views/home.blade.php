@@ -12,14 +12,17 @@
       ">
         <div class="container">
             <div class="xl:px-20 px-4">
-                <p data-aos="fade-up" class="xl:text-right text-center text-white md:text-2xl text-xs font-light">
-                    Измените <b>ландшафтный дизайн</b> вокруг себя <br />
-                    - подчеркните индивидуальность
-                </p>
+                <div style="display: flex; justify-content: end;">
+                    <p data-aos="fade-up" class="xl:text-right text-center text-white md:text-2xl text-xs font-light" style="width: 40%;">
+                        {{ $bannerTranslations['description']['content'] }}
+                    </p>
+                </div>
 
-                <h1 data-aos="flip-up" class="mt-6 mb-12 xl:text-right text-center leading-tight">Natural Peyzaj</h1>
+                <h1 data-aos="flip-up" class="mt-6 mb-12 xl:text-right text-center leading-tight">
+                    {{ $bannerTranslations['title']['content'] }}</h1>
 
-                <a data-aos="zoom-in" class="btn btn-light btn-big" href="#catalog">Каталог</a>
+                <a data-aos="zoom-in" class="btn btn-light btn-big"
+                    href="{{ $banner->link }}">{{ $bannerTranslations['button']['content'] }}</a>
             </div>
         </div>
     </header>
