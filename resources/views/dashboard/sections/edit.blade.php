@@ -54,15 +54,16 @@
                                                         id="section-title-{{ $lang->code }}">
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="section-description">
+                                                    <label class="form-label" for="classic-editor-{{ $lang->code }}">
                                                         {{ __('body.Description') }} <span class="text-danger">*</span>
                                                     </label>
-                                                    <input name="description_{{ $lang->code }}" type="text"
-                                                        @if (array_key_exists($lang->code, $section->translations)) value="{{ $section->translations[$lang->code]['description']['content'] }}" @endif
-                                                        placeholder="{{ __('body.Enter description') }}..." class="form-control"
-                                                        id="section-description-{{ $lang->code }}">
+                                                    <textarea class="classic-editor" name="description_{{ $lang->code }}" id="classic-editor-{{ $lang->code }}">
+                                                        @if (array_key_exists($lang->code, $section->translations))
+                                                            {{ $section->translations[$lang->code]['description']['content'] }}
+                                                        @endif
+                                                    </textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -96,8 +97,9 @@
                                             <label class="form-label" for="section-link">
                                                 {{ __('body.Link') }}
                                             </label>
-                                            <input name="link" type="text" placeholder="{{ __('body.Enter link') }}..."
-                                                value="{{ $section->link }}" class="form-control" id="section-link">
+                                            <input name="link" type="text"
+                                                placeholder="{{ __('body.Enter link') }}..." value="{{ $section->link }}"
+                                                class="form-control" id="section-link">
                                         </div>
                                     </div>
                                 </div>

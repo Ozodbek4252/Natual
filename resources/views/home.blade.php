@@ -13,7 +13,8 @@
         <div class="container">
             <div class="xl:px-20 px-4">
                 <div style="display: flex; justify-content: end;">
-                    <p data-aos="fade-up" class="xl:text-right text-center text-white md:text-2xl text-xs font-light" style="width: 40%;">
+                    <p data-aos="fade-up" class="xl:text-right text-center text-white md:text-2xl text-xs font-light"
+                        style="width: 40%;">
                         {{ $bannerTranslations['description']['content'] }}
                     </p>
                 </div>
@@ -35,28 +36,18 @@
                 <div class="grid grid-cols-12 gap-6">
                     <div class="md:col-span-8 col-span-full">
                         <h2 data-aos="zoom-in-up" class="text-green-light mb-12">
-                            Профессиональные ландшафтные услуги более
+                            {{ $sectionTranslations['title']['content'] }}
                         </h2>
 
-                        <p data-aos="fade-up" class="mb-8">
-                            <b>Natural Peyzaj</b> входит в число компаний, которые формируют
-                            сектор с его завершенными и в настоящее время действующими
-                            зарубежными и отечественными проектами и приложениями для
-                            промышленности, дорог, туристических объектов, торговых центров,
-                            жилищного строительства.
-                        </p>
-
-                        <p data-aos="fade-up" class="mb-12">
-                            Основанная в 1996 году, наша компания предоставляет услуги в
-                            ландшафтном секторе с архитектурным офисом, теплицами и
-                            питомником, расположенными на 16 акрах в Эйюпе Кемербургазе.
-                        </p>
-
-                        <a data-aos="zoom-in" class="btn btn-green btn-medium" href="#more">Узнать больше</a>
+                        <div class="mb-8">
+                            {!! $sectionTranslations['description']['content'] !!}
+                        </div>
+                        <a data-aos="zoom-in" class="btn btn-green btn-medium"
+                            href="{{ $section->link }}">{{ __('front.home.Узнать больше') }}</a>
                     </div>
 
                     <div data-aos="zoom-in" class="md:col-span-4 col-span-full">
-                        <img src="{{ asset('front/img/experience.png') }}" alt="experience" />
+                        <img src="{{ asset('storage/' . $section->image) }}" alt="experience" />
                     </div>
                 </div>
             </div>

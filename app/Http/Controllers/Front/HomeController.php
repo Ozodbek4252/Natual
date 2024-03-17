@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Models\Section;
 use Illuminate\Support\Collection;
 
 class HomeController extends Controller
@@ -12,8 +13,15 @@ class HomeController extends Controller
     {
         $banner = Banner::with('translations')->where('is_published', true)->first();
         $bannerTranslations = $this->getTranslations($banner->translations);
+        $section = Section::with('translations')->first();
+        $sectionTranslations = $this->getTranslations($section->translations);
 
-        return view('home', compact('banner', 'bannerTranslations'));
+        return view('home', compact(
+            'banner',
+            'bannerTranslations',
+            'section',
+            'sectionTranslations'
+        ));
     }
 
     /**

@@ -16,4 +16,7 @@ return [
         'Проекты' => 'Loyihalar',
         'Оставить заявку' => 'Arizani qoldirish',
     ],
+    'home' => [
+        'Узнать больше' => 'Ko\'proq ma\'lumot',
+    ],
 ];

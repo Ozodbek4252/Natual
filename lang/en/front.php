@@ -16,4 +16,7 @@ return [
         'Проекты' => 'Projects',
         'Оставить заявку' => 'Leave a request',
     ],
+    'home' => [
+        'Узнать больше' => 'Learn more',
+    ],
 ];

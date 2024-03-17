@@ -52,56 +52,55 @@
                                                         id="section-title-{{ $lang->code }}">
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="section-description">
+                                                    <label class="form-label" for="classic-editor-{{ $lang->code }}">
                                                         {{ __('body.Description') }} <span class="text-danger">*</span>
                                                     </label>
-                                                    <input name="description_{{ $lang->code }}" type="text"
-                                                        placeholder="{{ __('body.Enter description') }}..." class="form-control"
-                                                        id="section-description-{{ $lang->code }}">
+                                                    <textarea class="classic-editor" name="description_{{ $lang->code }}" id="classic-editor-{{ $lang->code }}"></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
                             </div>
-
-                            <div class="p-3 pt-0">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="section-image">{{ __('body.Image') }}</label>
-                                            <input name="image" type="file" class="form-control" id="section-image">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="section-link">
-                                                {{ __('body.Link') }}
-                                            </label>
-                                            <input name="link" type="text" placeholder="{{ __('body.Enter link') }}..."
-                                                class="form-control" id="section-link">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="form-label" style="opacity: 0;">|</label>
-                                            <button type="submit" id="section-create"
-                                                class="btn btn-primary waves-effect waves-light form-control">
-                                                {{ __('body.Create') }}
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                            @endforeach
                     </div>
+
+                    <div class="p-3 pt-0">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="section-image">{{ __('body.Image') }}</label>
+                                    <input name="image" type="file" class="form-control" id="section-image">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="section-link">
+                                        {{ __('body.Link') }}
+                                    </label>
+                                    <input name="link" type="text" placeholder="{{ __('body.Enter link') }}..."
+                                        class="form-control" id="section-link">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="form-label" style="opacity: 0;">|</label>
+                                    <button type="submit" id="section-create"
+                                        class="btn btn-primary waves-effect waves-light form-control">
+                                        {{ __('body.Create') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
 @section('js')
@@ -119,6 +118,16 @@
                 $('.tab-pane').removeClass('active');
                 $(this).addClass('active');
             });
+        });
+
+        let langs = @json($langs);
+        langs.forEach(lang => {
+            // create a new instance of ClassicEditor
+            ClassicEditor
+                .create(document.querySelector(`#classic-editor-${lang.code}`))
+                .catch(error => {
+                    console.error(error);
+                });
         });
     </script>
 @endsection
