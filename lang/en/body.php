@@ -112,4 +112,7 @@ return [
     'Delete Certificate' => 'Delete Certificate',
     'Small logo' => 'Small logo',
     'Small Logo Preview' => 'Small Logo Preview',
+    'Country' => 'Country',
+    'Enter country' => 'Enter country',
+    'Local' => 'Local',
 ];

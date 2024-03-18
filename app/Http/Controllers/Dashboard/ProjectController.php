@@ -106,6 +106,7 @@ class ProjectController extends Controller
                 'image' => $imagePath,
                 'name' => $request->input('name'),
                 'date' => $request->input('date'),
+                'country' => $request->input('country') ?? 'Uzbekistan',
                 'category_id' => $request->input('category_id'),
                 'is_finished' => $request->input('is_finished') == 'on' ? true : false,
             ]);
@@ -220,6 +221,7 @@ class ProjectController extends Controller
                 'image' => $imagePath,
                 'name' => $request->input('name'),
                 'date' => $request->input('date'),
+                'country' => $request->input('country') ?? 'Uzbekistan',
                 'category_id' => $request->input('category_id'),
                 'is_finished' => $request->input('is_finished') == 'on' ? true : false,
             ]);

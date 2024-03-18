@@ -15,7 +15,8 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $category1 = Category::query()->create([
-            'image' => 'categories/Rectangle 1.png',
+            'image' => 'categories/Rectangle_1.png',
+            'is_local' => true,
         ]);
 
         // Ru Translation for category1
@@ -38,7 +39,8 @@ class CategorySeeder extends Seeder
 
 
         $category2 = Category::query()->create([
-            'image' => 'categories/Rectangle 2.png',
+            'image' => 'categories/Rectangle_2.png',
+            'is_local' => false,
         ]);
 
         // Ru Translation for category2

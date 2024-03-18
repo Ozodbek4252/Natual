@@ -48,8 +48,8 @@
                                                         {{ __('body.Address') }} <span class="text-danger">*</span>
                                                     </label>
                                                     <input name="address_{{ $lang->code }}" type="text"
-                                                        placeholder="{{ __('body.Enter address') }}..." class="form-control"
-                                                        id="project-address-{{ $lang->code }}">
+                                                        placeholder="{{ __('body.Enter address') }}..."
+                                                        class="form-control" id="project-address-{{ $lang->code }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -72,8 +72,8 @@
                                             <label class="form-label" for="project-name">
                                                 {{ __('body.Name') }} <span class="text-danger">*</span>
                                             </label>
-                                            <input name="name" placeholder="{{ __('body.Enter name') }}..." type="text"
-                                                class="form-control" id="project-name">
+                                            <input name="name" placeholder="{{ __('body.Enter name') }}..."
+                                                type="text" class="form-control" id="project-name">
                                         </div>
                                     </div>
                                 </div>
@@ -86,8 +86,8 @@
                                             <label class="form-label" for="project-date">
                                                 {{ __('body.Date') }} <span class="text-danger">*</span>
                                             </label>
-                                            <input name="date" placeholder="{{ __('body.Enter date') }}..." type="text"
-                                                class="form-control" id="project-date">
+                                            <input name="date" placeholder="{{ __('body.Enter date') }}..."
+                                                type="text" class="form-control" id="project-date">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -110,7 +110,6 @@
 
 
                             <div class="row g-3">
-
                                 <div class="col-md-2 mt-0 top-right d-flex justify-content-center align-items-baseline">
                                     <button type="button" id="add-day-button" style="width: 120px;"
                                         class="form-control mt-4 btn btn-primary btn-sm">
@@ -140,11 +139,25 @@
                                 <div class="row">
                                     <div class="col-md-6 d-flex align-items-end">
                                         <div class="form-check form-switch mb-3" dir="ltr">
-                                            <label class="form-check-label" for="isFinishedSwitch">{{ __('body.Finished') }}</label>
+                                            <label class="form-check-label"
+                                                for="isFinishedSwitch">{{ __('body.Finished') }}</label>
                                             <input name="is_finished" type="checkbox" class="form-check-input"
                                                 id="isFinishedSwitch" checked>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="project-country">
+                                                {{ __('body.Country') }}
+                                            </label>
+                                            <input name="country" value="Uzbekistan" placeholder="{{ __('body.Enter country') }}..."
+                                                type="text" class="form-control" id="project-country">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-3 pt-0">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="form-label" style="opacity: 0;">|</label>

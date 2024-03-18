@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Models\Category;
+use App\Models\Project;
 use App\Models\Section;
 use App\Models\Service;
 use App\Models\Staff;
@@ -25,6 +27,10 @@ class HomeController extends Controller
         $staff = Staff::with('translations')->first();
         $staffTranslations = $this->getTranslations($staff->translations);
 
+        $categories = Category::with('translations')->get();
+        $categories = $this->getTranslationsWithModel($categories);
+
+
         return view('home', compact(
             'banner',
             'bannerTranslations',
@@ -32,8 +38,39 @@ class HomeController extends Controller
             'sectionTranslations',
             'services',
             'staff',
-            'staffTranslations'
+            'staffTranslations',
+            'categories'
         ));
+    }
+
+    public function category(Category $category)
+    {
+        $category = Category::with('translations')->where('id', $category->id)->first();
+        $categoryTranslations = $this->getTranslations($category->translations);
+
+        $projects = $category->projects()->with('translations')->get();
+        $projects = $projects->groupBy('country')->map(function ($project, $country) {
+            return $project->groupBy('is_finished')->map(function ($project) {
+                return $project->map(function ($project) {
+                    $project->translations = $this->getTranslations($project->translations);
+                    return $project;
+                });
+            });
+        });
+
+        return view('front.category', compact('category', 'categoryTranslations', 'projects'));
+    }
+
+    public function showProject(Project $project)
+    {
+        $project = Project::with('translations', 'facilities')->where('id', $project->id)->first();
+        $projectTranslations = $this->getTranslations($project->translations);
+        $project->facilities->transform(function ($facility) {
+            $facility->translations = $this->getTranslations($facility->translations);
+            return $facility;
+        });
+
+        return view('front.project', compact('project', 'projectTranslations'));
     }
 
     /**

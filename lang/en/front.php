@@ -21,5 +21,12 @@ return [
         'тел' => 'tel',
         'email' => 'email',
         'сайт' => 'site',
+        'Наши профессиональные ландшафтные дизайны' => 'Our professional landscape designs',
     ],
+    'project' => [
+        'Наши проекты в процессе' => 'Our projects in progress',
+    ],
+    'category' => [
+        'Каталог' => 'Catalog',
+    ]
 ];

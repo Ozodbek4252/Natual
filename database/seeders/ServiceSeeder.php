@@ -30,16 +30,16 @@ class ServiceSeeder extends Seeder
             'lang_id' => Lang::where('code', 'ru')->first()->id,
             'translationable_id' => $service1->id,
             'translationable_type' => Service::class,
-            'content' => '-Разработка растительного грунта
-                        -Система полива
-                        -Система грунтового дренажа
-                        -Система кровельного дренажа
-                        -Посадка деревьев
-                        -Посадка кустарников
-                        -Установка рулонного газона
-                        -Установка Гидропосева
-                        -Укладка декоративного камня
-                        -Установка разделителей',
+            'content' => '<p>-Разработка растительного грунта</p>
+                        <p>-Система полива</p>
+                        <p>-Система грунтового дренажа</p>
+                        <p>-Система кровельного дренажа</p>
+                        <p>-Посадка деревьев</p>
+                        <p>-Посадка кустарников</p>
+                        <p>-Установка рулонного газона</p>
+                        <p>-Установка Гидропосева</p>
+                        <p>-Укладка декоративного камня</p>
+                        <p>-Установка разделителей</p>',
             'column_name' => 'description',
         ]);
 
@@ -55,16 +55,16 @@ class ServiceSeeder extends Seeder
             'lang_id' => Lang::where('code', 'uz')->first()->id,
             'translationable_id' => $service1->id,
             'translationable_type' => Service::class,
-            'content' => "-O'simliklar tayyorlash
-                        -Suqilish tizimi
-                        -Yer suqilish tizimi
-                        -Dachadagi suqilish tizimi
-                        -Daraxtlar ekip qo'yish
-                        -O'simliklar ekip qo'yish
-                        -Rulon gazonni o'rnatish
-                        -Gidro ekip qo'yish
-                        -Dekorativ toshni o'rnatish
-                        -Bo'limlovchilarni o'rnatish",
+            'content' => "<p>-O'simliklar tayyorlash</p>
+                        <p>-Suqilish tizimi</p>
+                        <p>-Yer suqilish tizimi</p>
+                        <p>-Dachadagi suqilish tizimi</p>
+                        <p>-Daraxtlar ekip qo'yish</p>
+                        <p>-O'simliklar ekip qo'yish</p>
+                        <p>-Rulon gazonni o'rnatish</p>
+                        <p>-Gidro ekip qo'yish</p>
+                        <p>-Dekorativ toshni o'rnatish</p>
+                        <p>-Bo'limlovchilarni o'rnatish</p>",
             'column_name' => 'description',
         ]);
 
@@ -84,11 +84,11 @@ class ServiceSeeder extends Seeder
             'lang_id' => Lang::where('code', 'ru')->first()->id,
             'translationable_id' => $service2->id,
             'translationable_type' => Service::class,
-            'content' => "-Разработка дизайн проекта
-                        -Разработка 3D проекта
-                        -Разработка чертежей
-                        -Разработка сметы
-                        -Разработка плана",
+            'content' => "<p>-Разработка дизайн проекта</p>
+                        <p>-Разработка 3D проекта</p>
+                        <p>-Разработка чертежей</p>
+                        <p>-Разработка сметы</p>
+                        <p>-Разработка плана</p>",
             'column_name' => 'description',
         ]);
 
@@ -104,11 +104,11 @@ class ServiceSeeder extends Seeder
             'lang_id' => Lang::where('code', 'uz')->first()->id,
             'translationable_id' => $service2->id,
             'translationable_type' => Service::class,
-            'content' => "-Dizayn loyihasini ishlab chiqish
-                        -3D loyiha ishlab chiqish
-                        -Chizmalar ishlab chiqish
-                        -Smetani ishlab chiqish
-                        -Rejani ishlab chiqish",
+            'content' => "<p>-Dizayn loyihasini ishlab chiqish</p>
+                        <p>-3D loyiha ishlab chiqish</p>
+                        <p>-Chizmalar ishlab chiqish</p>
+                        <p>-Smetani ishlab chiqish</p>
+                        <p>-Rejani ishlab chiqish</p>",
             'column_name' => 'description',
         ]);
 
@@ -128,14 +128,14 @@ class ServiceSeeder extends Seeder
             'lang_id' => Lang::where('code', 'ru')->first()->id,
             'translationable_id' => $service3->id,
             'translationable_type' => Service::class,
-            'content' => "-Разработка проекта
-                        -Установка системы полива
-                        -Установка системы капельного полива
-                        -Установка системы автоматического полива
-                        -Установка системы полива газона
-                        -Установка системы полива цветников
-                        -Установка системы полива деревьев
-                        -Установка системы полива кустарников",
+            'content' => "<p>-Разработка проекта</p>
+                        <p>-Установка системы полива</p>
+                        <p>-Установка системы капельного полива</p>
+                        <p>-Установка системы автоматического полива</p>
+                        <p>-Установка системы полива газона</p>
+                        <p>-Установка системы полива цветников</p>
+                        <p>-Установка системы полива деревьев</p>
+                        <p>-Установка системы полива кустарников</p>",
             'column_name' => 'description',
         ]);
 
@@ -151,14 +151,14 @@ class ServiceSeeder extends Seeder
             'lang_id' => Lang::where('code', 'uz')->first()->id,
             'translationable_id' => $service3->id,
             'translationable_type' => Service::class,
-            'content' => "-Loyiha ishlab chiqish
-                        -Suqilish tizimini o'rnatish
-                        -Qatiq suqilish tizimini o'rnatish
-                        -Avtomatik suqilish tizimini o'rnatish
-                        -Gazon suqilish tizimini o'rnatish
-                        -Gulxona suqilish tizimini o'rnatish
-                        -Daraxtlar suqilish tizimini o'rnatish
-                        -O'simliklar suqilish tizimini o'rnatish",
+            'content' => "<p>-Loyiha ishlab chiqish</p>
+                        <p>-Suqilish tizimini o'rnatish</p>
+                        <p>-Qatiq suqilish tizimini o'rnatish</p>
+                        <p>-Avtomatik suqilish tizimini o'rnatish</p>
+                        <p>-Gazon suqilish tizimini o'rnatish</p>
+                        <p>-Gulxona suqilish tizimini o'rnatish</p>
+                        <p>-Daraxtlar suqilish tizimini o'rnatish</p>
+                        <p>-O'simliklar suqilish tizimini o'rnatish</p>",
             'column_name' => 'description',
         ]);
     }

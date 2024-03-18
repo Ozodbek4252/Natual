@@ -30,6 +30,7 @@ class CategoryRequest extends FormRequest
 
         $rules = [
             'image' => $image,
+            'is_local' => 'nullable|in:on',
         ];
 
         $langs = Lang::where('is_published', true)->get();

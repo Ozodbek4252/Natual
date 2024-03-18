@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->boolean('is_local')->default(false);
             $table->timestamps();
         });
     }

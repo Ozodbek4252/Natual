@@ -50,8 +50,8 @@
                                                     </label>
                                                     <input name="name_{{ $lang->code }}"
                                                         @if (array_key_exists($lang->code, $category->translations)) value="{{ $category->translations[$lang->code]['name']['content'] }}" @endif
-                                                        type="text" placeholder="{{ __('body.Enter name') }}..." class="form-control"
-                                                        id="category-name-{{ $lang->code }}">
+                                                        type="text" placeholder="{{ __('body.Enter name') }}..."
+                                                        class="form-control" id="category-name-{{ $lang->code }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -82,6 +82,19 @@
                                             <input name="image" type="file" class="form-control" id="category-image">
                                         </div>
                                     </div>
+                                    <div class="col-md-6 d-flex align-items-end">
+                                        <div class="form-check form-switch mb-3" dir="ltr">
+                                            <label class="form-check-label"
+                                                for="isLocalSwitch">{{ __('body.Local') }}</label>
+                                            <input name="is_local" type="checkbox" class="form-check-input"
+                                                id="isLocalSwitch" @checked($category->is_local)>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-3 pt-0">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="form-label" style="opacity: 0;">|</label>
@@ -117,16 +130,4 @@
             });
         });
     </script>
-
-    {{--  <script>
-        let langs = @json($langs);
-        langs.forEach(lang => {
-            // create a new instance of ClassicEditor
-            ClassicEditor
-                .create(document.querySelector(`#classic-editor-${lang.code}`))
-                .catch(error => {
-                    console.error(error);
-                });
-        });
-    </script>  --}}
 @endsection

@@ -14,6 +14,7 @@ class ProjectViewModel extends BaseViewModel
     public string $image;
     public string $date;
     public string $name;
+    public string $country;
     public int $category_id;
     public Category $category;
     public ?bool $is_finished;
@@ -27,6 +28,7 @@ class ProjectViewModel extends BaseViewModel
         $this->image = $this->_data->image;
         $this->date = $this->_data->date;
         $this->name = $this->_data->name;
+        $this->country = $this->_data->country;
         $this->category_id = $this->_data->category_id;
         $this->category = Category::find($this->_data->category_id);
         $this->is_finished = $this->_data->is_finished;

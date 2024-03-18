@@ -31,7 +31,12 @@ use App\Http\Controllers\Front\HomeController;
 |
 */
 
+// Front routes
 Route::get('/', [HomeController::class, 'index'])->name('front.home');
+Route::get('/category/{category}', [HomeController::class, 'category'])->name('front.category');
+Route::get('/project/{project}', [HomeController::class, 'showProject'])->name('front.project.show');
+
+
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'doLogin'])->name('login.post');
 Route::get('/register', [AuthController::class, 'register'])->name('register');

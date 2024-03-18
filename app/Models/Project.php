@@ -16,8 +16,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string $name
  * @property bool $is_finished
  * @property int $category_id
+ * @property string $country
  * @property string $created_at
  * @property string $updated_at
+ *
+ * @property Category $category
+ * @property Facility[] $facilities
+ * @property Translation[] $translations
  */
 class Project extends Model
 {
@@ -29,6 +34,7 @@ class Project extends Model
         'name',
         'is_finished',
         'category_id',
+        'country'
     ];
 
     protected $casts = [
@@ -63,8 +69,12 @@ class Project extends Model
      * @param array $facilities The array of facilities to sync.
      * @return void
      */
-    public function syncFacilities(array $facilities): void
+    public function syncFacilities(?array $facilities): void
     {
+        if (!$facilities) {
+            return;
+        }
+
         $existingFacilityIds = $this->facilities->pluck('id')->toArray();
 
         // Filter unique facilities based on facility_id

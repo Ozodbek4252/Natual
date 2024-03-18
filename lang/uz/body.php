@@ -112,4 +112,7 @@ return [
     'Delete Certificate' => 'Sertifikatni o\'chirish',
     'Small logo' => 'Kichik logotip',
     'Small Logo Preview' => 'Kichik logotipni ko\'rish',
+    'Country' => 'Mamlakat',
+    'Enter country' => 'Mamlakatni kiriting',
+    'Local' => 'Mahalliy',
 ];

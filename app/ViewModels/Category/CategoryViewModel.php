@@ -11,12 +11,14 @@ class CategoryViewModel extends BaseViewModel
 {
     public int $id;
     public string $image;
+    public bool $is_local;
     public array $translations;
 
     protected function populate(): void
     {
         $this->id = $this->_data->id;
         $this->image = $this->_data->image;
+        $this->is_local = (bool) $this->_data->is_local;
 
         $this->translations = $this->getTranslations($this->_data->translations);
     }

@@ -150,24 +150,26 @@
 
         <!-- Projects -->
         <section class="section-projects" id="projects">
-            <h2 data-aos="fade-up">Наши профессиональные ландшафтные дизайны</h2>
+            <h2 data-aos="fade-up">{{ __('front.home.Наши профессиональные ландшафтные дизайны') }}</h2>
 
             <div class="container py-20 lg:px-12">
                 <div class="grid grid-cols-12 lg:gap-12 gap-6">
-                    <div class="md:col-span-6 col-span-full">
-                        <div data-aos="zoom-in" class="project">
-                            <div class="project-body">
-                                <a href="projects-local.html" class="project-inner relative block">
-                                    <img src="{{ asset('front/img/home-page-project-1.png') }}"
-                                        alt="home page project 1" />
-                                    <div class="project-title">
-                                        <h3>Проекты в Узбекистане</h3>
-                                    </div>
-                                </a>
+                    @foreach ($categories as $category)
+                        <div class="md:col-span-6 col-span-full">
+                            <div data-aos="zoom-in" class="project">
+                                <div class="project-body">
+                                    <a href="{{ Route('front.category', $category->id) }}"
+                                        class="project-inner relative block">
+                                        <img src="{{ asset('storage/' . $category->image) }}" alt="home page project 1" />
+                                        <div class="project-title">
+                                            <h3>{{ $category['translations']['name']['content'] }}</h3>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="md:col-span-6 col-span-full">
+                    @endforeach
+                    {{--  <div class="md:col-span-6 col-span-full">
                         <div data-aos="zoom-in" class="project">
                             <div class="project-body">
                                 <a href="projects-world.html" class="project-inner relative block">
@@ -179,7 +181,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div>  --}}
                 </div>
             </div>
         </section>

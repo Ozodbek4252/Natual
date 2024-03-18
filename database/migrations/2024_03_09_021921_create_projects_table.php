@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('date');
             $table->string('name');
             $table->boolean('is_finished')->default(true);
+            $table->string('country')->default('Uzbekistan');
             $table->timestamps();
             $table->softDeletes();
         });

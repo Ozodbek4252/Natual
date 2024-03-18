@@ -112,4 +112,7 @@ return [
     'Delete Certificate' => 'Удалить сертификат',
     'Small logo' => 'Маленький логотип',
     'Small Logo Preview' => 'Предпросмотр маленького логотипа',
+    'Country' => 'Страна',
+    'Enter country' => 'Введите страну',
+    'Local' => 'Местный',
 ];

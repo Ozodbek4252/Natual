@@ -46,7 +46,8 @@ class CategoryController extends Controller
             // Store the image in a directory: 'public/categories/'
             $imagePath = $request->file('image')->store('categories', 'public');
             $category = Category::create([
-                'image' => $imagePath
+                'image' => $imagePath,
+                'is_local' => $request->input('is_local') == 'on' ? true : false,
             ]);
 
             $langs = Lang::where('is_published', true)->get();
@@ -102,7 +103,8 @@ class CategoryController extends Controller
             }
 
             $category->update([
-                'image' => $imagePath
+                'image' => $imagePath,
+                'is_local' => $request->input('is_local') == 'on' ? true : false,
             ]);
             $category->refresh();
 
