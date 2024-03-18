@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use App\Models\RequestModel;
@@ -91,6 +92,38 @@ class HomeController extends Controller
         });
 
         return view('front.project', compact('project', 'projectTranslations'));
+    }
+
+    /**
+     * Display the about page with data.
+     *
+     * @return \Illuminate\View\View
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     */
+    public function about()
+    {
+        $about = About::with('translations', 'files')->firstOrFail();
+        $aboutTranslations = $this->getTranslations($about->translations);
+
+        $files = $this->getImageAndCertificate($about->files);
+
+        return view('front.about', compact('about', 'aboutTranslations', 'files'));
+    }
+
+    /**
+     * Group files by type and separate images and certificates.
+     *
+     * @param \Illuminate\Database\Eloquent\Collection $files
+     * @return array
+     */
+    private function getImageAndCertificate($files)
+    {
+        $files = collect($files)->groupBy('type');
+
+        $images = $files['image']->toArray();
+        $certificates = $files['certificate']->toArray();
+
+        return compact('images', 'certificates');
     }
 
     /**
