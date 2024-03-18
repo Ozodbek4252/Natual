@@ -115,4 +115,7 @@ return [
     'Country' => 'Country',
     'Enter country' => 'Enter country',
     'Local' => 'Local',
+    'Catalog' => 'Catalog',
+    'File' => 'File',
+    'Update Catalog' => 'Update Catalog',
 ];

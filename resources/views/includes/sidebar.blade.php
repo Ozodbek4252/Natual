@@ -83,13 +83,16 @@
                         <span>{{ __('body.Staff') }}</span>
                     </a>
                 </li>
-
-
-
                 <li>
                     <a href="{{ Route('abouts.index') }}" class="waves-effect">
                         <i class="uil-file-alt"></i>
                         <span>{{ __('body.About company') }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ Route('catalog.index') }}" class="waves-effect">
+                        <i class="uil-file-alt"></i>
+                        <span>{{ __('body.Catalog') }}</span>
                     </a>
                 </li>
 

@@ -115,4 +115,7 @@ return [
     'Country' => 'Mamlakat',
     'Enter country' => 'Mamlakatni kiriting',
     'Local' => 'Mahalliy',
+    'Catalog' => 'Katalog',
+    'File' => 'Fayl',
+    'Update Catalog' => 'Katalogni yangilash',
 ];

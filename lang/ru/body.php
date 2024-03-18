@@ -115,4 +115,7 @@ return [
     'Country' => 'Страна',
     'Enter country' => 'Введите страну',
     'Local' => 'Местный',
+    'Catalog' => 'Каталог',
+    'File' => 'Файл',
+    'Update Catalog' => 'Обновить каталог',
 ];

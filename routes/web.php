@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Dashboard\AboutController;
 use App\Http\Controllers\Dashboard\BannerController;
+use App\Http\Controllers\Dashboard\CatalogController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\FacilityController;
@@ -82,4 +83,8 @@ Route::middleware([
 
     Route::get('logos', [LogoController::class, 'index'])->name('logos.index');
     Route::put('logos/{logo}', [LogoController::class, 'update'])->name('logos.update');
+
+    Route::get('catalog', [CatalogController::class, 'index'])->name('catalog.index');
+    Route::get('catalog/edit/{catalog}', [CatalogController::class, 'edit'])->name('catalog.edit');
+    Route::put('catalog/{catalog}', [CatalogController::class, 'update'])->name('catalog.update');
 });
