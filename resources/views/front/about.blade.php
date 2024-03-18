@@ -12,7 +12,7 @@
       ">
         <div class="container">
             <div class="lg:px-20">
-                <h2 data-aos="flip-up" class="text-center leading-tight">О Нашей Компании</h2>
+                <h2 data-aos="flip-up" class="text-center leading-tight">{{ __('front.about.О Нашей Компании') }}</h2>
             </div>
         </div>
     </header>

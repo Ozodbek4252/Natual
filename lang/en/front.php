@@ -40,5 +40,8 @@ return [
     ],
     'request' => [
         'success' => 'Your request has been successfully sent!',
+    ],
+    'about' => [
+        'О Нашей Компании' => 'About Our Company',
     ]
 ];

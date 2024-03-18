@@ -40,5 +40,8 @@ return [
     ],
     'request' => [
         'success' => 'Sizning so\'rovingiz muvaffaqiyatli yuborildi!',
+    ],
+    'about' => [
+        'О Нашей Компании' => 'Bizning kompaniya haqimizda',
     ]
 ];
