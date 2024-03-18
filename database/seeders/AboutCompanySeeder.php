@@ -15,7 +15,7 @@ class AboutCompanySeeder extends Seeder
     public function run(): void
     {
         $about = About::query()->create([
-            'image' => 'about/Rectangle 1.png',
+            'image' => 'about/Rectangle_1.png',
         ]);
 
         // Ru Translation for about
@@ -58,14 +58,14 @@ class AboutCompanySeeder extends Seeder
         File::create([
             'fileable_id' => $about->id,
             'fileable_type' => About::class,
-            'name' => 'about/Rectangle 11.png',
+            'name' => 'about/Rectangle_11.png',
             'extension' => 'png',
             'type' => 'image',
         ]);
         File::create([
             'fileable_id' => $about->id,
             'fileable_type' => About::class,
-            'name' => 'about/Rectangle 12.png',
+            'name' => 'about/Rectangle_12.png',
             'extension' => 'png',
             'type' => 'image',
         ]);

@@ -112,8 +112,9 @@ class LangController extends Controller
     /**
      * Change the language
      */
-    public function changeLang(Lang $lang)
+    public function changeLang($lang)
     {
+        $lang = Lang::where('code', $lang)->first();
         session()->put('locale', $lang->code);
         App::setLocale($lang->code);
 

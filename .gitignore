@@ -19,3 +19,5 @@ yarn-error.log
 /.vscode
 /natural-database
 natural-database
+.DS_Store
+/.DS_Store

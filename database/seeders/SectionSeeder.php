@@ -14,7 +14,7 @@ class SectionSeeder extends Seeder
     public function run(): void
     {
         $section1 = Section::query()->create([
-            'image' => 'sections/Group 41.png',
+            'image' => 'sections/Group_41.png',
             'link' => 'services',
         ]);
 
@@ -62,7 +62,7 @@ class SectionSeeder extends Seeder
 
 
         $section2 = Section::query()->create([
-            'image' => 'sections/Group 41.png',
+            'image' => 'sections/Group_41.png',
             'link' => 'http://localhost:9003/banners',
         ]);
 

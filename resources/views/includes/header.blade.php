@@ -63,14 +63,14 @@
             <div class="dropdown d-inline-block language-switch">
                 <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img src="/{{ $currenctLang->icon }}" alt="Header Language" width="20;" height="auto">
+                    <img src="/{{ $currenctLang['icon'] }}" alt="Header Language" width="20;" height="auto">
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     @foreach ($langsForHeader as $lang)
-                        <a href="{{ Route('lang.change', $lang) }}" class="dropdown-item notify-item">
-                            <img src="/{{ $lang->icon }}" style="width: 20px; height: auto;" alt="user-image"
+                        <a href="{{ Route('lang.change', $lang['code']) }}" class="dropdown-item notify-item">
+                            <img src="/{{ $lang['icon'] }}" style="width: 20px; height: auto;" alt="user-image"
                                 class="me-1">
-                            <span class="align-middle">{{ $lang->name }}</span>
+                            <span class="align-middle">{{ $lang['name'] }}</span>
                         </a>
                     @endforeach
                 </div>

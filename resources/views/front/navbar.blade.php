@@ -29,10 +29,12 @@
 
             <ul class="nav-pages flex items-center order-2">
                 <li>
-                    <a class="active" href="{{ Route('front.home') }}">{{ __('front.navbar.Главная') }}</a>
+                    <a @if (request()->route()->getName() == 'front.home') class="active" @endif
+                        href="{{ Route('front.home') }}">{{ __('front.navbar.Главная') }}</a>
                 </li>
                 <li>
-                    <a href="about.html">{{ __('front.navbar.О нас') }}</a>
+                    <a @if (request()->route()->getName() == 'front.about') class="active" @endif
+                        href="{{ Route('front.about') }}">{{ __('front.navbar.О нас') }}</a>
                 </li>
                 <li>
                     <a href="#contact">{{ __('front.navbar.Контакт') }}</a>
@@ -47,9 +49,16 @@
 
             <div class="flex items-center xl:my-0 my-4 xl:order-4 order-3">
                 <div class="lang relative mx-4">
-                    <span class="lang-selected cursor-pointer">Ru</span>
+                    <span class="lang-selected cursor-pointer">{{ ucfirst($currenctLang->code) }}</span>
                     <div class="lang-list absolute">
-                        <a href="#uz">Uz</a>
+                        @php
+                            $langs = collect($langsForHeader)->filter(function ($model) use ($currenctLang) {
+                                return $model['code'] !== $currenctLang->code;
+                            });
+                        @endphp
+                        @foreach ($langs as $lang)
+                            <a href="{{ Route('lang.change', $lang['code']) }}">{{ ucfirst($lang['code']) }}</a>
+                        @endforeach
                     </div>
                 </div>
 

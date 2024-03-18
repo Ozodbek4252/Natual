@@ -10,5 +10,10 @@
 <!-- imask js -->
 <script src="https://unpkg.com/imask"></script>
 
+{{--  Pdf  --}}
+<script src="{{ asset('assets/libs/pdf/js/pdf.js') }}"></script>
+
 <!-- Scripts -->
 <script src="{{ asset('front/js/script.js') }}"></script>
+
+@yield('js')

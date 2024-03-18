@@ -15,7 +15,7 @@ class StaffSeeder extends Seeder
     {
         $staff1 = Staff::query()->create([
             'name' => 'Mustafa Fedai Ozaslan',
-            'image' => '/staffs/Rectangle 22.png',
+            'image' => '/staffs/Rectangle_22.png',
             'number' => '+998971567494',
             'email' => 'mustafa@naturalpeyzaj.com.tr',
             'website' => 'naturalpeyzaj.com.tr',

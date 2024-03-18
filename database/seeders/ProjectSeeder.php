@@ -14,7 +14,7 @@ class ProjectSeeder extends Seeder
     public function run(): void
     {
         $project1 = Project::query()->create([
-            'image' => 'projects/Property 1=Default.png',
+            'image' => 'projects/Property_1=Default.png',
             'date' => '2022',
             'name' => 'Yangi O’zbekiston',
             'is_finished' => true,
@@ -43,7 +43,7 @@ class ProjectSeeder extends Seeder
 
 
         $project2 = Project::query()->create([
-            'image' => 'projects/Property 1=Variant4.png',
+            'image' => 'projects/Property_1=Variant4.png',
             'date' => '2019',
             'name' => 'Tashkent city',
             'is_finished' => true,
@@ -71,7 +71,7 @@ class ProjectSeeder extends Seeder
         $project2->facilities()->attach(6, ['value' => '85.000 m2']);
 
         $project3 = Project::query()->create([
-            'image' => 'projects/Property 1=Variant3.png',
+            'image' => 'projects/Property_1=Variant3.png',
             'date' => '2020',
             'name' => 'Tashkent city',
             'is_finished' => true,
@@ -93,7 +93,7 @@ class ProjectSeeder extends Seeder
         ]);
 
         $project4 = Project::query()->create([
-            'image' => 'projects/Property 1=Variant2.png',
+            'image' => 'projects/Property_1=Variant2.png',
             'date' => '2021',
             'name' => 'Tashkent city',
             'is_finished' => true,
@@ -115,7 +115,7 @@ class ProjectSeeder extends Seeder
         ]);
 
         $project5 = Project::query()->create([
-            'image' => 'projects/Property 1=Variant1.png',
+            'image' => 'projects/Property_1=Variant1.png',
             'date' => '2022',
             'name' => 'Tashkent city',
             'is_finished' => true,
@@ -137,7 +137,7 @@ class ProjectSeeder extends Seeder
         ]);
 
         $project6 = Project::query()->create([
-            'image' => 'projects/Property 1=Default.png',
+            'image' => 'projects/Property_1=Default.png',
             'date' => '2023',
             'name' => 'Tashkent city',
             'is_finished' => true,
@@ -159,7 +159,7 @@ class ProjectSeeder extends Seeder
         ]);
 
         $project7 = Project::query()->create([
-            'image' => 'projects/Property 1=Variant4.png',
+            'image' => 'projects/Property_1=Variant4.png',
             'date' => '2024',
             'name' => 'Tashkent city',
             'is_finished' => true,

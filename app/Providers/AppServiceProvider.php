@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
             $footerPartners = Partner::all();
 
             $view->with([
-                'langsForHeader' => $langsForHeader,
+                'langsForHeader' => $langsForHeader->toArray(),
                 'currenctLang' => $currenctLang,
                 'logo' => $logo,
                 'global_contacts' => $contacts,

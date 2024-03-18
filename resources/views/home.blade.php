@@ -114,20 +114,17 @@
                     <div class="md:col-span-7 col-span-full flex justify-center items-center flex-col text-center">
                         <h2 data-aos="flip-up" class="mb-12">{{ $staff->name }}</h2>
                         <div>
-                            <p data-aos="fade-up" class="mb-4">{{ $staffTranslations['position']['content'] }}</p>
                             <p data-aos="fade-up" class="mb-4">
-                                {{ __('front.home.тел') }}:
-                                <a class="hover:underline"
-                                    href="tel:{{ $staff->number }}">{{ formatPhoneNumber($staff->number) }}</a>
+                                {{ ucfirst($staffTranslations['position']['content']) }}
                             </p>
                             <p data-aos="fade-up" class="mb-4">
-                                {{ __('front.home.email') }}:
+                                {{ ucfirst(__('front.home.email')) }}:
                                 <a class="hover:underline" href="mailto:{{ $staff->email }}">
                                     {{ $staff->email }}
                                 </a>
                             </p>
                             <p data-aos="fade-up" class="mb-4">
-                                {{ __('front.home.сайт') }}:
+                                {{ ucfirst(__('front.home.сайт')) }}:
                                 <a class="hover:underline" target="_blank"
                                     href="https://{{ $staff->website }}">{{ $staff->website }}</a>
                             </p>
@@ -169,19 +166,6 @@
                             </div>
                         </div>
                     @endforeach
-                    {{--  <div class="md:col-span-6 col-span-full">
-                        <div data-aos="zoom-in" class="project">
-                            <div class="project-body">
-                                <a href="projects-world.html" class="project-inner relative block">
-                                    <img src="{{ asset('front/img/home-page-project-2.png') }}"
-                                        alt="home page project 1" />
-                                    <div class="project-title">
-                                        <h3>Проекты за границей</h3>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>  --}}
                 </div>
             </div>
         </section>

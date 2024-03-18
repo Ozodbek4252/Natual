@@ -13,19 +13,19 @@ class PartnerSeeder extends Seeder
     public function run(): void
     {
         Partner::create([
-            'logo' => 'partners/Rectangle 25.png',
+            'logo' => 'partners/Rectangle_25.png',
             'name' => 'KOC',
         ]);
         Partner::create([
-            'logo' => 'partners/Rectangle 27.png',
+            'logo' => 'partners/Rectangle_27.png',
             'name' => 'Agrobank',
         ]);
         Partner::create([
-            'logo' => 'partners/Rectangle 26.png',
+            'logo' => 'partners/Rectangle_26.png',
             'name' => 'Discover Invest',
         ]);
         Partner::create([
-            'logo' => 'partners/Rectangle 28.png',
+            'logo' => 'partners/Rectangle_28.png',
             'name' => 'Seoul mun',
         ]);
     }

@@ -15,7 +15,7 @@ class ServiceSeeder extends Seeder
     public function run(): void
     {
         $service1 = Service::query()->create([
-            'icon' => 'services/Group 34.png',
+            'icon' => 'services/Group_34.png',
         ]);
 
         // Ru Translation for service1
@@ -69,7 +69,7 @@ class ServiceSeeder extends Seeder
         ]);
 
         $service2 = Service::query()->create([
-            'icon' => 'services/Vector (1).png',
+            'icon' => 'services/Vector_(1).png',
         ]);
 
         // Ru Translation for service2

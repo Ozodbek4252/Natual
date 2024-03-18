@@ -14,7 +14,7 @@ class BannerSeeder extends Seeder
     public function run(): void
     {
         $banner1 = Banner::query()->create([
-            'image' => 'banners/Rectangle 36.png',
+            'image' => 'banners/Rectangle_36.png',
             'link' => 'https://www.youtube.com/watch?v=Oy_63HYsvhQ&t=944s',
             'is_published' => true,
         ]);
@@ -56,7 +56,7 @@ class BannerSeeder extends Seeder
 
 
         $banner2 = Banner::query()->create([
-            'image' => 'banners/Rectangle 2.png',
+            'image' => 'banners/Rectangle_2.png',
             'link' => 'https://www.youtube.com/watch?v=7akI0rgBbE0',
             'is_published' => true,
         ]);

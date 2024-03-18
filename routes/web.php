@@ -36,11 +36,14 @@ Route::get('/', [HomeController::class, 'index'])->name('front.home');
 Route::get('/category/{category}', [HomeController::class, 'category'])->name('front.category');
 Route::get('/project/{project}', [HomeController::class, 'showProject'])->name('front.project.show');
 Route::post('/request', [HomeController::class, 'storeRequest'])->name('front.request.send');
+Route::get('/about', [HomeController::class, 'about'])->name('front.about');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'doLogin'])->name('login.post');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'doRegister'])->name('register.post');
+
+Route::get('change-lang/{lang}', [LangController::class, 'changeLang'])->name('lang.change');
 
 Route::resource('locales', LocaleController::class);
 
@@ -50,8 +53,6 @@ Route::middleware([
     // 'isAdmin',
     // 'language',
 ])->group(function () {
-    Route::get('change-lang/{lang}', [LangController::class, 'changeLang'])->name('lang.change');
-
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
