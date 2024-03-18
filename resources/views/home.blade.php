@@ -8,7 +8,7 @@
             rgba(0, 0, 0, 0.55),
             rgba(0, 0, 0, 0.55)
           ),
-          url('{{ asset('front/img/header-img.png') }}');
+          url({{ asset('storage/' . $banner->image) }});
       ">
         <div class="container">
             <div class="xl:px-20 px-4">
