@@ -28,5 +28,17 @@ return [
     ],
     'category' => [
         'Каталог' => 'Katalog',
+    ],
+    'modal' => [
+        'Обратный звонок' => 'Qayta qo\'ng\'iroq',
+        'Оставьте заявку, наш оператор свяжется с вами' => 'Arizani qoldiring, bizning operator siz bilan bog\'lanadi',
+        'ФИО' => 'FIO',
+        'Телефон' => 'Telefon',
+        'request-model-description' => '«Arizani yuborish» tugmasini bosing,
+            shaxsiy ma\'lumotlaringizni qayta ishlashga rozilik bildirasiz',
+        'Отправить' => 'Yuborish'
+    ],
+    'request' => [
+        'success' => 'Sizning so\'rovingiz muvaffaqiyatli yuborildi!',
     ]
 ];

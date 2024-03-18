@@ -11,36 +11,38 @@
                 </svg>
             </button>
 
-            <h2>Обратный звонок</h2>
-            <p>Оставьте заявку, наш оператор свяжется с вами </p>
+            {{ app()->setLocale('en') }}
+            <h2>{{ __('front.modal.Обратный звонок') }}</h2>
+            <p>{{ __('front.modal.Оставьте заявку, наш оператор свяжется с вами') }} </p>
 
-            <form>
+            <form action="{{ Route('front.request.send') }}" method="POST">
+                @csrf
                 <div class="form-control mb-8">
-                    <label class="text-center text-green text-xl font-light mb-1 block" for="fio">ФИО</label>
-                    <input required
+                    <label class="text-center text-green text-xl font-light mb-1 block"
+                        for="fio">{{ __('front.modal.ФИО') }}</label>
+                    <input required name="name"
                         class="text-xl font-light text-black outline-none rounded-none
-          bg-transparent block w-full border-b border-solid
-          border-green text-center py-3 px-8"
+                            bg-transparent block w-full border-b border-solid
+                            border-green text-center py-3 px-8"
                         id="fio" type="text">
                 </div>
 
                 <div class="form-control mb-8">
                     <label class="text-center text-green text-xl font-light mb-1 block"
-                        for="phone-number">Телефон</label>
-                    <input required
+                        for="phone-number">{{ __('front.modal.Телефон') }}</label>
+                    <input required name="number"
                         class="text-xl font-light text-black outline-none rounded-none
-          bg-transparent block w-full border-b border-solid
-          border-green text-center py-3 px-8"
+                            bg-transparent block w-full border-b border-solid
+                            border-green text-center py-3 px-8"
                         id="phone-number" type="tel">
                 </div>
 
                 <p class="text-base text-black opacity-80 font-light my-8 text-center">
-                    Нажимая кнопку «Отправить заявку»,
-                    вы подтверждаете свое согласие на обработку персональных данных
+                    {{ __('front.modal.request-model-description') }}
                 </p>
 
                 <div class="flex justify-center items-center">
-                    <button type="submit" class="btn btn-green btn-medium">Отправить</button>
+                    <button type="submit" class="btn btn-green btn-medium">{{ __('front.modal.Отправить') }}</button>
                 </div>
             </form>
         </div>

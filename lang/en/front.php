@@ -28,5 +28,17 @@ return [
     ],
     'category' => [
         'Каталог' => 'Catalog',
+    ],
+    'modal' => [
+        'Обратный звонок' => 'Call back',
+        'Оставьте заявку, наш оператор свяжется с вами' => 'Leave a request, our operator will contact you',
+        'ФИО' => 'Full name',
+        'Телефон' => 'Phone',
+        'request-model-description' => 'By clicking the "Submit request" button,
+            you confirm your consent to the processing of personal data',
+        'Отправить' => 'Send'
+    ],
+    'request' => [
+        'success' => 'Your request has been successfully sent!',
     ]
 ];

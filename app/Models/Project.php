@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 
 /**
  * @package App\Models
@@ -21,8 +22,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string $updated_at
  *
  * @property Category $category
- * @property Facility[] $facilities
- * @property Translation[] $translations
+ * @property Facility[]|Object $facilities
+ * @property Translation[]|Collection $translations
  */
 class Project extends Model
 {

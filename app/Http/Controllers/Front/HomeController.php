@@ -3,28 +3,36 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Models\Banner;
+use Illuminate\Support\Collection;
+use Illuminate\Http\Request;
+use App\Models\RequestModel;
 use App\Models\Category;
 use App\Models\Project;
-use App\Models\Section;
 use App\Models\Service;
+use App\Models\Section;
+use App\Models\Banner;
 use App\Models\Staff;
-use Illuminate\Support\Collection;
 
 class HomeController extends Controller
 {
+
+    /**
+     * Display the home page with data.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
-        $banner = Banner::with('translations')->where('is_published', true)->first();
+        $banner = Banner::with('translations')->where('is_published', true)->firstOrFail();
         $bannerTranslations = $this->getTranslations($banner->translations);
 
-        $section = Section::with('translations')->first();
+        $section = Section::with('translations')->firstOrFail();
         $sectionTranslations = $this->getTranslations($section->translations);
 
         $services = Service::with('translations')->get();
         $service = $this->getTranslationsWithModel($services);
 
-        $staff = Staff::with('translations')->first();
+        $staff = Staff::with('translations')->firstOrFail();
         $staffTranslations = $this->getTranslations($staff->translations);
 
         $categories = Category::with('translations')->get();
@@ -43,15 +51,20 @@ class HomeController extends Controller
         ));
     }
 
+    /**
+     * Display the category page with data.
+     *
+     * @param \App\Models\Category $category
+     * @return \Illuminate\View\View
+     */
     public function category(Category $category)
     {
-        $category = Category::with('translations')->where('id', $category->id)->first();
+        $category = $category->load('translations', 'projects.translations');
         $categoryTranslations = $this->getTranslations($category->translations);
 
-        $projects = $category->projects()->with('translations')->get();
-        $projects = $projects->groupBy('country')->map(function ($project, $country) {
-            return $project->groupBy('is_finished')->map(function ($project) {
-                return $project->map(function ($project) {
+        $projects = $category->projects->groupBy('country')->map(function ($projects) {
+            return $projects->groupBy('is_finished')->map(function ($projects) {
+                return $projects->map(function ($project) {
                     $project->translations = $this->getTranslations($project->translations);
                     return $project;
                 });
@@ -61,16 +74,46 @@ class HomeController extends Controller
         return view('front.category', compact('category', 'categoryTranslations', 'projects'));
     }
 
+    /**
+     * Display the project page with data.
+     *
+     * @param \App\Models\Project $project
+     * @return \Illuminate\View\View
+     */
     public function showProject(Project $project)
     {
-        $project = Project::with('translations', 'facilities')->where('id', $project->id)->first();
+        $project = $project->load('translations', 'facilities.translations');
         $projectTranslations = $this->getTranslations($project->translations);
+
         $project->facilities->transform(function ($facility) {
             $facility->translations = $this->getTranslations($facility->translations);
             return $facility;
         });
 
         return view('front.project', compact('project', 'projectTranslations'));
+    }
+
+    /**
+     * Store a new request.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+
+    public function storeRequest(Request $request)
+    {
+        // Validate the request
+        $this->validate(request(), [
+            'name' => 'required|string|max:255',
+            'number' => 'required|string|size:19',
+        ]);
+
+        // Store the request
+        RequestModel::create(['name' => $request->name, 'number' => $request->number]);
+
+        toastr(trans('front.request.success'));
+
+        return redirect()->back();
     }
 
     /**
