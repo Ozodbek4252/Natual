@@ -126,7 +126,8 @@
 
         <!-- Каталог -->
         <div class="container flex justify-center items-center pb-20">
-            <a class="btn btn-green btn-big" href="#more">{{ __('front.category.Каталог') }}</a>
+            <a class="btn btn-green btn-big" href="{{ asset('storage/' . $catalog->file) }}"
+                download>{{ __('front.category.Каталог') }}</a>
         </div>
     </main>
 

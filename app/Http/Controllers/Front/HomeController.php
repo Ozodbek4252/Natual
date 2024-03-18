@@ -12,6 +12,7 @@ use App\Models\Project;
 use App\Models\Service;
 use App\Models\Section;
 use App\Models\Banner;
+use App\Models\Catalog;
 use App\Models\Staff;
 
 class HomeController extends Controller
@@ -72,7 +73,9 @@ class HomeController extends Controller
             });
         });
 
-        return view('front.category', compact('category', 'categoryTranslations', 'projects'));
+        $catalog = Catalog::first();
+
+        return view('front.category', compact('category', 'categoryTranslations', 'projects', 'catalog'));
     }
 
     /**
