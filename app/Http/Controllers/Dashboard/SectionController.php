@@ -59,7 +59,9 @@ class SectionController extends Controller
             DB::beginTransaction();
 
             // Store the image in a directory: 'public/sections/'
-            $imagePath = $request->file('image')->store('sections', 'public');
+            $generatedName = 'section-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $imagePath = $request->file('image')->storeAs('sections', $generatedName, 'public');
+
             $section = Section::create([
                 'image' => $imagePath,
                 'link' => $request->input('link'),
@@ -120,7 +122,8 @@ class SectionController extends Controller
                     Storage::delete('/public/' . $section->image);
                 }
                 // Store the image in a directory: 'public/sections/'
-                $imagePath = $request->file('image')->store('sections', 'public');
+                $generatedName = 'section-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+                $imagePath = $request->file('image')->storeAs('sections', $generatedName, 'public');
             }
 
             $section->update([

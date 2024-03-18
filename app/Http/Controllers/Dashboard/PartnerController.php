@@ -26,7 +26,9 @@ class PartnerController extends Controller
     {
         try {
             // Store the image in a directory: 'public/partners/'
-            $imagePath = $request->file('logo')->store('partners', 'public');
+            $generatedName = 'partner-image_' . time() . '.' . $request->file('logo')->getClientOriginalExtension();
+            $imagePath = $request->file('logo')->storeAs('partners', $generatedName, 'public');
+
             Partner::create([
                 'logo' => $imagePath,
                 'name' => $request->name
@@ -53,7 +55,9 @@ class PartnerController extends Controller
             }
 
             // Store the image in a directory: 'public/partners/'
-            $imagePath = $request->file('logo')->store('partners', 'public');
+            $generatedName = 'partner-image_' . time() . '.' . $request->file('logo')->getClientOriginalExtension();
+            $imagePath = $request->file('logo')->storeAs('partners', $generatedName, 'public');
+
             $partner->update([
                 'logo' => $imagePath,
                 'name' => $request->name

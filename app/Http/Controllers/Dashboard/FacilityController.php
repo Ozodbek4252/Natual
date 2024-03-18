@@ -55,7 +55,9 @@ class FacilityController extends Controller
             DB::beginTransaction();
 
             // Store the image in a directory: 'public/facilities/'
-            $imagePath = $request->file('image')->store('facilities', 'public');
+            $generatedName = 'facility-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $imagePath = $request->file('image')->storeAs('facilities', $generatedName, 'public');
+
             $service = Facility::create([
                 'image' => $imagePath,
             ]);
@@ -109,7 +111,8 @@ class FacilityController extends Controller
                     Storage::delete('/public/' . $facility->image);
                 }
                 // Store the image in a directory: 'public/facilities/'
-                $imagePath = $request->file('image')->store('facilities', 'public');
+                $generatedName = 'facility-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+                $imagePath = $request->file('image')->storeAs('facilities', $generatedName, 'public');
             }
 
             $facility->update([

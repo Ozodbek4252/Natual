@@ -59,7 +59,9 @@ class BannerController extends Controller
             DB::beginTransaction();
 
             // Store the image in a directory: 'public/banners/'
-            $imagePath = $request->file('image')->store('banners', 'public');
+            $generatedName = 'banners-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $imagePath = $request->file('image')->storeAs('banners', $generatedName, 'public');
+
             $service = Banner::create([
                 'image' => $imagePath,
                 'link' => $request->input('link'),
@@ -127,7 +129,8 @@ class BannerController extends Controller
                     Storage::delete('/public/' . $banner->image);
                 }
                 // Store the image in a directory: 'public/banners/'
-                $imagePath = $request->file('image')->store('banners', 'public');
+                $generatedName = 'banners-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+                $imagePath = $request->file('image')->storeAs('banners', $generatedName, 'public');
             }
 
             $banner->update([

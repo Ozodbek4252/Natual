@@ -9,8 +9,7 @@ use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\FacilityController;
 use App\Http\Controllers\Dashboard\LangController;
 use App\Http\Controllers\Dashboard\LogoController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\PartnerController;
 use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Dashboard\ProjectController;
@@ -44,8 +43,6 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'doRegister'])->name('register.post');
 
 Route::get('change-lang/{lang}', [LangController::class, 'changeLang'])->name('lang.change');
-
-Route::resource('locales', LocaleController::class);
 
 Route::middleware([
     'auth:sanctum',

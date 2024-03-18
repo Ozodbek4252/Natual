@@ -56,7 +56,8 @@ class StaffController extends Controller
             $imagePath = null;
             if ($request->hasFile('image')) {
                 // Store the image in a directory: 'public/staffs/'
-                $imagePath = $request->file('image')->store('staffs', 'public');
+                $generatedName = 'staff-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+                $imagePath = $request->file('image')->storeAs('staffs', $generatedName, 'public');
             }
 
             $staff = Staff::create([
@@ -117,7 +118,8 @@ class StaffController extends Controller
                     $imagePath = null;
                 }
                 // Store the image in a directory: 'public/staffs/'
-                $imagePath = $request->file('image')->store('staffs', 'public');
+                $generatedName = 'staff-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+                $imagePath = $request->file('image')->storeAs('staffs', $generatedName, 'public');
             }
 
             $staff->update([

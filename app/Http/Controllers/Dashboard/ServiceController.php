@@ -59,7 +59,9 @@ class ServiceController extends Controller
             DB::beginTransaction();
 
             // Store the icon in a directory: 'public/services/'
-            $iconPath = $request->file('icon')->store('services', 'public');
+            $generatedName = 'service-icon_' . time() . '.' . $request->file('icon')->getClientOriginalExtension();
+            $iconPath = $request->file('icon')->storeAs('services', $generatedName, 'public');
+
             $service = Service::create(['icon' => $iconPath]);
 
             $langs = Lang::where('is_published', true)->get();
@@ -117,7 +119,8 @@ class ServiceController extends Controller
                     Storage::delete('/public/' . $service->icon);
                 }
                 // Store the icon in a directory: 'public/services/'
-                $iconPath = $request->file('icon')->store('services', 'public');
+                $generatedName = 'service-icon_' . time() . '.' . $request->file('icon')->getClientOriginalExtension();
+                $iconPath = $request->file('icon')->storeAs('services', $generatedName, 'public');
             }
 
             $service->update(['icon' => $iconPath]);

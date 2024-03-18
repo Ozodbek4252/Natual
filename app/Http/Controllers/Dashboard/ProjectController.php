@@ -101,7 +101,9 @@ class ProjectController extends Controller
             DB::beginTransaction();
 
             // Store the image in a directory: 'public/projects/'
-            $imagePath = $request->file('image')->store('projects', 'public');
+            $generatedName = 'project-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $imagePath = $request->file('image')->storeAs('projects', $generatedName, 'public');
+
             $project = Project::create([
                 'image' => $imagePath,
                 'name' => $request->input('name'),
@@ -214,7 +216,8 @@ class ProjectController extends Controller
                     Storage::delete('/public/' . $project->image);
                 }
                 // Store the image in a directory: 'public/projects/'
-                $imagePath = $request->file('image')->store('projects', 'public');
+                $generatedName = 'project-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+                $imagePath = $request->file('image')->storeAs('projects', $generatedName, 'public');
             }
 
             $project->update([

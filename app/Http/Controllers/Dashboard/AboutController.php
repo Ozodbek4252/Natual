@@ -45,7 +45,8 @@ class AboutController extends Controller
                     Storage::delete('/public/' . $about->image);
                 }
                 // Store the image in a directory: 'public/about/'
-                $imagePath = $request->file('image')->store('about', 'public');
+                $generatedName = 'about-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+                $imagePath = $request->file('image')->storeAs('about', $generatedName, 'public');
             }
 
             $about->update([
@@ -55,7 +56,9 @@ class AboutController extends Controller
 
             if ($request->hasFile('additional_images')) {
                 foreach ($request->file('additional_images') as $file) {
-                    $additionalImagePath = $file->store('about', 'public');
+                    $generatedName = 'about-additional_images_' . time() . '.' . $request->file('additional_images')->getClientOriginalExtension();
+                    $additionalImagePath = $request->file('additional_images')->storeAs('about', $generatedName, 'public');
+
                     $about->files()->create([
                         'name' => $additionalImagePath,
                         'type' => 'image',
@@ -66,7 +69,9 @@ class AboutController extends Controller
 
             if ($request->hasFile('certificates')) {
                 foreach ($request->file('certificates') as $file) {
-                    $certificatePath = $file->store('about/certificates', 'public');
+                    $generatedName = 'about-certificates_' . time() . '.' . $request->file('certificates')->getClientOriginalExtension();
+                    $certificatePath = $request->file('certificates')->storeAs('about/certificates', $generatedName, 'public');
+
                     $about->files()->create([
                         'name' => $certificatePath,
                         'type' => 'certificate',

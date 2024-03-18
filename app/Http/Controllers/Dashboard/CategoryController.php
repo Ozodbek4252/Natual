@@ -44,7 +44,9 @@ class CategoryController extends Controller
             DB::beginTransaction();
 
             // Store the image in a directory: 'public/categories/'
-            $imagePath = $request->file('image')->store('categories', 'public');
+            $generatedName = 'category-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $imagePath = $request->file('image')->storeAs('categories', $generatedName, 'public');
+
             $category = Category::create([
                 'image' => $imagePath,
                 'is_local' => $request->input('is_local') == 'on' ? true : false,
@@ -99,7 +101,8 @@ class CategoryController extends Controller
                     Storage::delete('/public/' . $category->image);
                 }
                 // Store the image in a directory: 'public/categories/'
-                $imagePath = $request->file('image')->store('categories', 'public');
+                $generatedName = 'category-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+                $imagePath = $request->file('image')->storeAs('categories', $generatedName, 'public');
             }
 
             $category->update([
