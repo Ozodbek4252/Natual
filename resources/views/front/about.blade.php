@@ -95,7 +95,7 @@
             const canvasId = `pdfCanvas${index + 1}`;
 
             const canvasHtml = `
-                <div data-aos="zoom-in" class="md:w-1/4 w-full p-10">
+                <div data-aos="zoom-in" class="md:w-1/4 w-full lg:p-10">
                     <a class="block shadow-2xl" href="${ pdfUrl.url }" data-fancybox="gallery"
                         data-caption="Certificate #1">
                         <canvas id="${canvasId}"></canvas>

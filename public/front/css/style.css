@@ -728,6 +728,10 @@ html {
     right: 1rem;
 }
 
+.right-6 {
+    right: 1.5rem;
+}
+
 .top-0 {
     top: 0px;
 }
@@ -738,10 +742,6 @@ html {
 
 .top-7 {
     top: 1.75rem;
-}
-
-.right-6 {
-    right: 1.5rem;
 }
 
 .isolate {
@@ -865,10 +865,6 @@ html {
 
 .mb-8 {
     margin-bottom: 2rem;
-}
-
-.ml-12 {
-    margin-left: 3rem;
 }
 
 .mr-12 {
@@ -2181,6 +2177,10 @@ html {
     padding: 2.5rem;
 }
 
+.p-4 {
+    padding: 1rem;
+}
+
 .px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -3113,6 +3113,12 @@ body {
 /* Navbar */
 
 .navbar {
+    position: fixed;
+    top: 0px;
+    z-index: 40;
+    width: 100%;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
     transition: all 0.2s ease-out;
 }
 
@@ -3134,15 +3140,39 @@ body {
     max-width: 150px;
 }
 
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .navbar .nav-links {
+        flex-grow: 1;
+    }
+}
+
+.navbar .nav-pages {
+    order: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .navbar .nav-pages {
+        flex-grow: 1;
+    }
+}
+
 .navbar .nav-pages li {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .navbar .nav-pages li a {
     border-radius: 1.5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     font-weight: 300;
@@ -4373,6 +4403,10 @@ footer a:hover {
         gap: 4rem;
     }
 
+    .lg\:p-10 {
+        padding: 2.5rem;
+    }
+
     .lg\:px-12 {
         padding-left: 3rem;
         padding-right: 3rem;
@@ -4404,6 +4438,10 @@ footer a:hover {
 
     .xl\:mr-10 {
         margin-right: 2.5rem;
+    }
+
+    .xl\:w-1\/2 {
+        width: 50%;
     }
 
     .xl\:px-20 {

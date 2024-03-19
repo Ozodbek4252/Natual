@@ -1,6 +1,6 @@
 <!-- Navbar -->
-<div id="navbar" class="navbar fixed top-0 w-full bg-white z-40">
-    <div class="container h-full flex items-center justify-between">
+<div id="navbar" class="navbar">
+    <div class="container h-full flex items-center">
         <a href="{{ Route('front.home') }}" class="logo block">
             <img class="" src="{{ asset('front/img/logo.png') }}" alt="logo" />
         </a>
@@ -13,7 +13,7 @@
             </svg>
         </button>
 
-        <nav class="flex items-center ml-12 nav-links" id="nav-links">
+        <nav class="nav-links" id="nav-links">
             <a href="{{ Route('front.home') }}" class="menu-logo lg:hidden block">
                 <img class="" src="{{ asset('front/img/logo.png') }}" alt="logo" />
             </a>
@@ -27,7 +27,7 @@
                 </svg>
             </button>
 
-            <ul class="nav-pages flex items-center order-2">
+            <ul class="nav-pages">
                 <li>
                     <a @if (request()->route()->getName() == 'front.home') class="active" @endif
                         href="{{ Route('front.home') }}">{{ __('front.navbar.Главная') }}</a>
