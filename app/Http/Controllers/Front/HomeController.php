@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\TelegramController;
 use App\Models\About;
 use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
@@ -144,8 +145,11 @@ class HomeController extends Controller
             'number' => 'required|string|size:19',
         ]);
 
+
         // Store the request
         RequestModel::create(['name' => $request->name, 'number' => $request->number]);
+
+        TelegramController::sendMessageToGroup($request);
 
         toastr(trans('front.request.success'));
 

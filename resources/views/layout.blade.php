@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Vortex</title>
+    <title>Natural Peyjaz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Vortex: Educational CRM" name="description" />
+    <meta content="Natural Peyjaz" name="description" />
     <meta content="Themesbrand" name="author" />
-
+    <meta name="msapplication-TileImage" content="{{ asset('front/img/favicon/mstile-144x144.png') }}">
     @include('includes.styles')
 </head>
 
@@ -20,8 +20,6 @@
             <div class="page-content">
                 @yield('content')
             </div>
-
-            {{--  @include('includes.footer')  --}}
         </div>
     </div>
 
