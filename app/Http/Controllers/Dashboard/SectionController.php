@@ -11,6 +11,7 @@ use App\ViewModels\PaginationViewModel;
 use App\ViewModels\Section\IndexSectionViewModel;
 use App\ViewModels\Section\SectionViewModel;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,12 +20,14 @@ class SectionController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param int $page
-     * @param int $limit
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(int $page = 1, int $limit = 15)
+    public function index(Request $request)
     {
+        $page = $request->query('page', 1);
+        $limit = $request->query('limit', 10);
+
         $query = Section::with('translations.lang')->orderBy('updated_at', 'desc');
 
         $totalCount = $query->count();

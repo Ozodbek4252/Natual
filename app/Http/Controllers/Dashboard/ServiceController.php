@@ -13,18 +13,21 @@ use App\ViewModels\PaginationViewModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Exception;
+use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param int $page
-     * @param int $limit
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(int $page = 1, int $limit = 15)
+    public function index(Request $request)
     {
+        $page = $request->query('page', 1);
+        $limit = $request->query('limit', 10);
+
         $query = Service::with('translations.lang')->orderBy('updated_at', 'desc');
 
         $totalCount = $query->count();

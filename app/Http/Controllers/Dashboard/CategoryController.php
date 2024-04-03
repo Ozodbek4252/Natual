@@ -12,12 +12,22 @@ use App\ViewModels\Category\CategoryViewModel;
 use App\ViewModels\Category\IndexCategoryViewModel;
 use App\ViewModels\PaginationViewModel;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    public function index(int $page = 1, int $limit = 15)
+    /**
+     * Display a listing of the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
     {
+        $page = $request->query('page', 1);
+        $limit = $request->query('limit', 10);
+
         $query = Category::with('translations.lang')->orderBy('updated_at', 'desc');
 
         $totalCount = $query->count();

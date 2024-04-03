@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\DataObjects\DataObjectCollection;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectRequest;
+use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Facility;
 use App\Models\Lang;
@@ -26,8 +27,11 @@ class ProjectController extends Controller
      * @param int $limit
      * @return \Illuminate\Http\Response
      */
-    public function index(int $page = 1, int $limit = 15)
+    public function index(Request $request)
     {
+        $page = $request->query('page', 1);
+        $limit = $request->query('limit', 10);
+
         $query = Project::with('translations.lang')->orderBy('updated_at', 'desc');
 
         $totalCount = $query->count();
