@@ -6,9 +6,9 @@
             <div class="container">
                 <div class="grid grid-cols-12 lg:gap-16 gap-6">
                     <div data-aos="zoom-in" class="lg:col-span-6 col-span-full flex justify-center items-center">
-                        <a class="block project-item__img" href="{{ asset('storage/' . $project->image) }}"
+                        <a class="block project-item__img" href="{{ $project->image }}"
                             data-fancybox="gallery" data-caption="{{ $project->name }}">
-                            <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }}">
+                            <img src="{{ $project->image }}" alt="{{ $project->name }}">
                         </a>
                     </div>
 

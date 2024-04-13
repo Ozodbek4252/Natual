@@ -11,7 +11,12 @@ use Illuminate\Support\Collection;
 class IndexProjectViewModel extends BaseViewModel
 {
     public int $id;
-    public string $image;
+    public ?string $image;
+    public $new_image;
+    public $images;
+    public $image_medium;
+    public $image_thumbnail;
+    public $image_original;
     public string $date;
     public string $name;
     public int $category_id;
@@ -31,9 +36,20 @@ class IndexProjectViewModel extends BaseViewModel
         $this->category_id = $this->_data->category_id;
         $this->category = Category::find($this->_data->category_id);
         $this->is_finished = $this->_data->is_finished;
+        $this->images = $this->_data->images;
 
         $this->setCategory();
         $this->translations = $this->getTranslations($this->_data->translations);
+
+        $images = collect($this->images)->groupBy('type')->map(function ($image) {
+            return $image->first();
+        });
+        $this->images = $images;
+        $this->image_medium = isset($this->images['medium']) ? $this->images['medium']->full_path : null;
+        $this->image_thumbnail = isset($this->images['thumbnail']) ? $this->images['thumbnail']->full_path : null;
+        $this->image_original = isset($this->images['original']) ? $this->images['original']->full_path : null;
+
+        $this->new_image = $this->image_medium ?? $this->image_original ?? $this->image_thumbnail ?? null;
     }
 
     private function setCategory()

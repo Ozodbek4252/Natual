@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Collection;
 
 /**
@@ -24,6 +25,7 @@ use Illuminate\Support\Collection;
  * @property Category $category
  * @property Facility[]|Object $facilities
  * @property Translation[]|Collection $translations
+ * @property Image[]|Collection $images
  */
 class Project extends Model
 {
@@ -55,9 +57,14 @@ class Project extends Model
             ->withPivot('value');
     }
 
-    public function translations()
+    public function translations(): MorphMany
     {
         return $this->morphMany(Translation::class, 'translationable');
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
     }
 
     /**

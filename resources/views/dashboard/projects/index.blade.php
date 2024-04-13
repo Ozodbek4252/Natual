@@ -35,7 +35,8 @@
                                     <th scope="row">{{ ++$count }}</th>
                                     <td>
                                         <img style="background-color: lightgray; width: 200px; height: auto;"
-                                            src="{{ asset('storage/' . $project->image) }}" alt="">
+                                            @if (isset($project->new_image)) src="{{ $project->new_image }}" @else src="{{ 'storage/' . $project->image }}" @endif
+                                            alt="">
                                     </td>
                                     <td>{{ $project->name }}</td>
                                     <td>

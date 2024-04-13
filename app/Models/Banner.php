@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  *
  * @property Translation[] $translations
+ * @property Image[]|Collection $images
  */
 class Banner extends Model
 {
@@ -39,5 +40,10 @@ class Banner extends Model
     public function translations()
     {
         return $this->morphMany(Translation::class, 'translationable');
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
     }
 }

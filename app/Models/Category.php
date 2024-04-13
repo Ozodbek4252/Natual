@@ -18,6 +18,7 @@ use Illuminate\Support\Collection;
  *
  * @property Translation[]|Collection $translations
  * @property Project[]|Collection $projects
+ * @property Image[]|Collection $images
  */
 class Category extends Model
 {
@@ -33,5 +34,10 @@ class Category extends Model
     public function translations()
     {
         return $this->morphMany(Translation::class, 'translationable');
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
     }
 }

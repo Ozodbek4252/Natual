@@ -19,7 +19,7 @@
             rgba(0, 0, 0, 0.55),
             rgba(0, 0, 0, 0.55)
           ),
-          url({{ asset('storage/' . $category->image) }});">
+          url({{ $category->image_original }});">
         <div class="container">
             <div class="lg:px-20">
                 <h2 data-aos="flip-up" class="text-center leading-tight">{{ $categoryTranslations['name']['content'] }}
@@ -39,7 +39,7 @@
                             @foreach ($projects['Uzbekistan'][1] as $project)
                                 <div data-aos="zoom-in" class="md:col-span-6 xl:col-span-4 col-span-full">
                                     <a href="{{ Route('front.project.show', $project['id']) }}" class="project-item">
-                                        <img src="{{ asset('storage/' . $project['image']) }}" alt="project-item img">
+                                        <img src="{{ $project['image'] }}" alt="project-item img">
                                         <div class="project-item__title">
                                             <h3>{{ $project['name'] }} - {{ $project['date'] }}</h3>
                                             <p>{{ $project['translations']['address']['content'] }}</p>
@@ -63,7 +63,7 @@
                             @foreach ($projects['Uzbekistan'][0] as $project)
                                 <div data-aos="zoom-in" class="md:col-span-6 xl:col-span-4 col-span-full">
                                     <a href="{{ Route('front.project.show', $project['id']) }}" class="project-item">
-                                        <img src="{{ asset('storage/' . $project['image']) }}" alt="project-item img">
+                                        <img src="{{ $project['image'] }}" alt="project-item img">
 
                                         <div class="project-item__title">
                                             <h3>{{ $project['name'] }} - {{ $project['date'] }}</h3>
@@ -89,7 +89,7 @@
                                     <div data-aos="zoom-in" class="md:col-span-6 xl:col-span-4 col-span-full">
                                         <a href="{{ Route('front.project.show', $project['id']) }}"
                                             class="project-item">
-                                            <img src="{{ asset('storage/' . $project['image']) }}"
+                                            <img src="{{ $project['image'] }}"
                                                 alt="project-item img">
 
                                             <div class="project-item__title">
@@ -106,7 +106,7 @@
                                     <div data-aos="zoom-in" class="md:col-span-6 xl:col-span-4 col-span-full">
                                         <a href="{{ Route('front.project.show', $project['id']) }}"
                                             class="project-item">
-                                            <img src="{{ asset('storage/' . $project['image']) }}"
+                                            <img src="{{ $project['image'] }}"
                                                 alt="project-item img">
 
                                             <div class="project-item__title">

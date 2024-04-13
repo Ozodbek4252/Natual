@@ -29,6 +29,16 @@ class HomeController extends Controller
         $banner = Banner::with('translations')->where('is_published', true)->firstOrFail();
         $bannerTranslations = $this->getTranslations($banner->translations);
 
+        $images = collect($banner->images)->groupBy('type')->map(function ($image) {
+            return $image->first();
+        });
+        $banner->images = $images;
+        $banner->image_medium = isset($banner->images['medium']) ? $banner->images['medium']->full_path : null;
+        $banner->image_thumbnail = isset($banner->images['thumbnail']) ? $banner->images['thumbnail']->full_path : null;
+        $banner->image_original = isset($banner->images['original']) ? $banner->images['original']->full_path : null;
+        $banner->image = $banner->image_medium ?? $banner->image_original ?? $banner->image_thumbnail ?? null;
+
+
         $section = Section::with('translations')->firstOrFail();
         $sectionTranslations = $this->getTranslations($section->translations);
 
@@ -41,6 +51,18 @@ class HomeController extends Controller
         $categories = Category::with('translations')->get();
         $categories = $this->getTranslationsWithModel($categories);
 
+        foreach ($categories as $category) {
+            $images = collect($category->images)->groupBy('type')->map(function ($image) {
+                return $image->first();
+            });
+            $category->images = $images;
+            $category->image_medium = isset($category->images['medium']) ? $category->images['medium']->full_path : null;
+            $category->image_thumbnail = isset($category->images['thumbnail']) ? $category->images['thumbnail']->full_path : null;
+            $category->image_original = isset($category->images['original']) ? $category->images['original']->full_path : null;
+            $category->image = $category->image_medium ?? $category->image_original ?? $category->image_thumbnail ?? null;
+        }
+
+        $catalog = Catalog::first();
 
         return view('home', compact(
             'banner',
@@ -50,7 +72,8 @@ class HomeController extends Controller
             'services',
             'staff',
             'staffTranslations',
-            'categories'
+            'categories',
+            'catalog'
         ));
     }
 
@@ -65,10 +88,29 @@ class HomeController extends Controller
         $category = $category->load('translations', 'projects.translations');
         $categoryTranslations = $this->getTranslations($category->translations);
 
+        $images = collect($category->images)->groupBy('type')->map(function ($image) {
+            return $image->first();
+        });
+        $category->images = $images;
+        $category->image_medium = isset($category->images['medium']) ? $category->images['medium']->full_path : null;
+        $category->image_thumbnail = isset($category->images['thumbnail']) ? $category->images['thumbnail']->full_path : null;
+        $category->image_original = isset($category->images['original']) ? $category->images['original']->full_path : null;
+        $category->image = $category->image_medium ?? $category->image_original ?? $category->image_thumbnail ?? null;
+
+
         $projects = $category->projects->groupBy('country')->map(function ($projects) {
             return $projects->groupBy('is_finished')->map(function ($projects) {
                 return $projects->map(function ($project) {
                     $project->translations = $this->getTranslations($project->translations);
+                    $images = collect($project->images)->groupBy('type')->map(function ($image) {
+                        return $image->first();
+                    });
+                    $project->images = $images;
+                    $project->image_medium = isset($project->images['medium']) ? $project->images['medium']->full_path : null;
+                    $project->image_thumbnail = isset($project->images['thumbnail']) ? $project->images['thumbnail']->full_path : null;
+                    $project->image_original = isset($project->images['original']) ? $project->images['original']->full_path : null;
+                    $project->image = $project->image_medium ?? $project->image_original ?? $project->image_thumbnail ?? null;
+
                     return $project;
                 });
             });
@@ -89,6 +131,16 @@ class HomeController extends Controller
     {
         $project = $project->load('translations', 'facilities.translations');
         $projectTranslations = $this->getTranslations($project->translations);
+
+        $images = collect($project->images)->groupBy('type')->map(function ($image) {
+            return $image->first();
+        });
+        $project->images = $images;
+        $project->image_medium = isset($project->images['medium']) ? $project->images['medium']->full_path : null;
+        $project->image_thumbnail = isset($project->images['thumbnail']) ? $project->images['thumbnail']->full_path : null;
+        $project->image_original = isset($project->images['original']) ? $project->images['original']->full_path : null;
+        $project->image = $project->image_medium ?? $project->image_original ?? $project->image_thumbnail ?? null;
+
 
         $project->facilities->transform(function ($facility) {
             $facility->translations = $this->getTranslations($facility->translations);

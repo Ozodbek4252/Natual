@@ -66,7 +66,7 @@
                                             <label class="form-label" for="project-image">
                                                 {{ __('body.Image Preview') }}
                                             </label>
-                                            <img src="{{ asset('storage/' . $project->image) }}" width="200px">
+                                            <img src="{{ $project->new_image }}" width="200px">
                                         </div>
                                     </div>
                                 </div>

@@ -8,7 +8,7 @@
             rgba(0, 0, 0, 0.55),
             rgba(0, 0, 0, 0.55)
           ),
-          url({{ asset('storage/' . $banner->image) }});
+          url({{ $banner->image_original }});
       ">
         <div class="container">
             <div class="xl:px-20 px-4">
@@ -157,7 +157,7 @@
                                 <div class="project-body">
                                     <a href="{{ Route('front.category', $category->id) }}"
                                         class="project-inner relative block">
-                                        <img src="{{ asset('storage/' . $category->image) }}" alt="home page project 1" />
+                                        <img src="{{ $category->image }}" alt="home page project 1" />
                                         <div class="project-title">
                                             <h3>{{ $category['translations']['name']['content'] }}</h3>
                                         </div>

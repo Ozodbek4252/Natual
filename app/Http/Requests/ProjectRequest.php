@@ -23,9 +23,9 @@ class ProjectRequest extends FormRequest
     public function rules(): array
     {
         if ($this->_method == 'PUT') {
-            $image = 'nullable|image|mimes:jpeg,png,jpg';
+            $image = 'nullable|image|mimes:svg,jpeg,png,jpg';
         } else {
-            $image = 'required|image|mimes:jpeg,png,jpg';
+            $image = 'required|image|mimes:svg,jpeg,png,jpg';
         }
 
         $rules = [
@@ -35,7 +35,6 @@ class ProjectRequest extends FormRequest
             'category_id' => 'required|integer|exists:categories,id',
             'is_finished' => 'nullable|in:on',
             'facilities' => 'nullable|array',
-            "facilities" => "nullable|array",
             "facilities.*.facility" => "nullable|int",
             "facilities.*.value" => "nullable|string",
         ];

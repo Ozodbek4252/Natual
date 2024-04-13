@@ -17,9 +17,12 @@ use App\ViewModels\Project\ProjectViewModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Exception;
+use App\Traits\ImageTrait;
 
 class ProjectController extends Controller
 {
+    use ImageTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -104,12 +107,7 @@ class ProjectController extends Controller
         try {
             DB::beginTransaction();
 
-            // Store the image in a directory: 'public/projects/'
-            $generatedName = 'project-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
-            $imagePath = $request->file('image')->storeAs('projects', $generatedName, 'public');
-
             $project = Project::create([
-                'image' => $imagePath,
                 'name' => $request->input('name'),
                 'date' => $request->input('date'),
                 'country' => $request->input('country') ?? 'Uzbekistan',
@@ -145,6 +143,10 @@ class ProjectController extends Controller
                         'value' => $facility['value'],
                     ]);
                 }
+            }
+
+            if ($request->hasFile('image')) {
+                $this->storeImage($request->file('image'), 'projects', $project->id, Project::class);
             }
 
             toastr('Created successfully');
@@ -213,19 +215,7 @@ class ProjectController extends Controller
         try {
             DB::beginTransaction();
 
-            $imagePath = $project->image;
-
-            if ($request->hasFile('image')) {
-                if (Storage::exists('/public/' . $project->image)) {
-                    Storage::delete('/public/' . $project->image);
-                }
-                // Store the image in a directory: 'public/projects/'
-                $generatedName = 'project-image_' . time() . '.' . $request->file('image')->getClientOriginalExtension();
-                $imagePath = $request->file('image')->storeAs('projects', $generatedName, 'public');
-            }
-
             $project->update([
-                'image' => $imagePath,
                 'name' => $request->input('name'),
                 'date' => $request->input('date'),
                 'country' => $request->input('country') ?? 'Uzbekistan',
@@ -250,6 +240,17 @@ class ProjectController extends Controller
 
             $project->syncFacilities($request->input('facilities'));
 
+            if ($request->hasFile('image')) {
+                foreach ($project->images as $image) {
+                    if (Storage::exists('/public/' . $image->path)) {
+                        Storage::delete('/public/' . $image->path);
+                    }
+                    $image->delete();
+                }
+
+                $this->storeImage($request->file('image'), 'projects', $project->id, Project::class);
+            }
+
             toastr('Updated successfully');
 
             DB::commit();
@@ -270,8 +271,11 @@ class ProjectController extends Controller
         try {
             DB::beginTransaction();
 
-            if (Storage::exists('/public/' . $project->image)) {
-                Storage::delete('/public/' . $project->image);
+            foreach ($project->images as $image) {
+                if (Storage::exists('/public/' . $image->path)) {
+                    Storage::delete('/public/' . $image->path);
+                }
+                $image->delete();
             }
 
             // delete project's translations
